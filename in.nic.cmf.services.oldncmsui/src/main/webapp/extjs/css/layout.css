@@ -1,0 +1,10 @@
+.bincss{
+word-wrap: break-word; /* IE 5.5+ */
+white-space: -moz-pre-wrap; /* Mozilla */
+white-space: -pre-wrap; /* Opera */
+white-space: -o-pre-wrap; /* Opera 7 */
+}
+
+.bg_rgg{
+width:100%;
+}

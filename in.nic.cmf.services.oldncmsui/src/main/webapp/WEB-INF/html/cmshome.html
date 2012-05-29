@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>NIC CMS 1.0</title>
+<link rel="stylesheet" type="text/css" href="/ncmsui/extjs/ext-4.0.7/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="/ncmsui/extjs/css/data-view.css" />
+<link rel="stylesheet" type="text/css" href="/ncmsui/extjs/shared/examples.css" />
+<link rel="stylesheet" type="text/css" href="/ncmsui/extjs/css/icons.css" />
+</head>
+<body bgcolor="#F9FDFF">
+<script type="text/javascript" src="/ncmsui/extjs/js/global-js-fns.js"></script>
+<script type="text/javascript" src="/ncmsui/extjs/ext-4.0.7/ext-all-debug.js"></script>
+<script type="text/javascript" src="/ncmsui/extjs/shared/examples.js"></script>
+
+<script type="text/javascript">
+var buildVersion = "_dc=3002";
+var rNum = Math.random();
+var sPathName = location.pathname;
+var sPathNameArray = sPathName.split("/");
+var sDomainName = sPathNameArray[3];
+
+document.write("<script type=text/javascript src=/ncmsui/extjs/js/jquery.min.js><\/script>");
+document.write("<script type=text/javascript src=/ncmsui/extjs/js/config.js?" + buildVersion + "><\/script>");
+document.write("<script type=text/javascript src=/ncmsui/extjs/js/auth-check.js?" + rNum + "><\/script>");
+document.write("<script type=text/javascript src=/ncmsui/extjs/js/commonmenu.js?" + buildVersion + "><\/script>");
+document.write("<script type=text/javascript src=/ncmsdata/"+ sDomainName + "/menu.js?" + buildVersion + "><\/script>");
+document.write("<script type=text/javascript src=/ncmsui/extjs/js/library-all.js></script?" + buildVersion + "><\/script>");
+document.write("<script type=text/javascript src=/ncmsui/extjs/js/modelnew.js?" + buildVersion + "><\/script>");
+document.write("<script type=text/javascript src=/ncmsui/extjs/js/entitysearchfields.js?" + buildVersion + "><\/script>");
+document.write("<script type=text/javascript src=/ncmsui/extjs/js/auto-gen-preincludes.js?" + buildVersion + "><\/script>");
+document.write("<script type=text/javascript src=/ncmsui/extjs/js/autogen-all.js?" + rNum + "><\/script>");
+document.write("<script type=text/javascript src=/ncmsui/extjs/js/auto-gen-postincludes.js?" + buildVersion + "><\/script>");
+</script>
+</body>
+</html>

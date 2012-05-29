@@ -1,0 +1,10 @@
+[           {
+                text:'UserProfile',
+                leaf:true
+            },
+            {
+                text:'Role',
+                leaf:true
+            }
+]
+

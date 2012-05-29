@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Kalidoss.M</author>
+        <title>Location Services - Deployment Details</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Component Deployment">
+			<div class="sectioncd ">
+				<h3>Deployment Diagram</h3>
+				<p>The below Deployment Diagram provides an overview of the software deliverables of a particular service component.</p>
+				<img src="site_images/deploy_geotag.jpg"/>
+				
+				<h3>Explanation of Deployment Diagram</h3>
+				<blockquote><li type="disc">GeoLocation Logic</li></blockquote>
+				<blockquote><blockquote>Business logic java programs.</blockquote></blockquote>
+				<blockquote><li type="disc">domain.jar</li></blockquote>
+				<blockquote><blockquote>All POJO classes are defined in this jar</blockquote></blockquote>
+				<blockquote><li type="disc">cache.jar</li></blockquote>
+				<blockquote><blockquote>This jar has the api for embeded caching mechanism.</blockquote></blockquote>
+				<blockquote><li type="disc">Geoip.jar</li></blockquote>
+				<blockquote><blockquote>Provides Look up service API to detect city name from IP</blockquote></blockquote>
+				<blockquote><li type="disc">File Store</li></blockquote>
+				<blockquote><blockquote>Bunch of XML files stored as resources in the classes folder</blockquote></blockquote>
+				
+							
+				
+				<h3>Deploying location services geotagger1.0.0.war in Tomcat 6</h3>
+				<blockquote><li type="disc">1. Copy the geotagger1.0.0.war into {TOMCAT_HOME}/webapps/ directory</li></blockquote>
+				<blockquote><li type="disc">2. Start tomcat server from command line $ {TOMCAT_HOME}bin/startup.sh</li></blockquote>
+				<blockquote><li type="disc">3. Open browser type http://localhost:8080 if see tomcat home page, O.K. server started successfully.</li></blockquote>
+				<blockquote><li type="disc">4. Type http://localhost:8080/geotagger-1.0.0/getinfo?ip=124.7.228.4. to access the application.</li></blockquote>
+				<blockquote><li type="disc">5. Type from command line $ {TOMCAT_HOME}bin/shutdown.sh to stop the server.</li></blockquote>
+			</div>
+			
+        </section>
+    </body>
+</document>

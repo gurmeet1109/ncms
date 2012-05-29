@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>s</author>
+        <title>Auditing - Deployment Details</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Deployment Details">
+		<h3>Deployment Diagram</h3>
+				<p>The below Deployment Diagram provides an overview of the software deliverables of a particular service component.</p>
+				<img src="site_images/dm_dms.jpg"/>
+				<h3>Explanation of Deploy Diagram</h3>
+				<blockquote><li type="disc">Web Container</li></blockquote>
+				<blockquote><blockquote>Any Web/Application Server component like Jetty, Tomcat, Oracle AS, WebLogic, WebSphere, etc. to deploy and manage the web applications.</blockquote></blockquote>
+				<blockquote><li type="disc">DataServices Logic</li></blockquote>
+				<blockquote><blockquote>This DataServices Logic contain all the functionality to manage the document management work.
+.</blockquote></blockquote>
+				
+                                <blockquote><li type="disc">Domain.jar</li></blockquote>
+				<blockquote><blockquote>This jar is used to .</blockquote></blockquote>
+
+                                <blockquote><li type="disc">SvnKit.jar</li></blockquote>
+				<blockquote><blockquote>This jar is used svn functionality like add file,delete file etc.</blockquote></blockquote>
+
+                                <blockquote><li type="disc">Exception.jar</li></blockquote>
+				<blockquote><blockquote>This jar is used to handel all the exception.</blockquote></blockquote>
+
+				<blockquote><li type="disc">REST Servlet</li></blockquote>
+				<blockquote><blockquote>This is a central servlet which intializes REST application and accepts web services API as request to generate response.</blockquote></blockquote>
+            <p>
+		<h3 style="font-weight: normal;" class="western">Deliverables</h3>
+			<p>The deliverables for the Document Managemet System API consist of just one file called dataservices.war</p>
+			<p>This file conforms to the Java Web Application Archive format, which is and contains all of the code and resources that reside on the application server in a single deployable package. Information about war files can be found at this URL: <a href="http://java.sun.com/j2ee/tutorial/1_3-fcs/doc/WebComponents3.html">http://java.sun.com/j2ee/tutorial/1_3-fcs/doc/WebComponents3.html</a></p>
+	    </p>
+	<h3>Training</h3>
+				<p>Describes the following agendas:</p>
+				<blockquote><li type="disc">Overview of Document Managemt System</li></blockquote>
+				<blockquote><li type="disc">Functionalities of Document Managemt System API</li></blockquote>
+				<blockquote><li type="disc">Document Managemt System Web Services API's</li></blockquote>
+	 
+<h3 style="font-weight: normal;" class="western">Software Requirements</h3>
+<p><b>Operating System</b></p>
+
+<ol>
+              <li>
+                <p><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Ubuntu Server or Redhat Enterprise Linux will be the base OS for all the VM servers.</span></p></li>
+            </ol>
+<p><b>Languages and Tools</b></p>
+<ol>
+              <li>
+                <p><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Java 1.6</span></p> </li>
+              <li>
+                <p><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Any servlet container application server</span></p> </li>
+              <li>
+                <p><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">SvnKit.jar open source document management tool.  <a href="http://svnkit.com/download.php" >svnkit.com</a></span></p> </li>
+               
+            </ol>
+				
+				<h3>Installation</h3>
+				<p><b>Java Installation</b></p>
+				<blockquote>1.	<a href="http://docs.redhat.com/docs/en-US/JBoss_Enterprise_SOA_Platform/5/html/Getting_Started_Guide/appe-install_jdk_rhel.html">Sun Java Developer Kit on Red Hat Enterprise Linux 5</a></blockquote>
+			 
+        </section>
+    </body>
+</document>

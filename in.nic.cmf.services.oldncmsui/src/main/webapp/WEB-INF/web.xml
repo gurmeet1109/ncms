@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<display-name>NCMSUI Web Service</display-name>
+	<servlet>
+		<servlet-name>ncmsui</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:ncmsui-servlet.xml</param-value>
+		</init-param>
+	</servlet><!--
+	 <servlet>
+	     <servlet-name>GenerateDSMenu</servlet-name>
+	     <servlet-class>in.nic.cmf.services.ncmsui.GenerateDSMenu</servlet-class>
+	     <load-on-startup>2</load-on-startup>
+	</servlet> -->
+<!--  	<listener>
+  	<listener-class>
+  		in.nic.cmf.services.ncmsui.GenerateDSMenu
+  	</listener-class>
+  </listener> -->
+	<servlet-mapping>
+		<servlet-name>ncmsui</servlet-name>
+		<url-pattern>/app/*</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>login.html</welcome-file>
+	</welcome-file-list>
+  
+</web-app>

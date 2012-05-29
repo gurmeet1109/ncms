@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+	<properties>
+		<author>Premananda</author>
+		<title>User Management - Deployment Details</title>
+	</properties>
+	<meta name="keyword" content="monitoring, java" />
+	<body>
+		<section name="Deployment Details">
+			<h3>Deployment Diagram</h3>
+			<p>The below Deployment Diagram provides an overview of the software
+				deliverables of a particular service component.</p>
+			<a name="Deploy_Diagram"></a><img src="images/componentviewdiagram.jpg" />
+			<h3><a name="Explanation_of_Deploy_Diagram"></a>Suggested Hardware Configuration</h3>
+			<blockquote>
+				<li type="disc">Compute</li>
+			</blockquote>
+			<blockquote>
+				<blockquote>Dual Core 2 GHz Processor</blockquote>
+			</blockquote>
+			<blockquote>
+				<li type="disc">Storage</li>
+			</blockquote>
+			<blockquote>
+				<blockquote>500 MB exclusive of Logs</blockquote>
+			</blockquote>
+
+			<blockquote>
+				<li type="disc">Network</li>
+			</blockquote>
+			<blockquote>
+				<blockquote>1 GB/s Backbone</blockquote>
+			</blockquote>	
+			<blockquote>			
+				<blockquote>Load Balancer</blockquote>
+			</blockquote>			
+
+			<blockquote>
+				<li type="disc">Memory</li>
+			</blockquote>
+			<blockquote>
+				<blockquote>8GB of RAM</blockquote>
+			</blockquote>
+			<blockquote>
+				<blockquote>Instances</blockquote>
+			</blockquote>
+				<blockquote>
+				<blockquote>8 instances inclusive of failover.</blockquote>
+			</blockquote>
+			
+			
+			<p>
+				<h3 style="font-weight: normal;" class="western"><a name="Deliverables"></a>Deliverables</h3>
+				<p>The deliverables for the User Management API consist of just one
+					file called usermanagement.war, Function_Specification.doc</p>
+				<p>
+					This file conforms to the Java Web Application Archive format,
+					which is and contains all of the code and resources that reside on
+					the application server in a single deployable package. Information
+					about war files can be found at this URL:
+					<a
+						href="http://java.sun.com/j2ee/tutorial/1_3-fcs/doc/WebComponents3.html">http://java.sun.com/j2ee/tutorial/1_3-fcs/doc/WebComponents3.html
+					</a>
+				</p>
+			</p>
+
+			<h3 style="font-weight: normal;" class="western"><a name="Software_Requirements"></a>Software Requirements</h3>
+			<p>
+				<b>Operating System</b>
+			</p>
+			<p>
+				<span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Ubuntu Server or Redhat Enterprise Linux will be
+					the base OS for all the VM servers.</span>
+			</p>
+			<p>
+				<b>Languages and Tools</b>
+			</p>
+			<ol>
+				<li>
+					<p>
+						<span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Sun Jdk 1.6.</span>
+					</p>
+				</li>
+				<li>
+					<p>
+						<span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">OpenLDAP 2.4 Software.</span>
+					</p>
+				</li>
+
+				<li>
+					<p>
+						<span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Apache Tomcat 5.5 or later version </span>
+					</p>
+				</li>
+				<li>
+					<p>
+						<span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Curl</span>
+					</p>
+				</li>
+
+			</ol>
+			<h3 style="font-weight: normal;" class="western"><a name="Installation"></a>Installation</h3>
+			<p>
+				<b>OpenLDAP Installation</b>
+			</p>
+
+			<p>
+				<ol style="list-style-type: decimal">
+					<li>
+						<a class="externalLink" href="http://www.tldp.org/HOWTO/html_single/LDAP-HOWTO/">Making and Installing the OpenLDAP
+							</a>
+					</li>
+				</ol>
+			</p>
+
+			<h3 style="font-weight: normal;" class="western"><a name="Execution"></a>Execution</h3>
+			<p>Sample HTTP method processes done by Data services are given below,</p>
+			<br><br><p> GET:</p></br></br>
+			<p>Entity
+				Collections:http://system ip:8080/dataservices/app/(domain name)/(entityname)
+			</p>
+			<p>
+				Single
+				Entity:http://system ip:8080/dataservices/app/nic.in/(entityname)/(Id)
+			</p>
+			<p>
+				Search
+				All:http://system ip:8080/dataservices/app/(domain name)/search?q=&amp;entitytype=article
+			</p>
+			<p>Search By
+				Entity:http://system ip:8080/dataservices/app/(domain name)/(entityname)/search?q=&amp;id=lhqsoMccieaed
+			</p>
+			<p>Get By
+				Filename:http://system ip:8080/dataservices/app/(domain name)/(id.xml|id.jpg|id.pdf)
+			</p>
+			<br><br><p>POST:</p></br></br>
+			<p>post Entity By
+				Form:http://system ip:8080/dataservices/app/(domain name)/media</p>
+			<p>
+				Entity Collections:http://system ip:8080/dataservices/app/(domain name)</p>
+				<p>Single
+					Entity:http://system ip:8080/dataservices/app/(domain name)/(entityname)/(id)
+				</p>
+				<br><br><p>DELETE:</p></br></br>
+				<p>http://system ip:8080/dataservices/app/(domain name)/(entityname)/(id)
+				</p>
+		</section>
+	</body>
+</document>

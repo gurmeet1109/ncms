@@ -1,0 +1,408 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>in.nic.cmf.services</groupId>
+	<artifactId>ruleengine</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+	<name>ruleengine</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java-version>1.6</java-version>
+		<org.springframework-version>3.0.5.RELEASE</org.springframework-version>
+		<org.springframework.roo-version>1.0.2.RELEASE</org.springframework.roo-version>
+	</properties>
+
+	<dependencies>
+	
+		<dependency>
+			<groupId>in.nic.cmf</groupId>
+			<version>1.0.0</version>
+			<artifactId>cache</artifactId>
+	</dependency>
+	
+	<!-- <dependency>
+		<groupId>redis.clients</groupId>
+    	<artifactId>jedis</artifactId>
+    	<version>2.0.0</version>
+    	<type>jar</type>
+    	<scope>compile</scope>
+	</dependency>
+	
+	
+	 -->
+	
+	<dependency>
+		<groupId>in.nic.cmf</groupId>
+		<artifactId>util</artifactId>
+		<version>1.0.0</version>
+	</dependency>
+	<dependency>
+		<groupId>in.nic.cmf</groupId>
+		<artifactId>propertyutil</artifactId>
+		<version>1.0.0</version>
+	</dependency>
+		<dependency>
+			<groupId>in.nic.cmf</groupId>
+			<artifactId>logger</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<!-- For RestEasy -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>2.1-beta-1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-spring</artifactId>
+			<version>2.1-beta-1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxb-provider</artifactId>
+			<version>2.1-beta-1</version>
+		</dependency>
+		<!-- End -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<!-- extra added for Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework-version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>quartz</groupId>
+					<artifactId>quartz</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-aspects</artifactId> 
+			<version>${org.springframework-version}</version> </dependency> -->
+		<dependency>
+			<groupId>org.springframework.webflow</groupId>
+			<artifactId>spring-js-resources</artifactId>
+			<version>2.2.1.RELEASE</version>
+		</dependency>
+		<!-- For RestEasy -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>2.1-beta-1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-spring</artifactId>
+			<version>2.1-beta-1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxb-provider</artifactId>
+			<version>2.1-beta-1</version>
+		</dependency>
+		<!-- End -->
+
+	<!-- 	<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-decisiontablesnew</artifactId>
+			<version>5.1.1</version>
+		</dependency> -->
+		
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-decisiontablesnew</artifactId>
+			<version>5.3.0.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-templatesnew</artifactId>
+			<version>5.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mvel</groupId>
+			<artifactId>mvel2</artifactId>
+			<version>mvel2-2.1.Beta3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-corenew</artifactId>
+			<version>5.2.0.CR1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>knowledge-apinew</artifactId>
+			<version>5.2.0.CR1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-compilernew</artifactId>
+			<version>5.2.0.CR1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-flownew</artifactId>
+			<version>5.1.0.CR1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-flow-buildernew</artifactId>
+			<version>5.1.0.CR1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jbpm</groupId>
+			<artifactId>jbpm-bpmn2new</artifactId>
+			<version>5.1.0.CR1</version>
+		</dependency>
+		<dependency>
+			<groupId>in.nic.cmf</groupId>
+			<artifactId>logger</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>in.nic.cmf</groupId>
+			<artifactId>domain</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>in.nic.cmf</groupId>
+			<artifactId>exceptions</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.4</version>
+		</dependency>
+        <dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-validator</artifactId>
+    <version>1.4-SNAPSHOT</version>
+</dependency>
+ <dependency>
+    <groupId>org.apache</groupId>
+    <artifactId>oro</artifactId>
+    <version>2.0.8</version>
+</dependency>
+		<dependency>
+			<groupId>org.jmock</groupId>
+			<artifactId>jmock-junit4</artifactId>
+			<scope>test</scope>
+			<version>2.5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jdt</groupId>
+			<artifactId>core</artifactId>
+			<version>3.4.2.v_883_R34x</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.antlr</groupId>
+			<artifactId>antlr-runtime</artifactId>
+			<version>3.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+			<version>2.6.12</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>xstream</groupId>
+			<artifactId>xstreamnew</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>maven repo</id>
+			<name>maven repo</name>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+		<repository>
+			<id>my-local-repo</id>
+			<url>file://${basedir}/../in.nic.cmf.dependentjars/lib/</url>
+		</repository>
+		<repository>
+			<id>org.springframework.maven.snapshot</id>
+			<name>Spring Maven Snapshot Repository</name>
+			<url>http://maven.springframework.org/snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<!-- For developing against latest Spring milestones -->
+		<repository>
+			<id>org.springframework.maven.milestone</id>
+			<name>Spring Maven Milestone Repository</name>
+			<url>http://maven.springframework.org/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<!-- For resteasy -->
+		<repository>
+			<id>jboss</id>
+			<name>jboss repo</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+		</repository>
+
+	</repositories>
+
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>src/main/rules</directory>
+			</resource>
+
+		</resources>
+		<plugins>
+
+		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.0-beta-2</version>
+				<configuration>
+					<reportPlugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-javadoc-plugin</artifactId>
+							<version>2.7</version>
+							<configuration>
+								<aggregate>true</aggregate>
+								<source>1.5</source>
+								<breakiterator>true</breakiterator>
+								<charset>UTF-8</charset>
+								<docencoding>UTF-8</docencoding>
+								<locale>en_US</locale>
+								<excludepackagenames>org.exoplatform.services.portletcontainer.test</excludepackagenames>
+								<links>
+									<link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
+									<link>http://java.sun.com/j2ee/sdk_1.2.1/techdocs/api</link>
+									<link>http://commons.apache.org/chain/apidocs</link>
+									<link>http://commons.apache.org/digester/commons-digester-1.6/docs/api</link>
+									<link>http://commons.apache.org/logging/commons-logging-1.1/apidocs</link>
+								</links>
+								<doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
+								<docletArtifact>
+									<groupId>org.umlgraph</groupId>
+									<artifactId>doclet</artifactId>
+									<version>5.1</version>
+								</docletArtifact>
+								<additionalparam>
+									-inferrel -inferdep -quiet -hide java.*
+									-collpackages java.util.*
+									-qualify -postfixpackage -nodefontsize
+									9 -nodefontpackagesize 7
+									-operations -constructors -visibility
+									-types -link
+									http://java.sun.com/j2se/1.5/docs/api -all
+			</additionalparam>
+							</configuration>
+						</plugin>
+
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-jxr-plugin</artifactId>
+							<version>2.1</version>
+							<configuration>
+								<aggregate>true</aggregate>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-report-plugin</artifactId>
+							<version>2.6</version>
+						</plugin>
+						<plugin>
+							<groupId>org.codehaus.mojo</groupId>
+							<artifactId>cobertura-maven-plugin</artifactId>
+							<version>2.4</version>
+							<!--executions> <execution> <goals> <goal>cobertura</goal> </goals> 
+								</execution> </executions> -->
+							<configuration>
+								<formats>
+									<format>xml</format>
+									<format>html</format>
+								</formats>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-checkstyle-plugin</artifactId>
+							<version>2.6</version>
+						</plugin>
+					</reportPlugins>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Kalidoss.M</author>
+        <title>SearchAPI</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Overview">
+				<p>    Caching is a cheap and effective way to improve the performance of a Web application.
+				 By storing relatively static data in cache and serving it from cache when requested, we save the time needed to generate the data</p>
+        </section>
+						<table align="center" border="0" class="bodyTable">
+				<tr class="a">
+					<th align="left">Document</th>
+					<th align="left">Description</th>
+
+				</tr>
+				<tr class="b">
+					<td align="left"><a href="index.html">Overview</a></td>
+					<td align="left">Introduction document.</td>
+				</tr>
+				<tr class="b">
+					<td align="left">High Level Design</td>
+
+					<td align="left"></td>
+				</tr>
+					<tr class="b">
+						<td align="left"><a href="hld_description.html">Introduction</a></td>
+						<td align="left">High level design introduction.</td>
+					</tr>
+					<tr class="b">
+						<td align="left"><a href="block_diagram.html">Block Diagram</a></td>
+
+						<td align="left">The block diagram that dipicts the Cache component's interaction in the application flow.</td>
+					</tr>
+				<tr class="b">
+					<td align="left">Low Level Design</td>
+					<td align="left"></td>
+				</tr>
+					<tr class="b">
+						<td align="left"><a href="lld_description.html">Introduction</a></td>
+
+						<td align="left">Introduction document.</td>
+					</tr>
+										<tr class="b">
+
+						<td align="left"><a href="class_diagram.html">Class Diagram</a></td>
+						<td align="left">The class diagram for cache.</td>
+					</tr>
+					
+					<tr class="b">
+
+						<td align="left"><a href="limit_quest.html">Constraints</a></td>
+						<td align="left">Describes the components service Constraints.</td>
+					</tr>
+					<tr class="b">
+						<td align="left">References</td>
+						<td align="left"></td>
+					</tr>
+
+					<tr class="b">
+						<td align="left"><a href="glossary.html">Glossary</a></td>
+						<td align="left">Glossary</td>
+					</tr>
+			</table>
+
+    </body>
+</document>

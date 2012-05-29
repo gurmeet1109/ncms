@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Ulaganathan Ramesh</author>
+        <title>OWASP - Introduction</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Definition">
+         <p>
+A CSRF attack forces a logged-on victim’s browser to send a forged HTTP request, including the victim’s session cookie and any other authentication information, to a vulnerable web application. This allows the attacker to force the victim’s browser to generate requests the vulnerable application thinks are legitimate requests from the victim.
+
+Or,
+
+Cross-Site Request Forgery (CSRF) is a malicious attack that tricks the user’s Web browser to perform undesired actions so that they appear as if an authorized user is performing those actions. For example, if an attacker is able to modify the content viewed by user’s browser, perhaps with a hostile Web site, when the user is checking an online bank account, the attacker can change the user’s transaction password to control the user’s actions and transfer funds to the attacker’s account.
+
+  </p>
+  </section>
+  <section name="Sample Attack">
+<div style="color: rgb(79, 129, 189); font-size: 150%;">Example Scenarios</div>
+<p>The application allows a user to submit a state changing request that does not include anything secret. Like so:
+</p>
+<div style="border: 2px dashed rgb(68, 68, 68); background-color: rgb(208, 208, 208); font-family: courier; padding: 4px; margin-left: 20px; margin-right: 20px;">http://example.com/app/transferFunds?amount=1500&amp;destinationAccount=4673243243</div>
+<p>So, the attacker constructs a request that will transfer money from the victim’s account to their account, and then embeds this attack in an image request or iframe stored on various sites under the attacker’s control.
+</p>
+<div style="border: 2px dashed rgb(68, 68, 68); background-color: rgb(208, 208, 208); font-family: courier; padding: 4px; margin-left: 20px; margin-right: 20px;">〈img src="http://example.com/app/transferFunds?amount=1500&amp;destinationAccount=attackersAcct#“ width="0" height="0" /〉</div>
+<p>If the victim visits any of these sites while already authenticated to example.com, any forged requests will include the user’s session info, inadvertently authorizing the request.
+</p>
+        </section>
+        <section name="How to prevent?">
+<p>Preventing CSRF requires the inclusion of a unpredictable token in the body or URL of each HTTP request. Such tokens should at a minimum be unique per user session, but can also be unique per request.
+</p>
+<ol><li>The preferred option is to include the unique token in a hidden field. This causes the value to be sent in the body of the HTTP request, avoiding its inclusion in the URL, which is subject to exposure.
+</li><li>The unique token can also be included in the URL itself, or a URL parameter. However, such placement runs the risk that the URL will be exposed to an attacker, thus compromising the secret token.
+</li></ol>
+
+        </section>
+        <section name="Available CSRF APIs">
+         <p>
+<a href="apidocs/in/nic/cmf/security/owasp/CrossSiteRequestForgery.html">Cross Site Request Forgery</a>
+	 </p>
+        </section>
+    </body>
+</document>

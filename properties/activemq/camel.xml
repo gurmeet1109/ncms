@@ -1,0 +1,269 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="defaultErrorHandler" class="org.apache.camel.builder.DefaultErrorHandlerBuilder" />
+	<bean id="deadLetter" class="org.apache.camel.builder.DeadLetterChannelBuilder">
+		<property name="deadLetterUri" value="mock:dead" />
+	</bean>
+	<camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+		<packageScan>
+			<package>org.foo.bar</package>
+		</packageScan>
+		<route>
+			<from uri="activemq:queue:dataq" />
+			<to uri="myonMessage" />
+		</route>
+		<route>
+			<from uri="activemq:dmsq" />
+			<pipeline>
+				<convertBodyTo type="java.lang.String" />
+				<to uri="activemq:dmsqmaster" />
+				<to uri="activemq:dmsqslave" />
+			</pipeline>
+		</route>
+		<route>
+			<from uri="activemq:queue:dmsqmaster" />
+			<onException>
+				<exception>in.nic.cmf.exceptions.GenericException</exception>
+				<redeliveryPolicy maximumRedeliveries="2"  redeliveryDelay="1000"/>
+				<to uri="activemq:queue:dmsqmaster.DLQC" />
+			</onException>
+			<to uri="myonMessage" />
+		</route>
+
+		<route>
+			<from uri="activemq:queue:dmsqmaster.DLQC" />
+			<onException>
+				<exception>in.nic.cmf.exceptions.GenericException</exception>
+				<redeliveryPolicy maximumRedeliveries="100"  redeliveryDelay="5000"/>
+				<to uri="activemq:queue:dmsqmaster.DLQ.C.Email" />
+			</onException>
+			<to uri="myonMessage" />
+		</route>
+
+		<route>
+			<from uri="activemq:queue:dmsqslave" />
+			<onException>
+				<exception>in.nic.cmf.exceptions.GenericException</exception>
+				<redeliveryPolicy maximumRedeliveries="2"  redeliveryDelay="1000"/>
+				<to uri="activemq:queue:dmsqslave.DLQC" />
+			</onException>
+			<to uri="myonMessage" />
+		</route>
+
+		<route>
+			<from uri="activemq:queue:dmsqslave.DLQC" />
+			<onException>
+				<exception>in.nic.cmf.exceptions.GenericException</exception>
+				<redeliveryPolicy maximumRedeliveries="100"  redeliveryDelay="5000"/>
+				<to uri="activemq:queue:dmsqslave.DLQ.C.Email" />
+			</onException>
+			<to uri="myonMessage" />
+		</route>
+		<route>
+			<from uri="activemq:searchapiq" />
+			<pipeline>
+				<convertBodyTo type="java.lang.String" />
+
+				<to uri="activemq:searchapiqmaster" />
+				<to uri="activemq:searchapiqslave" />
+			</pipeline>
+		</route>
+		<route>
+			<from uri="activemq:queue:searchapiqmaster" />
+			<onException>
+				<exception>in.nic.cmf.exceptions.GenericException</exception>
+				<redeliveryPolicy maximumRedeliveries="2"  redeliveryDelay="1000"/>
+				<to uri="activemq:queue:searchapiqmaster.DLQC" />
+			</onException>
+			<to uri="myonMessage" />
+		</route>
+
+		<route>
+			<from uri="activemq:queue:searchapiqmaster.DLQC" />
+			<onException>
+				<exception>in.nic.cmf.exceptions.GenericException</exception>
+				<redeliveryPolicy maximumRedeliveries="100"  redeliveryDelay="5000"/>
+				<to uri="activemq:queue:searchapiqmaster.DLQ.C.Email" />
+			</onException>
+			<to uri="myonMessage" />
+		</route>
+
+		<route>
+			<from uri="activemq:queue:searchapiqslave" />
+			<onException>
+				<exception>in.nic.cmf.exceptions.GenericException</exception>
+				<redeliveryPolicy maximumRedeliveries="2"  redeliveryDelay="1000"/>
+				<to uri="activemq:queue:searchapiqslave.DLQC" />
+			</onException>
+			<to uri="myonMessage" />
+		</route>
+
+		<route>
+			<from uri="activemq:queue:searchapiqslave.DLQC" />
+			<onException>
+				<exception>in.nic.cmf.exceptions.GenericException</exception>
+				<redeliveryPolicy maximumRedeliveries="100"  redeliveryDelay="5000"/>
+				<to uri="activemq:queue:searchapiqslave.DLQ.C.Email" />
+			</onException>
+			<to uri="myonMessage" />
+		</route>
+
+<!--newly added-->
+		<route>
+			<from uri="activemq:queue:aclq" />
+			<to uri="myonMessage" />
+		</route>
+		<route>
+			<from uri="activemq:queue:tranq" />
+			<to uri="myonMessage" />
+		</route>
+		<route>
+			<from uri="activemq:queue:req" />
+			<to uri="myonMessage" />
+		</route>
+		<route>
+			<from uri="activemq:queue:bfq" />
+			<to uri="myonMessage" />
+		</route>
+		<route>
+			<from uri="activemq:queue:mediaq" />
+			<to uri="myonMessage" />
+		</route>
+
+
+
+		<route>
+			<from uri="activemq:queue:sitebuilderq" />
+			<to uri="myonMessage" />
+		</route>
+		<route>
+			<from uri="activemq:queue:semq" />
+			<to uri="myonMessage" />
+		</route>
+		<route>
+			<from uri="activemq:queue:emailq" />
+			<to uri="myonMessage" />
+		</route>
+		<route>
+			<from uri="activemq:generateq" />
+			<pipeline>
+				<convertBodyTo type="java.lang.String" />
+
+				<to uri="activemq:generateqmaster" />
+				<to uri="activemq:generateqslave" />
+			</pipeline>
+		</route>
+		<route>
+			<from uri="activemq:queue:generateqmaster" />
+			<onException>
+				<exception>in.nic.cmf.exceptions.GenericException</exception>
+				<redeliveryPolicy maximumRedeliveries="2"  redeliveryDelay="1000"/>
+				<to uri="activemq:queue:generateqmaster.DLQC" />
+			</onException>
+			<to uri="myonMessage" />
+		</route>
+
+		<route>
+			<from uri="activemq:queue:generateqmaster.DLQC" />
+			<onException>
+				<exception>in.nic.cmf.exceptions.GenericException</exception>
+				<redeliveryPolicy maximumRedeliveries="100"  redeliveryDelay="5000"/>
+				<to uri="activemq:queue:generateqmaster.DLQ.C.Email" />
+			</onException>
+			<to uri="myonMessage" />
+		</route>
+
+		<route>
+			<from uri="activemq:queue:generateqslave" />
+			<onException>
+				<exception>in.nic.cmf.exceptions.GenericException</exception>
+				<redeliveryPolicy maximumRedeliveries="2"  redeliveryDelay="1000"/>
+				<to uri="activemq:queue:generateqslave.DLQC" />
+			</onException>
+			<to uri="myonMessage" />
+		</route>
+
+		<route>
+			<from uri="activemq:queue:generateqslave.DLQC" />
+			<onException>
+				<exception>in.nic.cmf.exceptions.GenericException</exception>
+				<redeliveryPolicy maximumRedeliveries="100"  redeliveryDelay="5000"/>
+				<to uri="activemq:queue:generateqslave.DLQ.C.Email" />
+			</onException>
+			<to uri="myonMessage" />
+		</route>
+		<route>
+			<from uri="activemq:ldapq" />
+			<pipeline>
+				<convertBodyTo type="java.lang.String" />
+
+				<to uri="activemq:ldapqmaster" />
+				<to uri="activemq:ldapqslave" />
+			</pipeline>
+		</route>
+		<route>
+			<from uri="activemq:queue:ldapqmaster" />
+			<onException>
+				<exception>in.nic.cmf.exceptions.GenericException</exception>
+				<redeliveryPolicy maximumRedeliveries="2"  redeliveryDelay="1000"/>
+				<to uri="activemq:queue:ldapqmaster.DLQC" />
+			</onException>
+			<to uri="myonMessage" />
+		</route>
+
+		<route>
+			<from uri="activemq:queue:ldapqmaster.DLQC" />
+			<onException>
+				<exception>in.nic.cmf.exceptions.GenericException</exception>
+				<redeliveryPolicy maximumRedeliveries="100"  redeliveryDelay="5000"/>
+				<to uri="activemq:queue:ldapqmaster.DLQ.C.Email" />
+			</onException>
+			<to uri="myonMessage" />
+		</route>
+
+		<route>
+			<from uri="activemq:queue:ldapqslave" />
+			<onException>
+				<exception>in.nic.cmf.exceptions.GenericException</exception>
+				<redeliveryPolicy maximumRedeliveries="2"  redeliveryDelay="1000"/>
+				<to uri="activemq:queue:ldapqslave.DLQC" />
+			</onException>
+			<to uri="myonMessage" />
+		</route>
+
+		<route>
+			<from uri="activemq:queue:ldapqslave.DLQC" />
+			<onException>
+				<exception>in.nic.cmf.exceptions.GenericException</exception>
+				<redeliveryPolicy maximumRedeliveries="100"  redeliveryDelay="5000"/>
+				<to uri="activemq:queue:ldapqslave.DLQ.C.Email" />
+			</onException>
+			<to uri="myonMessage" />
+		</route>
+	</camelContext>
+	<bean id="myonMessage" class="in.nic.cmf.mqroutebean.MessageListenerImpl" />
+
+	<bean id="dlc" class="org.apache.camel.builder.DeadLetterChannelBuilder">
+		<property name="deadLetterUri" value="activemq:email.dead" />
+		<property name="redeliveryPolicy" ref="rpc" />
+	</bean>
+
+
+	<bean id="rpc" class="org.apache.camel.processor.RedeliveryPolicy">
+		<property name="maximumRedeliveries" value="3" />
+		<property name="redeliveryDelay" value="250" />
+	</bean>
+
+	<bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+		<property name="connectionFactory">
+			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
+				<property name="brokerURL"
+					value="vm://localhost?create=false&amp;waitForStart=10000" />
+				<property name="userName" value="${activemq.username}" />
+				<property name="password" value="${activemq.password}" />
+			</bean>
+		</property>
+	</bean>
+</beans>

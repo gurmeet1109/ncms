@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Component Id 9 - User Management">
+	<body>
+		<div class="section">
+			<h2>Use Cases</h2>
+			<p>Following use cases describe the component’s behavior as it responds to a series of related requests from the user.</p>
+
+			<blockquote><blockquote></blockquote></blockquote>
+			<p><b>Use-Case#1</b></p>
+			<p>Description:Uploading a File / Content to System</p>
+			<p>Actor:Any Component or Allowed User. </p>
+			<p>Pre-condition:</p>
+                        <blockquote><blockquote>Logged in or Allowed.</blockquote></blockquote>
+			<p>Post-condition: NA</p>
+			<p>Basic Flow:</p>
+			<blockquote><blockquote>1. User or Component POST a binary file or XML data of any domain entity.</blockquote></blockquote>
+                        <blockquote><blockquote>2. ACL validates the request.</blockquote></blockquote>
+			<blockquote><blockquote>3. Backend system, using the workflow, sends the binary file to Meta Data extractor. Metadata extractor gives a metadata xml. </blockquote></blockquote>
+			<blockquote><blockquote>4. Copy of meta xml sends to search engine for indexing.</blockquote></blockquote>
+		        <blockquote><blockquote>5. Binary file and meta xml files are sent to Data Management System for storage.</blockquote></blockquote>
+			<blockquote><blockquote></blockquote></blockquote>
+		
+
+                        <blockquote><blockquote></blockquote></blockquote>
+			<p><b>Use-Case#2</b></p>
+			<p>Description:Retrieving a file from the system</p>
+			<p>Actor:Any Component or Allowed User. </p>
+			<p>Pre-condition:</p>
+                        <blockquote><blockquote>Logged in or Allowed.</blockquote></blockquote>
+			<p>Post-condition: NA</p>
+			<p>Basic Flow:</p>
+			<blockquote><blockquote>1. User or Component requests a file url.</blockquote></blockquote>
+                        <blockquote><blockquote>2. ACL validates the request.</blockquote></blockquote>
+			<blockquote><blockquote>3. Backend system, using the workflow , fetches the appropriate content from Data Management System. </blockquote></blockquote>
+			<blockquote><blockquote></blockquote></blockquote>
+
+                        <p><b>Use-Case#3</b></p>
+			<p>Description:Updating an Article Content</p>
+			<p>Actor:Any Component or Allowed User. </p>
+			<p>Pre-condition:</p>
+                        <blockquote><blockquote>Logged in or Allowed.</blockquote></blockquote>
+			<p>Post-condition: NA</p>
+			<p>Basic Flow:</p>
+			<blockquote><blockquote>1. User or Component post the XML content for updating.</blockquote></blockquote>
+                        <blockquote><blockquote>2. ACL validates the request.</blockquote></blockquote>
+			<blockquote><blockquote>3. Backend system, using the workflow, Fetches the appropriate content from the Data management system. </blockquote></blockquote>
+			<blockquote><blockquote>4. Merge the posted content with the retrieved data.</blockquote></blockquote>
+		        <blockquote><blockquote>5. Send the merged content to search engine for re-indexing.</blockquote></blockquote>
+		        <blockquote><blockquote>6. Send the merged content to Data Management System for storage.</blockquote></blockquote>
+			<blockquote><blockquote></blockquote></blockquote>
+                        
+                        <p><b>Use-Case#4</b></p>
+			<p>Description:Deleting a file from the system storage</p>
+			<p>Actor:Any Component or Allowed User.</p>
+			<p>Pre-condition:</p>
+                        <blockquote><blockquote>Logged in or Allowed.</blockquote></blockquote>
+			<p>Post-condition: NA</p>
+			<p>Basic Flow:</p>
+			<blockquote><blockquote>1. User or Component makes a DELETE request for a file url.</blockquote></blockquote>
+                        <blockquote><blockquote>2. Backend system, using the workflow, sends a request to search engine to delete the indexed content. </blockquote></blockquote>
+			<blockquote><blockquote>3. Sends the delete request to Data management system. </blockquote></blockquote>
+			<blockquote><blockquote></blockquote></blockquote>
+
+
+		</div>
+	</body>
+</project>

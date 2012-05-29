@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+
+	<display-name>Aspect</display-name>
+
+	<!-- <servlet>
+		<servlet-name>aspects</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:dataservices-servlet.xml</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>aspects</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+	
+	<context-param> <param-name>contextConfigLocation</param-name> <param-value>/WEB-INF/dataservices-servlet.xml</param-value> 
+		</context-param>
+
+	<context-param> <param-name>dataservices.scan</param-name> <param-value>true</param-value> 
+		</context-param>
+	We need to define that to the RESTeasy framework by using the resteasy.servlet.mapping.prefix 
+		configuration option. Note that the value does not containing the trailing 
+		slash nor the wildcard.
+	<context-param> <param-name>resteasy.servlet.mapping.prefix</param-name> 
+		<param-value>/app</param-value> </context-param>
+
+ 	<listener>
+		<listener-class>in.nic.cmf.services.dataservices.ServletListener</listener-class>
+	</listener>
+
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list> -->
+</web-app>

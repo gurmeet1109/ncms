@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Logger">
+	<body>
+		<div class="section">
+			<h2>Low Level Design Introduction</h2>
+			<p><b>Objective</b></p>
+			<p align="justify">The low-level design of this component provides a description of the internal workings of the User Management in terms of modules and their interrelationships and dependencies. The low-level design provides assurance that the User Management subsystem has been correctly and effectively refined.</p>
+			<p><b>Scope</b></p>
+			<p align="justify">The LLD documentation presents Flowchart, Class Diagrams and Use Cases, in which describe the internal working activities of the <a href="glossary.html#component">component</a>
+			</p>
+		</div>
+	</body>
+</project>

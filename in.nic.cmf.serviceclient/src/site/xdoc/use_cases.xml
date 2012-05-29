@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Component Id 9 - User Management">
+	<body>
+		<div class="section">
+			<h2>Use Cases</h2>
+			<p>Following use cases describe the component’s behavior as it responds to a series of related requests from the user.</p>
+
+			<blockquote><blockquote></blockquote></blockquote>
+			<p><b>Use-Case#1</b></p>
+			<p>Description: Allowed a webservice to communicate with another webservice like DataServices want to communicate with SearchApi,DMS.MetadatExtractor,Geotagger etc.</p>
+			<p>Actor: Any webservice.</p>
+			<p>Pre-condition: In the service.properties file present in service client all the services urls should be present who want to communicate through Serviceclient </p>
+			<p>Post-condition: NA</p>
+			<p>Basic Flow:</p>
+			<blockquote><blockquote>1. DataServices initiates the request to ApplicationFlow.</blockquote></blockquote>
+			<blockquote><blockquote>2. ApplicationFlow initiates the request to Serviceclient. </blockquote></blockquote>
+			<blockquote><blockquote>3. Serviceclient initiates the request to SearchApi,DMS.MetadatExtractor,Geotagger etc, in priority order that is mention in .rf files in ApplicationFlow.</blockquote></blockquote>
+		        <blockquote><blockquote>4. Serviceclient returnes the response to ApplicationFlow. </blockquote></blockquote>
+                        <blockquote><blockquote>5. ApplicationFlow returnes the response to DataServices. </blockquote></blockquote>
+
+			<blockquote><blockquote></blockquote></blockquote>
+			<!--<p><b>Use-Case#2</b></p>
+			<p>Description: Allowed user to create the User with some specific role and details.</p>
+			<p>Actor: Any authenticated and authorized user.</p>
+			<p>Pre-condition: Authenticated user</p>
+			<p>Post-condition: NA</p>
+			<p>Basic Flow:</p>
+			<blockquote><blockquote>1. User initiates the request to User Management System.</blockquote></blockquote>
+			<blockquote><blockquote>2. User redirected to login if not already logged in. </blockquote></blockquote>
+			<blockquote><blockquote>3. User authenticated and validated with rights.</blockquote></blockquote>
+		        <blockquote><blockquote>4. User perforManagement System create new user with some specific role and details on LDAP server and saves. </blockquote></blockquote>
+		        <blockquote><blockquote>5. Backend workflow kicks in, determines and controls the movement of data to different underlying components as configured in the workflow process. Rights are checked before processing the request.</blockquote></blockquote>
+
+			<blockquote><blockquote></blockquote></blockquote>
+			<p><b>Use-Case#3</b></p>
+			<p>Description: Allowed user to delete the User. </p>
+			<p>Actor: Any authenticated and authorized user.</p>
+			<p>Pre-condition: Authenticated user</p>
+			<p>Post-condition: NA</p>
+			<p>Basic Flow:</p>
+			<blockquote><blockquote>1. User initiates the request to User Management System.</blockquote></blockquote>
+			<blockquote><blockquote>2. User redirected to login if not already logged in. </blockquote></blockquote>
+			<blockquote><blockquote>3. User authenticated and validated with rights.</blockquote></blockquote>
+		        <blockquote><blockquote>4. User perforManagement System delete the existing user from LDAP server on the basis of User name and saves. </blockquote></blockquote>
+		        <blockquote><blockquote>5. Backend workflow kicks in, determines and controls the movement of data to different underlying components as configured in the workflow process. Rights are checked before processing the request.</blockquote></blockquote>
+
+			<blockquote><blockquote></blockquote></blockquote>
+			<p><b>Use-Case#4</b></p>
+			<p>Description: Allowed user to view the existing User.</p>
+			<p>Actor: Any authenticated and authorized user.</p>
+			<p>Pre-condition: Authenticated user</p>
+			<p>Post-condition: NA</p>
+			<p>Basic Flow:</p>
+			<blockquote><blockquote>1. User initiates the request to User Management System.</blockquote></blockquote>
+			<blockquote><blockquote>2. User redirected to login if not already logged in. </blockquote></blockquote>
+			<blockquote><blockquote>3. User authenticated and validated with rights.</blockquote></blockquote>
+		        <blockquote><blockquote>4. User view the user's details from LDAP server and  show to user. </blockquote></blockquote>
+		        <blockquote><blockquote>5. Backend workflow kicks in, determines and controls the movement of data to different underlying components as configured in the workflow process. Rights are checked before processing the request.</blockquote></blockquote>
+
+			<blockquote><blockquote></blockquote></blockquote>
+			<p><b>Use-Case#5</b></p>
+			<p>Description: Allowed user to update the User with some specific role and access rights.</p>
+			<p>Actor: Any authenticated and authorized user.</p>
+			<p>Pre-condition: Authenticated user</p>
+			<p>Post-condition: NA</p>
+			<p>Basic Flow:</p>
+			<blockquote><blockquote>1. User initiates the request to User Management System.</blockquote></blockquote>
+			<blockquote><blockquote>2. User redirected to login if not already logged in. </blockquote></blockquote>
+			<blockquote><blockquote>3. User authenticated and validated with rights.</blockquote></blockquote>
+		        <blockquote><blockquote>4. User updates the existing user's role and details on LDAP server and XML file at specified location saves. </blockquote></blockquote>
+		        <blockquote><blockquote>5. Backend workflow kicks in, determines and controls the movement of data to different underlying components as configured in the workflow process. Rights are checked before processing the request.</blockquote></blockquote>
+			
+			<blockquote><blockquote></blockquote></blockquote>
+			<p><b>Use-Case#6</b></p>
+			<p>Description: Allowed user to create the Role with some specific access rights.</p>
+			<p>Actor: Any authenticated and authorized user.</p>
+			<p>Pre-condition: Authenticated user</p>
+			<p>Post-condition: NA</p>
+			<p>Basic Flow:</p>
+			<blockquote><blockquote>1. User initiates the request to Roles Management System.</blockquote></blockquote>
+			<blockquote><blockquote>2. User redirected to login if not already logged in. </blockquote></blockquote>
+			<blockquote><blockquote>3. User authenticated and validated with rights.</blockquote></blockquote>
+		        <blockquote><blockquote>4. User perforManagement System create new role with some specific right on LDAP server and XML file at specified location saves. </blockquote></blockquote>
+		        <blockquote><blockquote>5. Backend workflow kicks in, determines and controls the movement of data to different underlying components as configured in the workflow process. Rights are checked before processing the request.</blockquote></blockquote>
+
+			<blockquote><blockquote></blockquote></blockquote>
+			<p><b>Use-Case#7</b></p>
+			<p>Description: Allowed user to delete the Role on the basis of role name.</p>
+			<p>Actor: Any authenticated and authorized user.</p>
+			<p>Pre-condition: Authenticated user</p>
+			<p>Post-condition: NA</p>
+			<p>Basic Flow:</p>
+			<blockquote><blockquote>1. User initiates the request to Roles Management System.</blockquote></blockquote>
+			<blockquote><blockquote>2. User redirected to login if not already logged in. </blockquote></blockquote>
+			<blockquote><blockquote>3. User authenticated and validated with rights.</blockquote></blockquote>
+		        <blockquote><blockquote>4. User delete the existing role from the LDAP server and XML file at specified location based on the condition that there is no user exist saves. </blockquote></blockquote>
+		        <blockquote><blockquote>5. Backend workflow kicks in, determines and controls the movement of data to different underlying components as configured in the workflow process. Rights are checked before processing the request.</blockquote></blockquote>
+
+			<blockquote><blockquote></blockquote></blockquote>
+			<p><b>Use-Case#8</b></p>
+			<p>Description: Allowed user to view the Role details on the basis of role name.</p>
+			<p>Actor: Any authenticated and authorized user.</p>
+			<p>Pre-condition: Authenticated user</p>
+			<p>Post-condition: NA</p>
+			<p>Basic Flow:</p>
+			<blockquote><blockquote>1. User initiates the request to Roles Management System.</blockquote></blockquote>
+			<blockquote><blockquote>2. User redirected to login if not already logged in. </blockquote></blockquote>
+			<blockquote><blockquote>3. User authenticated and validated with rights.</blockquote></blockquote>
+		        <blockquote><blockquote>4. User view the details of existing role from the LDAP server and XML file at specified location based on the condition that the requested role exist saves. </blockquote></blockquote>
+		        <blockquote><blockquote>5. Backend workflow kicks in, determines and controls the movement of data to different underlying components as configured in the workflow process. Rights are checked before processing the request.</blockquote></blockquote>
+
+			<blockquote><blockquote></blockquote></blockquote>
+			<p><b>Use-Case#9</b></p>
+			<p>Description: Allowed user to update the Role's details on the basis of role name.</p>
+			<p>Actor: Any authenticated and authorized user.</p>
+			<p>Pre-condition: Authenticated user</p>
+			<p>Post-condition: NA</p>
+			<p>Basic Flow:</p>
+			<blockquote><blockquote>1. User initiates the request to Roles Management System.</blockquote></blockquote>
+			<blockquote><blockquote>2. User redirected to login if not already logged in. </blockquote></blockquote>
+			<blockquote><blockquote>3. User authenticated and validated with rights.</blockquote></blockquote>
+		        <blockquote><blockquote>4. User view the details of existing role and update the details to the LDAP server and XML file at specified location based on the condition that the requested role exist saves. </blockquote></blockquote>
+		        <blockquote><blockquote>5. Backend workflow kicks in, determines and controls the movement of data to different underlying components as configured in the workflow process. Rights are checked before processing the request.</blockquote></blockquote>-->
+		</div>
+	</body>
+</project>

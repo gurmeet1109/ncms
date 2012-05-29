@@ -1,0 +1,21 @@
+{
+    "Collections":{
+        "Count":5,
+        "Records":[{
+                "Name":"leftpanel.js",
+             },
+             {
+                "Name":"rightpanel.js",
+             },
+             {
+                "Name":"model.js",
+             },
+             {
+                "Name":"appindex.js",
+             },
+             {
+                "Name":"mainpanel.js"
+             }
+         ]
+    }
+}

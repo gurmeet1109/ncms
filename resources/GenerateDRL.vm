@@ -1,0 +1,130 @@
+package in.nic.cmf.businessflow
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import in.nic.cmf.exceptions.GenericException;
+import org.json.JSONException;
+import net.sf.json.JSONObject;
+import in.nic.cmf.convertors.FormatFlatten;
+import in.nic.cmf.convertors.FormatXml;
+import in.nic.cmf.convertors.FormatJson;
+
+
+
+function HashMap<String,Object> getAssignedUser(String strContent) {
+System.out.println("********************"+strContent);
+
+ HashMap<String,Object> assignedusers = new HashMap<String,Object>();
+
+
+List contentList = new ArrayList();
+  String[] splitContent = strContent.split(",");
+  for(String s:splitContent){
+   contentList.add(s);
+}
+
+assignedusers.put("AssignedToUser",contentList);
+System.out.println("AssignedToUser::::"+assignedusers);
+return assignedusers;
+
+    }
+
+
+
+
+function List<String> convertToList(String strContent) {
+  List<String> contentList = new ArrayList<String>();  
+  String[] splitContent = strContent.split(",");   
+  for(String s:splitContent){ contentList.add(s);} 
+  return contentList; 
+    }
+
+ function HashMap outw(HashMap workflow){    	
+  
+	System.out.println("workflow:::" + workflow);
+        HashMap<String, Object> h = new HashMap<String, Object>();
+        h.put("AllowedAction", workflow);
+        
+       return h;
+      
+    }
+function HashMap outww(List workflow){    	
+  
+	System.out.println("workflow:::" + workflow);
+        HashMap<String, Object> h = new HashMap<String, Object>();
+        h.put("AllowedAction", workflow);
+        
+       return h;
+      
+    }
+
+    function HashMap<String, String> inw(String workflow,String domain){
+
+      System.out.println("Workflow XML:::" + workflow);
+        HashMap<String, String> f = new HashMap<String, String>();
+	 workflow = workflow.replace("\\", "");
+        HashMap<String, Object> h = (HashMap<String, Object>) FormatJson
+                .getInstanceof(domain).in(workflow);
+        System.out.println("Unflatten Map::" + h);
+        FormatFlatten.getInstanceOf(domain).flatten(
+                (HashMap<String, Object>) h, f,new HashMap<String,Object>());
+        System.out.println("flattenObj workflow xml:::" + h);
+        return f;
+    }
+    function boolean isAuthorisedUser(String authusername, String assignedusers) {
+
+       
+        return convertToList(assignedusers).contains(authusername.toLowerCase());
+  }
+        
+ function boolean isAuthorisedRole(String aclrole, String assignedroles) {
+                
+                return convertToList(assignedroles).contains(aclrole.toLowerCase());
+        }
+    
+    function String getCurrentUser(HashMap usercontext){
+		return (String)usercontext.get("authusername");
+	}
+	
+	#foreach($eachRule in $map)
+
+  	 $eachRule.get('rulename')
+	$eachRule.get("salience")
+	when
+	#if($eachRule.containsKey("when"))
+		
+	map:HashMap($eachRule.get("when"));
+	#end
+	#if($eachRule.containsKey("defaultwhen"))
+	
+	$eachRule.get("defaultwhen")
+	#end
+	then
+		
+	System.out.println("i am inside $eachRule.get('rulename') ");
+	
+	#set($then = $eachRule.get("then"))	
+	#if($then.containsKey("nextstage"))
+	map.put("Stage","$then.get("nextstage")");		
+	#end
+	#if($then.containsKey("currentuser"))
+	map.put("CurrentUser",$then.get("currentuser"));
+	#end
+	#if($then.containsKey("nextstatus"))
+	map.put("Status","$then.get("nextstatus")");		
+	#end
+	#if($then.containsKey("nextpossactions"))
+	$then.get("nextpossactions");
+	#end
+	#if($then.containsKey("then"))
+	$then.get("then");
+	#end
+	#if($eachRule.containsKey("halt"))
+	$eachRule.get("halt");
+	#end
+	end
+    #end
+
+	
+	

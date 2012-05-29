@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Component Id 9 - User Management">
+	<body>
+		<div class="section">
+			<h2>High Level Design Introduction</h2>
+<p>
+This component provides RESTful interface for all domain entities. The module also acts as the entry point for the internal systems. Providing a search and direct retrieval interface, it uses search engine, storage with access control and workflow internally to serve the requests. Also all the request to write data into the system are handled through this component. The component  will be designed as a service component  architecture with composition of services internally. The component will be tightly integrated with Access control layer and also caching for better performance &amp; scalability. There are no sub components &amp; UI for this component  and it is available only as a web-service. There will be mechanisms to fetch UI related details from the backend.
+</p>		</div>
+	</body>
+</project>

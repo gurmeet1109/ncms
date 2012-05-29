@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Ajay Kumar</author>
+        <title>Cache - Class Diagram</title>
+    </properties>
+    <meta name="keyword" content="class diagram"/>
+    <body>
+        <section name="Class Diagram">
+<p>The below Class Diagram provides an overview of the component by describing the objects and classes inside the system and the relationships between them.</p><p></p><br/>
+<p><img src="site_images/cache_1.gif" NAME="DrawObject" ALT="DrawObject"/></p>
+        </section>
+    </body>
+</document>

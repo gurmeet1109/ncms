@@ -1,0 +1,8 @@
+import in.nic.cmf.exceptions.GenericException;
+
+rule 'Default Empty Rule'
+ when eval(1==1) 
+ then 
+System.out.println("i am inside rule Default Empty Rule ");
+	throw new GenericException('sify.co.in',"ERR-BF-0009");
+ end

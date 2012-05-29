@@ -1,0 +1,281 @@
+function HashMap addToList(String strContent, HashMap report){
+  List<String> lstMessage = new ArrayList<String>();
+  if(report.containsKey("Message")){
+     lstMessage = (List<String>) report.get("Message"); 
+     lstMessage.add(strContent); 
+     report.put("Message", lstMessage); 
+  } else { 
+     lstMessage.add(strContent);
+     report.put("Message", lstMessage);
+  }
+  return report;
+}
+
+function boolean validateMimeTypes(String value){  RuleEngineHelper ruleEngineHelper = RuleEngineHelper.getInstanceof("sify.co.in"); if(ruleEngineHelper.isValidMimeType(value)){return false;}else{return true;}} 
+function boolean validateLanguageCode(String value){ RuleEngineHelper ruleEngineHelper = RuleEngineHelper.getInstanceof("sify.co.in"); if(ruleEngineHelper.isValidLanguageCode(value)){return false;}else{return true;}}
+function boolean validateExtension(String value){ RuleEngineHelper ruleEngineHelper = RuleEngineHelper.getInstanceof("sify.co.in"); if(ruleEngineHelper.isValidExtension(value)){return false;}else{return true;}}
+function boolean fileNamevalidate(String value){String regArray[] = value.split("\\.");if(regArray.length==2){if((regArray[1]==null)||(regArray[1].isEmpty()))return true;if(regArray[0].length()>=1 && regArray[1].length()>=2 && regArray[1].length()<=4)return false;}else if(regArray.length==3){if((regArray[2]==null)||(regArray[2].isEmpty())) return true;if(regArray[0].length()>=1 && regArray[1].length()>=1 && regArray[2].length()>=2 && regArray[2].length()<=4)return false; }return true;}
+function boolean validateISBN(String isbnn) {String isbn=isbnn.replace("-", "");if(isbn.length() != 10 && isbn.length() != 13) {return false; } int checkDigit = 0; if(isbn.length() == 10) 
+{int value=10;for (int i=0;i<=isbn.length()-2;i++)
+{Character c = new Character(isbn.charAt(i));
+String s = c.toString();int charctervalue=Integer.parseInt(s); checkDigit+=value*charctervalue;value=value-1;} checkDigit = 11-(checkDigit % 11); if(checkDigit == 10) {return (isbn.charAt(9) == 'x' || isbn.charAt(9) == 'X') ? true : false; } else { Character c = new Character(isbn.charAt(9)); String s = c.toString(); int charctervalue=Integer.parseInt(s); return (charctervalue == checkDigit ? true : false);}} else {int[] value={1,3,1,3,1,3,1,3,1,3,1,3,1,3}; for (int i=0;i<=isbn.length()-2;i++){Character c = new Character(isbn.charAt(i));String s = c.toString(); int charctervalue=Integer.parseInt(s); checkDigit+=value[i]*charctervalue; }checkDigit = 10-(checkDigit % 10);Character c = new Character(isbn.charAt(12));String s = c.toString(); int charctervalue=Integer.parseInt(s);if(checkDigit == 10) {return (charctervalue ==0 ? true : false) ; } else {return (charctervalue == checkDigit ? true : false); }}}
+
+    function boolean validateStatus(String value){
+if(value.equalsIgnoreCase("Draft") || value.isEmpty()){
+return false;
+}else{
+return true;
+}
+}
+ function boolean validateFloatvalue(String value) {
+	Float floatValue = new Float(value);
+	FloatValidator validator = FloatValidator.getInstance();
+	if (!validator.isValid(value)) {
+	    return true;
+	} else {
+	    if (!validator.minValue(floatValue, 0.1)) {
+		return true;
+	    } else {
+		return false;
+	    }
+	}
+    }
+    function boolean validateDate(String value) {	
+	DateValidator validator = DateValidator.getInstance();
+	if (!validator.isValid(value, "yyyy-MM-dd'T'HH:mm:ss'Z'")) {
+	    return true;
+	} else {
+	    return false;
+	}
+
+    }
+    
+   function boolean validateLength(String value, String size, String rule) {
+	if (rule.contains("sizeMax")) {
+	    if (value.length() > Integer.parseInt(size)) {
+		return true;} else {
+		return false; }
+	    }else if (rule.contains("sizeMin")) {
+	    if (value.length() < Integer.parseInt(size)) {
+		return true;
+	    } else{
+		return false;}
+	} else if (rule.contains("notNull")) {
+	    if (value.length() > Integer.parseInt(size)) {
+		return true;} else {
+		return false;}}
+	return false;}
+	
+	  function boolean checkEntity(String entitytype, String globalentitytype){ System.out.println("Global Entity Type  ::::"+globalentitytype);if(globalentitytype.equalsIgnoreCase(entitytype)){System.out.println("Inside If");return true;}else{return false;}}
+     function boolean validateNpiMetadata(HashMap metadataInfoMap) {
+	List<String> sk = Arrays.asList(metadataInfoMap.get("SubjectKeyword")
+		.toString().split(","));
+	boolean skflag = false;
+	for (String s : sk) {
+	    if (s.trim().equals("")) {
+		skflag = true;
+	    } else {
+		skflag = false;
+	    }
+	}
+
+	List<String> sc = Arrays.asList(metadataInfoMap.get("Sector")
+		.toString().split(","));
+	boolean scflag = false;
+	for (String s : sc) {
+	    if (s.trim().equals("")) {
+		scflag = true;
+	    } else {
+		scflag = false;
+	    }
+	}
+
+	List<String> po = Arrays.asList(metadataInfoMap.get("PublisherOrgName")
+		.toString().split(","));
+	boolean poflag = false;
+	for (String s : po) {
+	    if (s.trim().equals("")) {
+		poflag = true;
+	    } else {
+		poflag = false;
+	    }
+	}
+
+	List<String> pd = Arrays.asList(metadataInfoMap
+		.get("PublisherDepartment").toString().split(","));
+	boolean pdflag = false;
+	for (String s : pd) {
+	    if (s.trim().equals("")) {
+		pdflag = true;
+	    } else {
+		pdflag = false;
+	    }
+	}
+
+	List<String> co = Arrays.asList(metadataInfoMap.get("CreatorOrgName")
+		.toString().split(","));
+	boolean coflag = false;
+	for (String s : co) {
+	    if (s.trim().equals("")) {
+		coflag = true;
+	    } else {
+		coflag = false;
+	    }
+	}
+
+	List<String> cd = Arrays.asList(metadataInfoMap
+		.get("CreatorDepartment").toString().split(","));
+	boolean cdflag = false;
+	for (String s : cd) {
+	    if (s.trim().equals("")) {
+		cdflag = true;
+	    } else {
+		cdflag = false;
+	    }
+	}
+	List<String> ac = Arrays.asList(metadataInfoMap.get("AudienceCategory")
+		.toString().split(","));
+	boolean acflag = false;
+	for (String s : ac) {
+	    if (s.trim().equals("")) {
+		acflag = true;
+	    } else {
+		acflag = false;
+	    }
+	}
+
+	List<String> ct = Arrays.asList(metadataInfoMap.get("CategoryType")
+		.toString().split(","));
+	boolean ctflag = false;
+	for (String s : ct) {
+	    if (s.trim().equals("")) {
+		ctflag = true;
+	    } else {
+		ctflag = false;
+	    }
+	}
+
+	List<String> hp = Arrays.asList(metadataInfoMap.get("HasPart")
+		.toString().split(","));
+	boolean hpflag = false;
+	for (String s : hp) {
+	    if (s.trim().equals("")) {
+		hpflag = true;
+	    } else {
+		hpflag = false;
+	    }
+	}
+	if ((metadataInfoMap.get("Identifier").toString().trim().length() > 0
+		|| metadataInfoMap.get("IdentifierAlternate").toString().trim()
+			.length() > 0
+		|| metadataInfoMap.get("TitleMain").toString().trim().length() > 0
+		|| metadataInfoMap.get("TitleAlternate").toString().trim()
+			.length() > 0
+		|| metadataInfoMap.get("MetadataDescription").toString().trim()
+			.length() > 0
+		|| metadataInfoMap.get("PublisherAddress").toString().trim()
+			.length() > 0
+		|| metadataInfoMap.get("CreatorAddress").toString().trim()
+			.length() > 0
+		|| metadataInfoMap.get("Format").toString().trim().length() > 0
+		|| metadataInfoMap.get("Language").toString().trim().length() > 0
+		|| metadataInfoMap.get("MetaDataCreatedDate").toString().trim()
+			.length() > 0
+		|| metadataInfoMap.get("PublishedDate").toString().trim()
+			.length() > 0
+		|| metadataInfoMap.get("ValidDate").toString().trim().length() > 0
+		|| metadataInfoMap.get("CoverageTemporal").toString().trim()
+			.length() > 0
+		|| metadataInfoMap.get("ConformsTo").toString().trim().length() > 0
+		|| metadataInfoMap.get("IsPartOf").toString().trim().length() > 0
+		|| metadataInfoMap.get("HasVersion").toString().trim().length() > 0
+		|| metadataInfoMap.get("IsVersionOf").toString().trim()
+			.length() > 0
+		|| metadataInfoMap.get("Source").toString().trim().length() > 0
+		|| metadataInfoMap.get("JurisdictionName").toString().trim()
+			.length() > 0
+		|| metadataInfoMap.get("JurisdictionStateId").toString().trim()
+			.length() > 0
+		|| metadataInfoMap.get("JurisdictionStateName").toString()
+			.trim().length() > 0
+		|| metadataInfoMap.get("JurisdictionDistrictId").toString()
+			.trim().length() > 0
+		|| metadataInfoMap.get("JurisdictionDistrictName").toString()
+			.trim().length() > 0
+		|| metadataInfoMap.get("SpatialStateId").toString().trim()
+			.length() > 0
+		|| metadataInfoMap.get("SpatialStateName").toString().trim()
+			.length() > 0
+		|| metadataInfoMap.get("SpatialDistrictId").toString().trim()
+			.length() > 0
+		|| metadataInfoMap.get("SpatialDistrictName").toString().trim()
+			.length() > 0 || !skflag || !scflag || !poflag
+		|| !pdflag || !coflag || !cdflag || !acflag || !ctflag || !hpflag)
+		&& (metadataInfoMap.get("Identifier").toString().trim()
+			.length() <= 0
+			|| metadataInfoMap.get("IdentifierAlternate")
+				.toString().trim().length() <= 0
+			|| metadataInfoMap.get("TitleMain").toString().trim()
+				.length() <= 0
+			|| metadataInfoMap.get("TitleAlternate").toString()
+				.trim().length() <= 0
+			|| metadataInfoMap.get("MetadataDescription")
+				.toString().trim().length() <= 0
+			|| metadataInfoMap.get("PublisherAddress").toString()
+				.trim().length() <= 0
+			|| metadataInfoMap.get("CreatorAddress").toString()
+				.trim().length() <= 0
+			|| metadataInfoMap.get("Format").toString().trim()
+				.length() <= 0
+			|| metadataInfoMap.get("Language").toString().trim()
+				.length() <= 0
+			|| metadataInfoMap.get("MetaDataCreatedDate")
+				.toString().trim().length() <= 0
+			|| metadataInfoMap.get("PublishedDate").toString()
+				.trim().length() <= 0
+			|| metadataInfoMap.get("ValidDate").toString().trim()
+				.length() <= 0
+			|| metadataInfoMap.get("CoverageTemporal").toString()
+				.trim().length() <= 0
+			|| metadataInfoMap.get("ConformsTo").toString().trim()
+				.length() <= 0
+			|| metadataInfoMap.get("IsPartOf").toString().trim()
+				.length() <= 0
+			|| metadataInfoMap.get("HasVersion").toString().trim()
+				.length() <= 0
+			|| metadataInfoMap.get("IsVersionOf").toString().trim()
+				.length() <= 0
+			|| metadataInfoMap.get("Source").toString().trim()
+				.length() <= 0
+			|| metadataInfoMap.get("JurisdictionName").toString()
+				.trim().length() <= 0
+			|| metadataInfoMap.get("JurisdictionStateId")
+				.toString().trim().length() <= 0
+			|| metadataInfoMap.get("JurisdictionStateId")
+				.toString().trim().length() <= 0
+			|| metadataInfoMap.get("JurisdictionStateName")
+				.toString().trim().length() <= 0
+			|| metadataInfoMap.get("JurisdictionDistrictId")
+				.toString().trim().length() <= 0
+			|| metadataInfoMap.get("JurisdictionDistrictName")
+				.toString().trim().length() <= 0
+			|| metadataInfoMap.get("SpatialStateId").toString()
+				.trim().length() <= 0
+			|| metadataInfoMap.get("SpatialStateName").toString()
+				.trim().length() <= 0
+			|| metadataInfoMap.get("SpatialDistrictId").toString()
+				.trim().length() <= 0
+			|| metadataInfoMap.get("SpatialDistrictName")
+				.toString().trim().length() <= 0
+			|| skflag
+			|| scflag
+			|| poflag
+			|| pdflag
+			|| coflag
+			|| cdflag
+			|| acflag || ctflag || hpflag)) {
+	    return true;
+	} else {
+	    return false;
+	}
+    }

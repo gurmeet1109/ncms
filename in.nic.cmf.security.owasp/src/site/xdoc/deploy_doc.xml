@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Kalidoss.M</author>
+        <title>Location Services - Deployment Details</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Deployment Details">
+			<div class="sectioncd ">
+				<h3>Deployment Diagram</h3>
+				<p>The below Deployment Diagram provides an overview of the software deliverables of a particular service component.</p>
+				<img src="site_images/deploy_geotag.jpg"/>
+				<h3>Explanation of Deployment Diagram</h3>
+				<blockquote><li type="disc">Servlet Container</li></blockquote>
+				<blockquote><blockquote>Any Web/Application Server component like Jetty, Tomcat, Oracle AS, WebLogic, WebSphere, etc. to deploy and manage the web applications.</blockquote></blockquote>
+				<blockquote><li type="disc">webapps</li></blockquote>
+				<blockquote><blockquote>A folder inside the web contaniner on which web applications are deployed.</blockquote></blockquote>
+				<blockquote><li type="disc">geotagger.war</li></blockquote>
+				<blockquote><blockquote>A geotagger.war file (which stands for "web application archive" ) is a compressed file format for storing all the resources required to install and run a Web application in a single file.</blockquote></blockquote>
+				<blockquote><li type="disc">REST Servlet</li></blockquote>
+				<blockquote><blockquote>This is a central servlet which intializes REST application and accepts web services API as request to generate response.</blockquote></blockquote>
+				
+			
+			
+				<h3>Deliverables</h3>
+				<p>The deliverables for the Location Services consist of just one file called geotagger.war</p>
+
+				<p>This file conforms to the Java Web Application Archive format, which is and contains all of the code and resources that reside on the application server in a single deployable package. Information about war files can be found at this URL: <a href="http://java.sun.com/j2ee/tutorial/1_3-fcs/doc/WebComponents3.html">http://java.sun.com/j2ee/tutorial/1_3-fcs/doc/WebComponents3.html</a></p>
+				</div>
+        </section>
+    </body>
+</document>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Ulaganathan Ramesh</author>
+        <title>OWASP - Cross Site Scripting</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Definition">
+         <p>Cross Site Scripting is a form of injection where the interpreter is the browser and attacks are buried in an HTML document. HTML is easily the worst mashup of code and data of all time, as there are so many possible places to put code and so many different valid encodings. HTML is particularly difficult because it is not only hierarchical, but also contains many different parsers (XML, HTML, JavaScript, VBScript, CSS, URL, etc...). </p>
+
+<p>Cross Site Scripting attacks occur when an application allows data that is not validated or escaped properly to be sent to a web browser.
+Like:-Malicious scripts which can hijack user session,steal cookies, deface web sites, redirect users to malicious web sites, and remote browser control </p>
+        </section>
+        <section name="Sample Attack">
+<div style="color: rgb(79, 129, 189); font-size: 150%;">Example Scenarios</div>
+<p>The following script shows samples of Cross Site Scripting.</p>
+<ol><li> Scripting via a malicious link:
+<p> 
+In this scenario, the attacker sends a specially crafted e-mail message to a victim containing malicious link scripting such as one shown below:</p>
+<div style="border: 2px dashed rgb(68, 68, 68); background-color: rgb(208, 208, 208); font-family: courier; padding: 4px; margin-left: 20px; margin-right: 20px;">HREF=http://legitimateSite.com/registration.cgi?clientprofile=<SCRIPT>malicious code</SCRIPT></div>
+
+</li><li> Stealing users' cookies:
+<p>
+If any part of the Web site uses cookies, then it may be possible to steal them from its users. In this scenario, the attacker files a page with malicious script to the part of the site that is vulnerable. When the page is displayed, the malicious script runs, collects the users' cookies, and sends a request to the attacker's Web site with the cookies gathered. Using this technique, the attacker can gain sensitive data such as passwords, credit card numbers, and any arbitrary information the user inputs.</p>
+</li>
+
+<li> Sending an unauthorized request:
+<p>
+In this scenario, the user unknowingly executes scripts written by an attacker when they follow a malicious link in a mail message. Because the malicious scripts are executed in a context that appears to have originated from the legitimate server, the attacker has full access to the document retrieved and may send data contained in the page back to their site.</p>
+<p>If the embedded script code has additional interactions capability with the legitimate server without alerting the victim, the attacker could develop and exploit that posted data to a different page on the legitimate Web server.</p>
+</li></ol>
+</section>
+        <section name="How to prevent?">
+<p>There are two ways for prevent Cross Site Scripting:</p>
+<ol><li> Filtering:
+<p> 
+The basis of this approach is never trust user input and always filter metacharacters ("special" characters) that are defined in the HTML specification. Each input field, including link parameters will be validated for script tags. When found and dependent on the context, the input will be rejected and thus prevent the malicious HTML from being presented to the user. </p>
+</li><li> Encoding: 
+<p>
+Cross-site scripting attacks can be avoided when a Web server adequately ensures that generated pages are properly encoded to prevent unintended execution of scripts.</p>
+</li></ol>
+</section>      
+        <section name="Available Cross Site Scripting APIs">
+         <p>
+<a href="apidocs/in/nic/cmf/security/owasp/CrossSiteScripting.html">Cross Site Scripting</a>
+	 </p>
+        </section>
+    </body>
+</document>

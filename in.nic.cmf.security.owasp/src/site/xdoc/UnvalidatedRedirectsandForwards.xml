@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Ulaganathan Ramesh</author>
+        <title>OWASP - Insecure Cryptographic Storage</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Definition">
+Web applications frequently redirect and forward users to other pages and websites, and use untrusted data to determine the destination pages. Without proper validation, attackers can redirect victims to phishing or malware sites, or use forwards to access unauthorized pages
+  </section>
+  <section name="Sample Attack">
+	<div style="color: rgb(79, 129, 189); font-size: 150%;">Example Scenarios</div>
+<p>Scenario #1: The application has a page called “redirect.jsp” which takes a single parameter named “url”. The attacker crafts a malicious URL that redirects users to a malicious site that performs phishing and installs malware.
+</p>
+<div style="border: 2px dashed rgb(68, 68, 68); background-color: rgb(208, 208, 208); font-family: courier; padding: 4px; margin-left: 20px; margin-right: 20px;">http://www.example.com/redirect.jsp?url=evil.com</div>
+<p>Scenario #2:The application uses forward to route requests between different parts of the site. To facilitate this, some pages use a parameter to indicate where the user should be sent if a transaction is successful. In this case, the attacker crafts a URL that will pass the application’s access control check and then forward the attacker to an administrative function that she would not normally be able to access.
+</p>
+<div style="border: 2px dashed rgb(68, 68, 68); background-color: rgb(208, 208, 208); font-family: courier; padding: 4px; margin-left: 20px; margin-right: 20px;">http://www.example.com/boring.jsp?fwd=admin.jsp</div>
+
+        </section>
+        <section name="How to prevent?">
+	<p>Safe use of redirects and forwards can be done in a number of ways:
+		</p>
+		<ol><li> Simply avoid using redirects and forwards.
+		</li><li> If used, don’t involve user parameters in calculating the destination. This can usually be done.
+		</li><li> If destination parameters can’t be avoided, ensure that the supplied <b>value</b> is valid, and <b>authorized</b> for the user.
+
+		</li></ol>
+		<p>It is recommended that any such destination parameters be a mapping value, rather than the actual URL or portion of the URL, and that server side code translate this mapping to the target URL.
+		</p><p>Applications can use ESAPI to override the <a href="http://owasp-esapi-java.googlecode.com/svn/trunk_doc/latest/org/owasp/esapi/filters/SecurityWrapperResponse.html#sendRedirect%28java.lang.String%29" class="external text" rel="nofollow">sendRedirect()</a> method to make sure all redirect destinations are safe.
+		</p><p>Avoiding such flaws is extremely important as they are a favorite target of phishers trying to gain the user’s trust.
+		</p>
+        </section>
+        <section name="Available APIs">
+         <p>
+<a href="apidocs/in/nic/cmf/security/owasp/UnvalidatedRedirectsAndForwards.html">Unvalidated Redirects And Forwards</a>
+	 </p>
+        </section>
+    </body>
+</document>

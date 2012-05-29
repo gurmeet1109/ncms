@@ -1,0 +1,71 @@
+#set($hash={})
+#set($hashnew={})
+
+#macro (getiamenu $obj)
+#if(!$obj.isEmpty())
+#set($nobj= $obj.get($entity))
+#set($keylist = $nobj.get($entity))
+"children":[
+#foreach($key in $keylist)
+   #set($nkey = $cmobj.removeSymbol($key))
+   #set($gid = $iatreegridmap.get($key))
+   #set($treeitem = $cmobj.encodeIAName($key))
+{
+   treeitem:'$cmobj.getVal($treeitem, 0)',
+   text:'$cmobj.getVal($key, 1)',
+   id:'$cmobj.encodeIAName($gid)',
+   #set($gobj = $mapping.get($key))
+   #if(!$gobj.isEmpty())
+    iconCls:'task-folder',
+   #else
+    leaf:true,
+    iconCls:'task'
+   #end
+   #if(!$gobj.isEmpty())
+     #getialistmenu($gobj)
+   #end
+},
+#end
+]
+#end
+#end
+
+#macro (getialistmenu $obj)
+#if(!$obj.isEmpty())
+"children":[
+#foreach($key in $obj)
+   #set($nkey = $cmobj.removeSymbol($key))
+   #set($gid = $iatreegridmap.get($key))
+   #set($treeitem = $cmobj.encodeIAName($key))
+{
+   treeitem:'$cmobj.getVal($treeitem, 0)',
+   text:'$cmobj.getVal($key, 1)',
+   id:'$cmobj.encodeIAName($gid)',
+   #set($gobj = $mapping.get($key))
+   #if(!$gobj.isEmpty())
+    iconCls:'task-folder',
+   #else
+    leaf:true,
+    iconCls:'task'
+   #end
+   #if(!$gobj.isEmpty())
+     #getialistmenu($gobj)
+   #end
+},
+#end
+]
+#end
+#end
+#if(!$iaobj.isEmpty())
+ 
+{text:".",children: [
+    {
+        treeitem:'$entity',
+        iconCls:'task-folder',
+        id:'$entity',
+        expanded: true,
+            #getiamenu($iaobj)
+    }
+]}
+                          
+  #end

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Kalidoss.M</author>
+        <title>Location Services - Deployment Details</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Deployment Details">
+			<div class="sectioncd ">
+<p>
+This document assists you to understand the deployment process of the Location Services component and software requirement, how to test the installed component and limitations of this component also described in this document.
+</p>
+</div>
+</section>
+    </body>
+</document>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<process xmlns="http://drools.org/drools-5.0/process"
+         xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+         xs:schemaLocation="http://drools.org/drools-5.0/process drools-processes-5.0.xsd"
+         type="RuleFlow" name="postFlow" id="post" package-name="in.nic.cmf.appflow" version="1.0.0" >
+
+  <header>
+    <imports>
+      <import name="org.drools.runtime.process.WorkflowProcessInstance" />
+      <import name="java.lang.Boolean" />
+    </imports>
+  </header>
+
+  <nodes>
+    <start id="1" name="Start" x="16" y="56" width="48" height="48" />
+    <end id="6" name="End" x="1798" y="20" width="38" height="40" />
+    <workItem id="9" name="DMS" x="1063" y="16" width="100" height="48" >
+      <work name="DMS" >
+      </work>
+    </workItem>
+    <workItem id="11" name="Transformer" x="228" y="56" width="147" height="48" >
+      <work name="Transformer" >
+      </work>
+    </workItem>
+    <workItem id="12" name="Ldap" x="752" y="16" width="100" height="48" >
+      <work name="Ldap" >
+      </work>
+    </workItem>
+    <workItem id="13" name="SearchEngine" x="884" y="16" width="147" height="48" >
+      <work name="SearchEngine" >
+      </work>
+    </workItem>
+    <workItem id="14" name="ACL" x="96" y="56" width="100" height="48" >
+      <work name="ACL" >
+      </work>
+    </workItem>
+    <workItem id="15" name="ReadKnowledge" x="1591" y="16" width="175" height="48" >
+      <work name="ReadKnowledge" >
+      </work>
+    </workItem>
+    <workItem id="17" name="Workflow" x="407" y="56" width="100" height="48" >
+      <work name="Workflow" >
+      </work>
+    </workItem>
+    <workItem id="16" name="RuleEngine" x="539" y="56" width="100" height="48" >
+      <work name="RuleEngine" >
+      </work>
+    </workItem>
+    <end id="19" name="End" x="884" y="96" width="147" height="48" />
+    <split id="18" name="Gateway" x="671" y="56" width="49" height="49" type="2" >
+      <constraints>
+        <constraint toNodeId="12" toType="DROOLS_DEFAULT" name="successconstraint" priority="1" type="code" dialect="java" >System.out.println("in successcons:"+ kcontext.getVariable("validationerror"));
+boolean v  = (Boolean) kcontext.getVariable("validationerror");
+System.out.println("su:"+v);
+if(v==true){
+return false;
+}else{
+return true;
+}</constraint>
+        <constraint toNodeId="20" toType="DROOLS_DEFAULT" name="errorsconstraint" priority="1" type="code" dialect="java" >System.out.println("4"+ kcontext.getVariable("validationerror"));
+boolean v = (Boolean) kcontext.getVariable("validationerror");
+if(v==true){
+return true;
+}else{
+return false;
+}</constraint>
+      </constraints>
+    </split>
+    <workItem id="21" name="Generate" x="1459" y="16" width="100" height="48" >
+      <work name="Generate" >
+      </work>
+    </workItem>
+    <workItem id="20" name="Finalize" x="752" y="96" width="100" height="48" >
+      <work name="Finalize" >
+      </work>
+    </workItem>
+    <workItem id="23" name="SEM" x="1195" y="16" width="100" height="48" >
+      <work name="SEM" >
+      </work>
+    </workItem>
+    <workItem id="22" name="SiteBuilder" x="1327" y="16" width="100" height="48" >
+      <work name="SiteBuilder" >
+      </work>
+    </workItem>
+  </nodes>
+
+  <connections>
+    <connection from="15" to="6" />
+    <connection from="13" to="9" />
+    <connection from="14" to="11" />
+    <connection from="18" to="12" />
+    <connection from="12" to="13" />
+    <connection from="1" to="14" />
+    <connection from="21" to="15" />
+    <connection from="11" to="17" />
+    <connection from="17" to="16" />
+    <connection from="20" to="19" />
+    <connection from="16" to="18" />
+    <connection from="22" to="21" />
+    <connection from="18" to="20" />
+    <connection from="9" to="23" />
+    <connection from="23" to="22" />
+  </connections>
+
+</process>

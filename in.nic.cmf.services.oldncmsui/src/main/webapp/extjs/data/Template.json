@@ -1,0 +1,21 @@
+{
+    "Collections":{
+        "Count":5,
+        "Records":[{
+                "Name":"Home"
+             },
+             {
+                "Name":"Toplevel"
+             },
+             {
+                "Name":"Secondlevel"
+             },
+             {
+                "Name":"Thirdlevel"
+             },
+             {
+                "Name":"Fourthlevel"
+             }
+         ]
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "Collections":{
+        "Count":1,
+        "Items":[{
+              "ItemTitle":"feed manager1",
+              "ItemUrl":"http://ncms.com",
+              "ItemCreatedBy":"Suresh.K.B",
+              "ItemCreatedDate":"11/6/2011",
+              "ItemSourceType":"MRSS",
+              "ItemOffLine":"false"
+             },
+             {
+              "ItemTitle":"feed manager2",
+              "ItemUrl":"http://ncms.com",
+              "ItemCreatedBy":"Suresh.K.B",
+              "ItemCreatedDate":"11/6/2011",
+              "ItemSourceType":"RSS",
+              "ItemOffLine":"false"
+             },
+             {
+              "ItemTitle":"feed manager3",
+              "ItemUrl":"http://ncms.com",
+              "ItemCreatedBy":"Suresh.K.B",
+              "ItemCreatedDate":"11/6/2011",
+              "ItemSourceType":"XML",
+              "ItemOffLine":"false"
+             }
+        ]
+    }
+}
+

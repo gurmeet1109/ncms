@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Kalidoss.M</author>
+        <title>SearchAPI - Low Level Design</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Low Level Design">
+            <p>
+		<b>Objective</b><br/><br/>
+			The low-level design of this component provides a description of the internal workings of the SearchAPI in terms of modules and their interrelationships and dependencies. The low-level design provides assurance that the SearchAPI subsystem has been correctly and effectively refined. 
+	    </p>
+	<p><br/>
+	<b>Scope</b> <br/><br/>
+		The LLD documentation presents Flowchart, Class Diagrams and Use Cases, in which describe the internal working activities of the component. 
+	 </p>
+        </section>
+    </body>
+</document>

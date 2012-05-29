@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Ulaganathan Ramesh</author>
+        <title>OWASP Security - Overview</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Overview">
+            <p>
+		      The <a href="glossary.html#component">component</a> determines the location of the user. Also provides deeper details about a specific city. 
+		The module provides details like latitude, longitude, area info, country.
+		The deeper details are further used in the entities for enhancing the search results. It provides you the capability to search by radius…
+		here are no sub components and UI for this <a href="glossary.html#component">component</a> and it is available only as a <a href="glossary.html#web_service">web-service</a>.
+            </p>
+        </section>
+			<table align="center" border="0" class="bodyTable">
+				<tr class="a">
+					<th align="left">Document</th>
+					<th align="left">Description</th>
+				</tr>
+				<tr class="b">
+					<td align="left"><a href="index.html">Overview</a></td>
+					<td align="left">Introduction document</td>
+				</tr>
+				<tr class="b">
+					<td align="left"><Strong>High Level Design</Strong></td>
+					<td align="left"></td>
+				</tr>
+					<tr class="b">
+						<td align="left"><a href="hld_description.html">Introduction</a></td>
+						<td align="left">Introduction document</td>
+					</tr>
+					<tr class="b">
+						<td align="left"><a href="block_diagram.html">Block Diagram</a></td>
+						<td align="left">The block diagram that dipicts the <a href="glossary.html#component">component</a>'s interaction in the application flow</td>
+					</tr>
+
+				        <tr class="b">
+					<td align="left"><Strong>Top 10 Vulnerabilities</Strong></td>
+					<td align="left"></td>
+				        </tr>
+					<tr class="b">
+						<td align="left"><a href="Injection.html">Injection</a></td>
+						<td align="left">Injection</td>
+					</tr>
+					<tr class="a">
+						<td align="left"><a href="CrossSiteScripting.html">Cross Site Scripting</a></td>
+						<td align="left">Cross Site Scripting.</td>
+					</tr>
+                                         <tr class="a">
+						<td align="left"><a href="CrossSiteScripting.html">Cross Site Request Forgery</a></td>
+						<td align="left">Cross Site Request Forgery.</td>
+					</tr>
+					
+
+                                 <tr class="b">
+					<td align="left"><Strong>References</Strong></td>
+					<td align="left"></td>
+				</tr>
+					<tr class="b">
+						<td align="left"><a href="deploy_description.html">Overview</a></td>
+						<td align="left">Introduction document</td>
+					</tr>
+					<tr class="a">
+						<td align="left"><a href="soft_req.html">Software Requirement</a></td>
+						<td align="left">Software requirement for OWASP Securtiy.</td>
+					</tr>
+					<tr class="b">
+						<td align="left"><a href="component_deployment.html">Component Delployment</a></td>
+						<td align="left">Steps to install the OWASP Securtiy component</td>
+					</tr>
+                               <tr class="b">
+					<td align="left"><Strong>Project Documentation</Strong></td>
+					<td align="left"></td>
+				</tr>
+                             <tr class="b">
+					<td align="left"><a href="component_deployment.html">Component Delployment</a></td>
+					<td align="left">Steps to install the OWASP Securtiy component</td>
+			     </tr>
+					
+			</table>
+    </body>
+</document>

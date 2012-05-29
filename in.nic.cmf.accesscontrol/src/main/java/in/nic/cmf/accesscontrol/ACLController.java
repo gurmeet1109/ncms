@@ -1,0 +1,87 @@
+package in.nic.cmf.accesscontrol;
+
+import in.nic.cmf.contract.CMFService;
+import in.nic.cmf.contract.ServiceName;
+import in.nic.cmf.exceptions.GenericException;
+import in.nic.cmf.logger.LogTracer;
+
+import java.util.Map;
+
+@ServiceName ("acl")
+public class ACLController implements CMFService {
+
+    private ACLService          aclService;
+    private LogTracer           log;
+    public static ACLController aclController;
+
+    public static ACLController getInstance() {
+
+        if (aclController == null) {
+            aclController = new ACLController();
+        }
+        return aclController;
+    }
+
+    public Map<String, Map<String, Object>> add(String domain, String entity,
+            Map<String, Map<String, Object>> parameters) {
+        aclService = ACLService.getInstanceof(domain);
+        return aclService.post(domain, entity, parameters);
+    }
+
+    public Map<String, Map<String, Object>> deleteByID(String domain,
+            String entity, String id,
+            Map<String, Map<String, Object>> parameters) {
+        aclService = ACLService.getInstanceof(domain);
+        return aclService.delete(domain, entity, id, parameters);
+    }
+
+    public Map<String, Map<String, Object>> deleteByQuery(String domain,
+            String entity, Map<String, Map<String, Object>> parameters) {
+        throw new GenericException(domain, "ERR-ACL-0016");
+    }
+
+    public Map<String, Map<String, Object>> find(String domain, String entity,
+            Map<String, Map<String, Object>> parameters) {
+        aclService = ACLService.getInstanceof(domain);
+        return aclService.get(domain, entity, "", parameters);
+
+    }
+
+    public Map<String, Map<String, Object>> findById(String domain,
+            String entity, String id,
+            Map<String, Map<String, Object>> parameters) {
+        aclService = ACLService.getInstanceof(domain);
+        return aclService.get(domain, entity, id, parameters);
+    }
+
+    public Map<String, Map<String, Object>> read(String domain, String entity,
+            Map<String, Map<String, Object>> parameters) {
+        throw new GenericException(domain, "ERR-ACL-0016");
+    }
+
+    public void setLogTracer(LogTracer aclog) {
+        log = aclog;
+    }
+
+    @Override
+    public Map<String, Map<String, Object>> addManage(final String domain,
+            final String service, final String entity,
+            final Map<String, Map<String, Object>> parameters) {
+        throw new GenericException(domain, "ERR-ACL-0016");
+    }
+
+    @Override
+    public Map<String, Map<String, Object>> findManage(final String domain,
+            final String service, final String entity,
+            final Map<String, Map<String, Object>> parameters) {
+        throw new GenericException(domain, "ERR-ACL-0016");
+    }
+
+    @Override
+    public Map<String, Map<String, Object>> deleteManage(final String domain,
+            final String service, final String entity,
+            final Map<String, Map<String, Object>> parameters) {
+        throw new GenericException(domain, "ERR-ACL-0016");
+    }
+
+}

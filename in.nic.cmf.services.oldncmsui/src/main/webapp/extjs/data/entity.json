@@ -1,0 +1,128 @@
+[
+{
+   "text":"Category",
+   "leaf":true
+},	
+
+{
+   text:'Source',
+   leaf:true
+},	
+{
+   text:'Format',
+   leaf:true
+},	
+{
+   text:'PortFolio',
+   leaf:true
+},
+{
+   text:'Feedback',
+   leaf:true
+},
+{
+   text:'Organisation',
+   leaf:true
+},	
+{
+   text:'InformationArchitecture',
+   leaf:true
+},	
+{
+   text:'Form',
+   leaf:true
+},	
+{
+   text:'Service',
+   leaf:true
+},	
+{
+   text:'Banner',
+   leaf:true
+},	
+{
+   text:'Article',
+   leaf:true
+},	
+{
+   text:'ArticleType',
+   leaf:true
+},	
+{
+   text:'News',
+   leaf:true
+},	
+{
+   text:'Awards',
+   leaf:true
+},	
+
+{
+   text:'Whoswhoprofile',
+   leaf:true
+},	
+{
+   text:'Book',
+   leaf:true
+},	
+{
+   text:'Media',
+   leaf:true
+},	
+{
+   text:'MetadataVoccabulary',
+   leaf:true
+},	
+{
+   text:'DeptBodyOrg',
+   leaf:true
+},		
+{
+   text:'OfficeLocation',
+   leaf:true
+},	
+{
+   text:'Address',
+   leaf:true
+},	
+{
+   text:'ContactNumber',
+   leaf:true
+},	
+{
+   text:'Designation',
+   leaf:true
+},	
+{
+   text:'Gallery',
+   leaf:true
+},	
+{
+   text:'Sector',
+   leaf:true
+},	
+{
+   text:'Ministry',
+   leaf:true
+},	
+{
+   text:'Department',
+   leaf:true
+},	
+{
+   text:'State',
+   leaf:true
+},	
+{
+   text:'District',
+   leaf:true
+},	
+{
+   text:'Jurisdiction',
+   leaf:true
+},	
+{
+   text:'Group',
+   leaf:true
+}	
+]

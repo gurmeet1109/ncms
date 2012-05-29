@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Ulaganathan Ramesh</author>
+        <title>Document Management System - High Level Design - Block Diagram</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Block Diagram">
+            <p>
+		  <img src="site_images/DMS_FlowChart.gif"  /> 
+            </p>
+        </section>
+
+	
+	<section name="Block Diagram Explained">
+<p align="justify" style="margin-left: 5.08cm; text-indent: -3.81cm; margin-bottom: 0cm">
+<font face="Arial, sans-serif"><b><a href="glossary.html#owasp">OWASP</a> Security</b></font> - <font face="Arial, sans-serif">
+	A security layer wrapped around the component that scrutinizes the each
+and every request passing thru this layer for vulnerabilities.</font></p>
+<p align="justify" style="margin-bottom: 0cm">
+</p>
+<p align="justify" style="margin-left: 5.08cm; text-indent: -3.81cm; margin-bottom: 0cm">
+<font face="Arial, sans-serif"><b>ACL 	</b></font> - <font color="#000080"><a href="glossary.html#access_control"><font face="Arial, sans-serif">Access
+Control</font></a></font><font face="Arial, sans-serif"> Layer
+validates the request parameters and permits the request if it is
+matched with the business rules defined for the user’s role.</font></p>
+<p align="justify" style="margin-left: 5.08cm; text-indent: -3.81cm; margin-bottom: 0cm">
+</p>
+<p align="justify" style="margin-left: 5.08cm; text-indent: -3.81cm; margin-bottom: 0cm">
+<font face="Arial, sans-serif"><b><A HREF="glossary.html#restful">RESTful API</A></b></font> - <font face="Arial, sans-serif">A
+</font>REST<font face="Arial, sans-serif">
+compliant http interface that provides <a href="glossary.html#web_service">web-service</a> APIs for other components /
+browsers interaction.</font></p>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm">
+</p>
+<p style="margin-left: 5.08cm; text-indent: -3.81cm; margin-bottom: 0cm">
+<font face="Arial, sans-serif"><b>SVN KIT API- </b></font> - <font face="Arial, sans-serif">
+A open source java tool for subversion storage interaction i.e, storing/retrieving content.</font></p>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm">
+</p>
+<p style="margin-left: 5.08cm; text-indent: -3.81cm; margin-bottom: 0cm"><font face="Arial, sans-serif">	</font><font face="Arial, sans-serif"><b>Cache Engine-
+</b></font><font face="Arial, sans-serif">A in memory storage, for storing/retrieving frequently accessed content.</font></p>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm">
+</p>
+<p align="justify" style="margin-left: 5.08cm; text-indent: -3.81cm; margin-bottom: 0cm">
+<font face="Arial, sans-serif"><b>SVN Storage-	</b></font> - <font face="Arial, sans-serif">This component will do the versioning of the binary and xml files.</font></p>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm">
+</p>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm">
+</p>
+ 
+        </section>
+    </body>
+</document>

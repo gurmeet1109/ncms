@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>in.nic.cmf.server</groupId>
+	<artifactId>apachedsembedded</artifactId>
+	<version>1.5.7</version>
+
+	<name>ApacheDS embedded</name>
+	<description>ApacheDS embedded</description>
+	<packaging>jar</packaging>
+	<repositories>
+		<repository>
+			<id>maven repo</id>
+			<name>maven repo</name>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+		<!-- For resteasy -->
+		<repository>
+			<id>jboss</id>
+			<name>jboss repo</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+		</repository>
+
+	</repositories>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.directory.server</groupId>
+			<artifactId>apacheds-all</artifactId>
+			<version>1.5.7</version>
+			<exclusions>
+				<!-- shared-ldap-schema module needs to be excluded to avoid multiple 
+					schema resources on the classpath -->
+				<exclusion>
+					<groupId>org.apache.directory.shared</groupId>
+					<artifactId>shared-ldap-schema</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.5.6</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<configuration>
+						<descriptorRefs>
+							<descriptorRef>jar-with-dependencies</descriptorRef>
+						</descriptorRefs>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+								<mainClass>in.nic.cmf.dsserver.EmbeddedADS</mainClass>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+
+						<source>1.5</source>
+						<target>1.5</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.1.1</version>
+					<executions>
+						<execution>
+							<phase>test</phase>
+							<goals>
+								<goal>java</goal>
+							</goals>
+							<configuration>
+								<mainClass>in.nic.cmf.server.EmbeddedADS</mainClass>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+				
+				
+				<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.0-beta-2</version>
+				<configuration>
+					<reportPlugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-javadoc-plugin</artifactId>
+							<version>2.7</version>
+							<configuration>
+								<aggregate>true</aggregate>
+								<source>1.5</source>
+								<breakiterator>true</breakiterator>
+								<charset>UTF-8</charset>
+								<docencoding>UTF-8</docencoding>
+								<locale>en_US</locale>
+								<excludepackagenames>org.exoplatform.services.portletcontainer.test</excludepackagenames>
+								<links>
+									<link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
+									<link>http://java.sun.com/j2ee/sdk_1.2.1/techdocs/api</link>
+									<link>http://commons.apache.org/chain/apidocs</link>
+									<link>http://commons.apache.org/digester/commons-digester-1.6/docs/api</link>
+									<link>http://commons.apache.org/logging/commons-logging-1.1/apidocs</link>
+								</links>
+								<doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
+								<docletArtifact>
+									<groupId>org.umlgraph</groupId>
+									<artifactId>doclet</artifactId>
+									<version>5.1</version>
+								</docletArtifact>
+								<additionalparam>
+									-inferrel -inferdep -quiet -hide java.*
+									-collpackages java.util.*
+									-qualify -postfixpackage -nodefontsize
+									9 -nodefontpackagesize 7
+									-operations -constructors -visibility
+									-types -link
+									http://java.sun.com/j2se/1.5/docs/api -all
+			</additionalparam>
+							</configuration>
+						</plugin>
+
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-jxr-plugin</artifactId>
+							<version>2.1</version>
+							<configuration>
+								<aggregate>true</aggregate>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-report-plugin</artifactId>
+							<version>2.6</version>
+						</plugin>
+						<plugin>
+							<groupId>org.codehaus.mojo</groupId>
+							<artifactId>cobertura-maven-plugin</artifactId>
+							<version>2.4</version>
+							<!--executions> <execution> <goals> <goal>cobertura</goal> </goals> 
+								</execution> </executions> -->
+							<configuration>
+								<formats>
+									<format>xml</format>
+									<format>html</format>
+								</formats>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-checkstyle-plugin</artifactId>
+							<version>2.6</version>
+						</plugin>
+					</reportPlugins>
+				</configuration>
+			</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
+

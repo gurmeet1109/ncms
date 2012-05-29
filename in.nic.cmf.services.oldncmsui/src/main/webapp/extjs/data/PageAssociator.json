@@ -1,0 +1,21 @@
+{
+    "Collections":{
+        "Count":5,
+        "Records":[{
+                "Name":"Topic"
+             },
+             {
+                "Name":"Services"
+             },
+             {
+                "Name":"HowDoI"
+             },
+             {
+                "Name":"MyGovt"
+             },
+             {
+                "Name":"Home"
+             }
+        ]
+    }
+}

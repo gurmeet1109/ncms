@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Logger">
+	<body>
+		<div class="section">
+			<h2>Class Diagram</h2>
+			<p>The below Class Diagram provides an overview of the component by
+				describing the objects and classes inside the system and the
+				relationships between them.
+			</p>
+			<img src="images/Logger_ClassDiagram.gif" width="1024" height="768" />
+		</div>
+	</body>
+</project>

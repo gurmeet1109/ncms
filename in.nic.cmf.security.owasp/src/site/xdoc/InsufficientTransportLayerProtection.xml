@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Ulaganathan Ramesh</author>
+        <title>OWASP - Insecure Cryptographic Storage</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Definition">
+       <p>Applications frequently fail to encrypt network traffic when it is necessary to protect sensitive communications. When they do, they sometimes support weak algorithms, use expired or invalid certificates, or do not use them correctly.</p>
+<p>
+Consider anyone who can monitor the network traffic of your users. If the application is on the internet, who knows how your users access it. Don’t forget back end connections.
+</p>
+  </section>
+  <section name="Sample Attack">
+ <div style="color: rgb(79, 129, 189); font-size: 150%;">Example Scenarios</div>
+<p><u>Scenario #1</u>: A site simply doesn’t use SSL for all pages that require authentication. Attacker simply monitors network traffic (like an open wireless or their neighborhood cable modem network), and observes an authenticated victim’s session cookie. Attacker then replays this cookie and takes over the user’s session.
+</p><p><u>Scenario #2</u>: A site has improperly configured SSL certificate which causes browser warnings for its users. Users have to accept such warnings and continue, in order to use the site. This causes users to get accustomed to such warnings. Phishing attack against the site’s customers lures them to a lookalike site which doesn’t have a valid certificate, which generates similar browser warnings. Since victims are accustomed to such warnings, they proceed on and use the phishing site, giving away passwords or other private data.
+</p><p><u>Scenario #3</u>: A site simply uses standard ODBC/JDBC for the database connection, not realizing all traffic is in the clear.
+</p>
+
+        </section>
+        <section name="How to prevent?">
+	<p>Providing proper transport layer protection can affect the site design. It’s easiest to require SSL for the entire site. For performance reasons, some sites use SSL only on private pages. Others use SSL only on ‘critical’ pages, but this can expose session IDs and other sensitive data. At a minimum, do all of the following:
+</p>
+<ol><li> Require SSL for all sensitive pages. Non-SSL requests to these pages should be redirected to the SSL page.
+</li><li> Set the ‘secure’ flag on all sensitive cookies.
+</li><li> Configure your SSL provider to only support strong (e.g., FIPS 140-2 compliant) algorithms.
+</li><li> Ensure your certificate is valid, not expired, not revoked, and matches all domains used by the site.
+</li><li> Backend and other connections should also use SSL or other encryption technologies.
+</li></ol>
+        </section>
+        <section name="Available APIs">
+         <p>
+			API's not available.
+	 </p>
+        </section>
+    </body>
+</document>

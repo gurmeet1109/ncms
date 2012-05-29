@@ -1,0 +1,21 @@
+#macro(add $fields, $chkflag)
+#if($fields.annotations.UI)
+ #if(!$list.contains($fields.jaxb.name))  
+     #set($listarr = $list.add($fields.jaxb.name))
+     "$fields.jaxb.name",
+ #end
+#end
+#end
+#macro(checkfields $obj)
+ #set($j = 1)
+ #foreach($fields in $obj.fields)
+    #if($fields.type !="IsMultiObject")
+      #add($fields, $chkflag)
+    #else
+      #set($cobj = $classesobj.get($fields.jaxb.name))
+      #checkfields($cobj)
+    #end
+ #end
+#end
+#checkfields($classobj)
+

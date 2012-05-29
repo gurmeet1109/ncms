@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Ulaganathan Ramesh</author>
+        <title>OWASP- Introduction</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="High Level Design">
+            <p>
+		OWASP stands for Open Web Application Security Project, an open source community project set up to develop software tools and knowledge-based documentation for Web application security.
+</p>
+<p>
+OWASP Top 10 is a list of the most critical web application security risks. 
+
+<pre>
+   1. Injection
+   2. Cross-Site Scripting (XSS)
+   3. Broken Authentication and Session Management
+   4. Insecure Direct Object References
+   5. Cross-Site Request Forgery (CSRF)
+   6. Security Misconfiguration
+   7. Insecure Cryptographic Storage
+   8. Failure to Restrict URL Access
+   9. Insufficient Transport Layer Protection
+  10. Unvalidated Redirects and Forwards
+</pre>
+	 </p>
+        </section>
+    </body>
+</document>

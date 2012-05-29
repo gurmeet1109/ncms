@@ -1,0 +1,13 @@
+#set($j = 1)
+#if(!$pmstreelist.isEmpty())
+{"AssociatedIAPath":[
+#foreach($item in $pmstreelist)
+#if($j == $pmstreelist.size())
+  {"AssociatedIAPath":"$item"}
+#else
+  {"AssociatedIAPath":"$item"},
+#end
+#set($j = $j+1)
+#end
+]}
+#end

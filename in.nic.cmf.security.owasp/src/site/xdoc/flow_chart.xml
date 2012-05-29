@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Ulaganathan Ramesh</author>
+        <title>Location Services - Flow Chart</title>
+    </properties>
+    <meta name="keyword" content="class diagram"/>
+    <body>
+        <section name="Flowchart">
+<p>The following schematic diagram representation dipicts how the different modules of this component are interconnected.
+
+</p>
+<br/><br/>
+            <table bgcolor="#FFFFFF">
+<tr><td><strong>Algorithm</strong></td></tr>
+<tr>
+<td>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr><td width="70%"><b>Step 1</b>: Start.<br /><br /></td><td></td></tr>
+<tr><td width="70%"><strong>Step 2. </strong>INPUT - Browser/component sends a read request with city / ip value or post an entity xml<br/><br/><br/>
+</td><td></td></tr>
+<tr><td width="70%"><strong>Step 3. </strong>If input is city name go to step 8<br/><br/><br/>
+</td><td></td></tr>
+<tr><td width="70%"><strong>Step 4. </strong>If input is ip address find the city using lookup service and go to step 8<br/><br/><br/></td><td></td></tr>
+<tr><td width="70%"><strong>Step 5. </strong>If input is posted xml get city name from the content and go to step 8<br/><br/><br/></td><td></td></tr>
+<tr><td width="70%"><strong>Step 6. </strong>If input is null detect the ip from the request and go to step 2<br/><br/></td><td></td></tr>
+<tr><td width="70%"><strong>Step 7. </strong>Construct the file path from city name<br/><br/><br/></td><td><b>Class</b>: <a href="apidocs/in/nic/cmf/services/geotagger/controller/GeoTagsInfo.html">GeoTagsInfo</a><br/><b>Method</b>: getLocationDetails</td></tr>
+<tr><td width="70%"><strong>Step 8. </strong>Check the city content is already cached. If yes read from cache and go to 11<br/><br/><br/></td><td></td></tr>
+<tr><td width="70%"><strong>Step 9. </strong>Read from  file store.<br/><br/><br/></td><td></td></tr>
+<tr><td width="70%"><strong>Step 10. </strong>If input is an XML, Update XML content with fetched location details<br/><br/><br/></td><td><b>Class</b>: <a href="apidocs/in/nic/cmf/services/geotagger/controller/GeoTagsServiceController.html">GeoTagsServiceController</a><br/><b>Method</b>: updateData</td></tr>
+<tr><td width="70%"><strong>Step 11. </strong>Send the output to the requester<br/><br/><br/></td><td></td></tr>
+<tr><td width="70%"><strong>Step 12. </strong>End<br/><br/><br/></td><td></td></tr>
+</table>
+</td></tr>
+<tr>
+<td><strong>Flowchart</strong></td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF"> 
+
+<!--
+<strong>Step 1. </strong>Start <br/><br/><br/>
+<strong>Step 2. </strong>INPUT - Browser/component sends a read request with city / ip value or post an entity xml<br/><br/><br/>
+<strong>Step 3. </strong>If input is city name go to step 8<br/><br/><br/>
+<strong>Step 4. </strong>If input is ip address find the city using lookup service and go to step 8<br/><br/><br/>
+<strong>Step 5. </strong>If input is posted xml get city name from the content and go to step 8<br/><br/><br/>
+<strong>Step 6. </strong>If input is null detect the ip from the request and go to step 2<br/><br/><bor/>
+<strong>Step 7. </strong>Construct the file path from city name<br/><br/><br/>
+<strong>Step 8. </strong>Check the city content is already cached. If yes read from cache and go to 11<br/><br/><br/>
+<strong>Step 9. </strong>Read from  file store.<br/><br/><br/>
+<strong>Step 10. </strong>If input is an XML, Update XML content with fetched location details<br/><br/><br/>
+<strong>Step 11. </strong>Send the output to the requester<br/><br/><br/>
+<strong>Step 12. </strong>End<br/><br/><br/>
+
+
+</td>
+
+
+
+	<td>-->
+		     <img src="site_images/flow_updated_html_m7d0401e0.gif" name="DrawObject" alt="DrawObject"/>
+        </td></tr>
+</table>   
+        </section>
+    </body>
+</document>

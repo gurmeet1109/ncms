@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Kalidoss.M</author>
+        <title>Feed Processor - Flow Chart</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Flowchart">
+<table align="center" border="0" width="100%">
+				<tr class="a">
+					<th align="left">Add File Algorithm</th>
+					<th align="left">Add FIle Flowchart</th>
+				</tr>
+								<tr>
+					<td bgcolor="#FFFFFF"> 
+<strong>Step 1. </strong>Start <br/><br/><br/>
+<strong>Step 2. </strong>INPUT -ID and String/Binary File<br/><br/><br/>
+<strong>Step 3. </strong>If ID is null Display Error<br/><br/><br/>
+<strong>Step 4. </strong>If ID not null check content <br/><br/><br/>
+<strong>Step 5. </strong>If content are Multipart parse request else display error <br/><br/><br/>
+<strong>Step 6. </strong>Iterate file from fileItem<br/><br/><br/>
+<strong>Step 7. </strong>If file null display error else go step 8<br/><br/><br/>
+<strong>Step 8. </strong>Add data in svn<br/><br/><br/>
+<strong>Step 9. </strong>Send response back to requestor<br/><br/><br/>
+<strong>Step 10. </strong>End<br/><br/><br/>
+</td>
+					<td align="left" bgcolor="#ffffff"><img src="site_images/postflow.gif" NAME="DrawObject" ALT="DrawObject" /></td>
+				</tr>
+
+				<tr class="a">
+					<th align="left">Read File Algorithm</th>
+					<th align="left">Read File Flowchart</th>
+				</tr>
+	<tr>
+					<td bgcolor="#FFFFFF"> 
+<strong>Step 1. </strong>Start <br/><br/><br/>
+<strong>Step 2. </strong>INPUT File name<br/><br/><br/>
+<strong>Step 3. </strong>If file name is valid go step 4 else display error<br/><br/><br/>
+<strong>Step 4. </strong>Read file from SVN server <br/><br/><br/>
+<strong>Step 5. </strong> If Mime type null get it else go step 6<br/><br/><br/>
+<strong>Step 6. </strong>Set Mime type with response<br/><br/><br/>
+<strong>Step 7. </strong>Get Outputstream from from response<br/><br/><br/>
+<strong>Step 8. </strong>Write OutputStream<br/><br/><br/>
+<strong>Step 9. </strong>Display Output<br/><br/><br/>
+<strong>Step 10. </strong>End<br/><br/><br/>
+</td>
+					<td align="left"  width="60%"  bgcolor="#ffffff"><img src="site_images/readFlow.gif" NAME="DrawObject" ALT="DrawObject" />
+</td>
+				</tr>
+			
+				<tr class="a">
+					<th align="left">Delete File Algorithm</th>
+					<th align="left">Delete File Flowchart</th>
+				</tr>
+				<tr>
+					
+					<td bgcolor="#FFFFFF"> 
+<strong>Step 1. </strong>Start <br/><br/><br/>
+<strong>Step 2. </strong>INPUT File name<br/><br/><br/>
+<strong>Step 3. </strong>If file is valid go to Step 4 else Display error<br/><br/><br/>
+<strong>Step 4. </strong>Delete File from SVN server <br/><br/><br/>
+<strong>Step 5. </strong> Send response back to requestor  <br/><br/><br/>
+ <strong>Step 10. </strong>End<br/><br/><br/>
+</td><td align="left" bgcolor="#ffffff" ><img src="site_images/deleteflow.gif" NAME="DrawObject" ALT="DrawObject" /></td>
+				</tr>
+				 </table>
+         </section>	
+    </body>
+</document>

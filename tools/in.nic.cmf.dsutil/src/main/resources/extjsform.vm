@@ -1,0 +1,553 @@
+#set($fieldMap = {"priority":"priority", "online":"online", "rssAggregated":"rssaggregated", "temp":"temp", 
+"gender":"gender", "councilOfMin":"councilofmin","stateType":"statetype", "languageType":"language", "deptType":"depttype", 
+"maritalStatus":"maritalstatus", "rateUsefullness":"rateusefullness", "type":"type","ageCategory":"agecategory",
+"uiTab":"uitab", "newsCategory":"newscategory", "whosWhoCategory":"whoswhocategory","metadataCategory":"metadatacategory",
+"galleryCategory":"gallerycategory", "offline":"offline", "entityGroup":"entitygroup", "rateonAspect":"rateonaspect",
+"isPmsFile":"ispmsfile", "isGeneratable":"isgeneratable", "visible":"visible","leafOrNonLeaf":"leafornonleaf","isSuperAdmin":"issuperadmin",
+"cdata":"cdata","defaultSearch":"defaultsearch","masterData":"masterdata","uI":"ui",
+"uIForm":"uiform","editOption":"editoption","deleteOption":"deleteoption","downloadOption":"downloadoption","isActive":"isactive"})
+#set($jsonfieldMap = {"associatedIAPath":"associatediapath"})
+#set($ruleFieldMap = {"url":"url","email":"email","alpha":"alpha","alphanum":"alphanum", "alphanumMid":"alphaumMid","alphanumLoose":"alphanumLoose", "alphanumStrict":"alphanumStrict","numeric":"numeric","float":"float",
+"filename":"filename","folderpath":"folderpath","pincode":"pincode","age":"age","prefix":"prefix","year":"year","alphanumeric":"alphanumeric","isbn":"isbn"})
+#set($list = [])
+#set($date = [])
+#set($isnpi = 0)
+#set($isDepend = "false")
+#set($isRelated = "false")
+
+#macro(callListeners $entityName, $format, $fieldname)
+     listeners:{
+           change:function(field,value){
+                   value = value.replace(/^\s|\s$/g, "");
+                   var valid_extensions = /($dsutilobj.getSplitString($format))$/i
+           if(value != ""){
+           if(!valid_extensions.test(value)){
+                   Ext.example.msg("<div class = 'errorHeaderMsg'>Invalid File</div>", "<div class = 'errorMsg'>$fieldname should end with valid file extension</div>");
+                   field.setValue("");
+           }
+           }
+       }
+        },
+#end
+
+#macro(callTextListeners $entityName, $format, $fieldname)
+     listeners:{
+           blur:function(){
+                   value = this.getValue();
+                   value = value.replace(/^\s|\s$/g, "");
+                   var valid_extensions = /($dsutilobj.getSplitString($format))$/i
+           if(value != ""){
+           if(!valid_extensions.test(value)){
+                   Ext.example.msg("<div class = 'errorHeaderMsg'>Invalid File</div>", "<div class = 'errorMsg'>$fieldname should end with valid file extension</div>");
+                   this.setValue("");
+           }
+           }
+	       var str = trim(this.getValue());
+           str = str.replace(/ +(?= )/g,'');
+	       this.setValue(str);
+       }
+        },
+#end
+
+#macro(add $fields, $chkflag, $classname)
+#if($fields.annotations.UI)  
+     {
+     name :"$fields.jaxb.name",
+     #if($fields.annotations.UI.fieldId)
+      id:"$fields.annotations.UI.fieldId",
+     #else
+      id:"$classname$fields.jaxb.name",
+     #end
+     #if($fields.annotations.UI.editable == "false" && $fields.annotations.UI.formElement == "select")
+     editable:false,
+     #elseif($fields.annotations.UI.editable == "false" && $fields.annotations.UI.formElement == "list")
+     editable:false,
+     #elseif($fields.annotations.UI.editable == "false" && $fields.annotations.UI.formElement == "DatePicker")
+     editable:false,
+     #elseif($fields.annotations.UI.editable == "false")
+     readOnly:true,
+     #end
+     #if($fields.annotations.UI.formElement == "DatePicker")
+     fieldLabel : "$fields.annotations.UI.label",
+     xtype : "datetimefield",
+	 #if($fields.annotations.UI.preload == "date")
+	 listeners:{
+	   render:function(){
+	     var date = new Date();
+            #if($fields.name == "createdDate")
+             if(this.getValue() == null || this.getValue() == ""){
+                this.setValue(date);
+             } 
+            #else
+                this.setValue(date);
+            #end
+	   }
+	 },
+	 #end
+     #elseif($fields.annotations.UI.formElement == "htmleditor")
+     xtype : "htmleditor",
+     #if($fields.annotations.Rule.sizeMin && $fields.annotations.UI.visibility != "false")
+     minLength :$fields.annotations.Rule.sizeMin,
+     #end
+     #if($fields.annotations.Rule.sizeMax && $fields.annotations.UI.visibility != "false")
+     maxLength :$fields.annotations.Rule.sizeMax,
+     #end
+     fieldLabel : "$fields.annotations.UI.label",  
+     height:200,
+     value:"",
+     defaultValue:"",
+     anchor :'100%',
+     listeners:{
+	    blur:function(){
+	       var str = trim(this.getValue());
+               str = str.replace(/ +(?= )/g,'');
+	       this.setValue(str);
+	    }
+	},
+     #elseif($fields.annotations.UI.formElement == "textarea")
+     xtype : "textarea",
+     #if($fields.annotations.Rule.sizeMin && $fields.annotations.UI.visibility != "false")
+     minLength :$fields.annotations.Rule.sizeMin,
+     #end
+     #if($fields.annotations.Rule.sizeMax && $fields.annotations.UI.visibility != "false")
+     maxLength :$fields.annotations.Rule.sizeMax,
+     #elseif($fields.annotations.UI.visibility != "false")
+     maxLength :1000,
+     #end
+     fieldLabel : "$fields.annotations.UI.label",
+     #if($fields.annotations.UI.height)  
+     height:$fields.annotations.UI.height,
+     #else
+     height:200,
+     #end
+     value:"",
+     defaultValue:"",
+     anchor :'100%', 
+     #if($fields.annotations.UI.visibility != "false")
+	listeners:{
+	    blur:function(){
+	       var str = trim(this.getValue());
+               str = str.replace(/ +(?= )/g,'');
+	       this.setValue(str);
+	    }
+	    #if($fields.annotations.UI.showTree)
+          #if($fields.annotations.UI.showTree == "true")
+              ,
+              focus:function(){
+                #if($fields.annotations.UI.type)
+                 #if($fields.annotations.UI.parentIdName)
+                    showTreePanelWindow(this, '$classobj.name', '$fields.annotations.UI.parentIdName' ,'$fields.annotations.UI.type');
+                 #else
+                    showTreePanelWindow(this,'InformationArchitecture', '', '$fields.annotations.UI.type');
+                 #end
+                #else
+                showTreePanelWindow(this,'$classobj.name', '' ,'');
+                #end
+              }
+          #end
+       #end 
+	},
+     #end
+     #elseif($fields.annotations.UI.formElement == "text" && $fields.annotations.Rule.type == "number")
+     xtype:"numberfield",
+     #if($fields.annotations.Rule.sizeMin && $fields.annotations.UI.visibility != "false")
+     minLength :$fields.annotations.Rule.sizeMin,
+     #end
+     #if($fields.annotations.Rule.sizeMax && $fields.annotations.UI.visibility != "false")
+     maxLength :$fields.annotations.Rule.sizeMax,
+     #elseif($fields.annotations.UI.visibility != "false")
+     maxLength :10,
+     #end
+     enforceMaxLength:true,
+     fieldLabel : "$fields.annotations.UI.label",
+     minValue: 0,
+     #elseif($fields.annotations.UI.formElement == "text" || $fields.annotations.UI.formElement == "ColorPicker")
+     #if($fields.annotations.Rule.sizeMin && $fields.annotations.UI.visibility != "false")
+     minLength :$fields.annotations.Rule.sizeMin,
+     #end
+     #if($fields.annotations.Rule.sizeMax && $fields.annotations.UI.visibility != "false")
+     maxLength :$fields.annotations.Rule.sizeMax,
+     #elseif($fields.annotations.UI.visibility != "false")
+     maxLength :50,
+     #end
+     enforceMaxLength:true,
+     #if($fields.annotations.UI.formElement == "ColorPicker")
+     xtype:"colorfield",
+     #else
+     xtype:"textfield",
+     #end
+     fieldLabel : "$fields.annotations.UI.label",
+     ##if($classobj.entitygroup == "pms")
+       ##if($classobj.name == "Js" || $classobj.name == "Css" || $classobj.name == "Template" || $classobj.name == "Media")
+         #if($fields.annotations.Rule.allowedFormat)
+          #callTextListeners($classobj.name, $fields.annotations.Rule.allowedFormat, $fields.jaxb.name)
+         #else
+          listeners:{
+	    blur:function(){
+	       var str = trim(this.getValue());
+               str = str.replace(/ +(?= )/g,'');
+	       this.setValue(str);
+	    }
+	     #if($fields.annotations.UI.hasTree)
+          #if($fields.annotations.UI.hasTree == "true")
+              ,
+              change:function(){
+                #set($formName = $classname+"Form")
+                setTreePath();
+              }
+          #end
+       #end 
+	},
+         #end
+       ##end
+     ##elseif($classobj.name == "Media" || $classobj.name == "AccessControlList" || $classobj.name == "Validations")
+      ##if($fields.annotations.Rule.allowedFormat)
+          ##callTextListeners($classobj.name, $fields.annotations.Rule.allowedFormat)
+       ##end
+     ##end
+     #elseif($fields.annotations.UI.formElement == "password")
+     xtype: "textfield",
+     #if($fields.annotations.Rule.sizeMin && $fields.annotations.UI.visibility != "false")
+     maxLength :$fields.annotations.Rule.sizeMin,
+     #end
+     #if($fields.annotations.Rule.sizeMax && $fields.annotations.UI.visibility != "false")
+     maxLength :$fields.annotations.Rule.sizeMax,
+     #elseif($fields.annotations.UI.visibility != "false")
+     maxLength :15,
+     #end
+     enforceMaxLength:true,
+     inputType: "password",
+     fieldLabel : "$fields.annotations.UI.label",
+     #if($fields.annotations.UI.visibility != "false")
+	listeners:{
+        render:function(){
+           this.setValue(''); 
+        }
+	},
+     #end
+     #elseif($fields.annotations.UI.formElement == "file")
+     xtype:"filefield",
+     fieldLabel : "$fields.annotations.UI.label",
+     ##if($classobj.entitygroup == "pms")
+       ##if($classobj.name == "Js" || $classobj.name == "Css" || $classobj.name == "Template" || $classobj.name == "Media")
+        #if($fields.annotations.Rule.allowedFormat)
+          #callListeners($classobj.name, $fields.annotations.Rule.allowedFormat, $fields.jaxb.name)
+        #end
+       ##end
+     ##elseif($classobj.name == "Media" || $classobj.name == "AccessControlList" || $classobj.name == "Validations")
+        ##if($fields.annotations.Rule.allowedFormat)
+          ##callListeners($classobj.name, $fields.annotations.Rule.allowedFormat)
+        ##end
+     ##end
+     #else
+       fieldLabel : "$fields.annotations.UI.label",
+     #end
+     #if($fields.annotations.UI.visibility == "false")
+     hidden:true,
+     #end
+     #if($fields.annotations.UI.formElement == "select")
+     #set($i = 1)
+     #set($isoption = "true")
+     xtype:"combobox",
+     #if($fields.annotations.UI.editable == "false")
+     editable:false,
+     #end
+     #if($fields.annotations.UI.multiple == "true")
+     multiSelect:true,
+     #end
+     #if($fieldMap.containsKey($fields.name))  
+     #set($cname = $fields.name)
+     store:Ext.create('Ext.data.ArrayStore', {
+                        fields: ["$fields.name"],
+                        data : Ext.$fields.name // from data.js
+                    }),
+     queryMode:"local",
+     displayField:"$fields.name",
+     #elseif($jsonfieldMap.containsKey($fields.name))
+      store:createLocalJsonStore('$fields.jaxb.name'),
+      queryMode:"remote",
+      displayField:"$fields.jaxb.name",
+     #else
+       #set($cname = $fields.annotations.UI.queryField)
+       #if($fields.annotations.UI.query && $fields.annotations.UI.multiple == "true")
+        #if($fields.annotations.UI.queryParams)	
+           #set($qparam = $dsutilobj.replaceString($fields.annotations.UI.queryParams))
+           #if($masterList.contains($fields.annotations.UI.query))
+             #if($fields.annotations.UI.storeType == "dynamic")
+               store:createQueryStore('$fields.annotations.UI.query', '$qparam', '$fields.annotations.UI.queryField'),
+               width:500,
+                pageSize:40,
+                typeAhead:true,
+                ##triggerAction: 'all',
+             #else
+              store:createStore('$fields.annotations.UI.query', '$qparam', '$fields.annotations.UI.queryField'),
+             #end
+           #else
+             store:createPreloadedStore('$fields.annotations.UI.query', '$qparam', '$fields.annotations.UI.queryField'),
+           #end
+         #else
+           #if($masterList.contains($fields.annotations.UI.query))
+             store:createStore('$fields.annotations.UI.query', '', '$fields.annotations.UI.queryField'),
+           #else
+             store:createPreloadedStore('$fields.annotations.UI.query', '', '$fields.annotations.UI.queryField'),
+           #end
+         #end
+       #elseif($fields.annotations.UI.query)
+         #if($fields.annotations.UI.queryParams)	
+           #set($qparam = $dsutilobj.replaceString($fields.annotations.UI.queryParams))
+           #if($masterList.contains($fields.annotations.UI.query))
+             #if($fields.annotations.UI.storeType == "dynamic")
+               store:createQueryStore('$fields.annotations.UI.query', '$qparam', '$fields.annotations.UI.queryField'),
+               width:500,
+                pageSize:100,
+                typeAhead:true,
+                triggerAction: 'all',
+             #else
+              store:createStore('$fields.annotations.UI.query', '$qparam', '$fields.annotations.UI.queryField'),
+             #end
+           #else
+             store:createPreloadedStore('$fields.annotations.UI.query', '$qparam', '$fields.annotations.UI.queryField'),
+           #end
+         #else
+           #if($masterList.contains($fields.annotations.UI.query))
+             store:createStore('$fields.annotations.UI.query', '', '$fields.annotations.UI.queryField'),
+           #else
+             store:createPreloadedStore('$fields.annotations.UI.query', '', '$fields.annotations.UI.queryField'),
+           #end
+         #end
+       #end
+     queryMode:"remote",
+     displayField:"$fields.annotations.UI.queryField",
+     valueField:"$fields.annotations.UI.queryField",
+     #end
+     emptyText:"",
+
+     #if($fields.annotations.UI.parentId == "true")
+      listeners:{
+      select:function(){
+         var v = this.getValue();
+         var i = this.store.findExact(this.valueField || this.displayField, v);
+         #set($istop = $classname+"IsTopLevel")
+         if(typeof(Ext.getCmp('$istop')) != "undefined" && v != ""){
+            var isTopLevel = Ext.getCmp('$istop');
+            isTopLevel.setValue("false");
+         }
+          if(v != ""){   
+             var pId = Ext.getCmp('$classname$fields.annotations.UI.parentIdName');
+             pId.setValue(this.store.getAt(i).get('$fields.annotations.UI.parentField'));
+          }
+      } ,   
+       render: function(combo,options){
+                this.store.sort('$cname','ASC');
+              }
+	   #if($fields.annotations.UI.storeType == "dynamic")
+		#if($classname == "Address")
+			,   
+			focus: function(){
+			  this.setValue('');
+			  #set($statename = $classname + "State")
+			  var sname = Ext.getCmp('$statename').getValue();
+				this.store.currentPage = 1; //reset page
+				if(!Ext.isEmpty(sname) && sname != 'All India'){
+					this.store.load({params:{"ParentGoiDirItemName":'"'+ sname + '"'}});
+				}		
+				else{
+					this.store.load();
+				}
+			}
+		#end
+	   #end
+
+       #if($fields.annotations.UI.hasTree)
+          #if($fields.annotations.UI.hasTree == "true")
+              ,
+              change:function(){
+                #set($formName = $classname+"Form")
+                setTreePath();
+              }
+          #end
+       #end 
+       },    
+     #end
+     #if($fields.annotations.UI.multiple == "true")
+      listeners:{
+           beforerender:function(combo){
+	      this.store.load();
+           },
+           render:function(combo){
+	      this.store.sort('$cname','ASC');
+           }
+        },
+     #end
+     #end
+     #if($fields.name == "entityType")
+     value:"$classobj.name",
+     #end
+     #if($fields.annotations.UI.value)
+     value:"$fields.annotations.UI.value",
+     #end
+     #if($fields.name == "createdBy" || $fields.name == "lastModifiedBy")
+     listeners:{
+       render:function(){
+         if(this.getValue() == ""){
+            this.setValue(cmsUserName);
+         }
+       }
+     },
+     #end
+     #if($fields.annotations.Rule)
+     #if($fields.annotations.Rule.ui != 'false')
+     #if($fields.annotations.Rule.type && $ruleFieldMap.containsKey($fields.annotations.Rule.type) && $fields.annotations.UI.visibility != "false")
+     vtype:"$fields.annotations.Rule.type",
+     #end
+     #if($fields.annotations.UI.formElement == "text" || $fields.annotations.UI.formElement == "textarea")
+       #if($fields.annotations.UI.showTree)
+         #set($showtree = "true")
+       #else
+         #set($showtree = "false")
+       #end
+        #if($fields.annotations.Rule.notNull == "true" && $fields.annotations.UI.editable =="false" && $fields.annotations.UI.visibility !="false" && $showtree == "true")
+          allowBlank : false 
+        #elseif($fields.annotations.Rule.notNull == "true" && $fields.annotations.UI.editable !="false" && $fields.annotations.UI.visibility !="false")
+          allowBlank : false
+        #else
+          allowBlank :true
+        #end
+     #elseif($fields.annotations.Rule.notNull == "true")
+        allowBlank:false
+     #else
+        allowBlank:true
+     #end
+     #else
+      allowBlank : true
+     #end
+     #else
+      allowBlank : true
+     #end
+    
+},
+
+#end
+#end
+#macro(checkfields $obj)
+ #set($j = 1)
+ #foreach($fields in $obj.fields)
+    #if($fields.type !="Object" && $fields.type !="IsMultiObject" && $fields.type !="JsonString")
+       #add($fields, $chkflag, $obj.name)
+    #else
+      #set($cobj = $classesobj.get($fields.jaxb.name))
+      #if($fields.jaxb.name == "MetadataInfo")
+       #set($form2id=$classobj.name+"Form2")
+       {
+	  name:"Dummy",
+	  id:"dummy",
+	  hidden:true
+	}
+	]},{
+	title:'NPIMetadata',
+	xtype:'form',
+	id:'$form2id',
+	autoScroll:true,
+	fieldDefaults:{
+	  labelWidth:155
+	},
+	items: [DependentMetadataInfoForm,
+	#elseif($fields.jaxb.name == "OfficeLocationAddress")
+	 #set($form2id=$classobj.name+"Form5")
+       {
+	  name:"Dummy",
+	  id:"dummy",
+	  hidden:true
+	}
+	]},{
+	title:'Address',
+	xtype:'form',
+	id:'$form2id',
+	autoScroll:true,
+	fieldDefaults:{
+	  labelWidth:155
+	},
+	items: [DependentAddressForm,
+	#elseif($fields.jaxb.name == "OfficeLocationHindiAddress")
+	 #set($form3id=$classobj.name+"Form6")
+       {
+	  name:"Dummy",
+	  id:"dummy",
+	  hidden:true
+	}
+	]},{
+	title:'HindiAddress',
+	xtype:'form',
+	id:'$form3id',
+	autoScroll:true,
+	fieldDefaults:{
+	  labelWidth:155
+	},
+	items: [DependentHindiAddressForm,
+	#elseif($fields.jaxb.name == "OfficeLocationContactNumber")
+	 #set($form4id=$classobj.name+"Form7")
+       {
+	  name:"Dummy",
+	  id:"dummy",
+	  hidden:true
+	}
+	]},{
+	title:'ContactNumber',
+	xtype:'form',
+	id:'$form4id',
+	autoScroll:true,
+	fieldDefaults:{
+	  labelWidth:155
+	},
+	items: [DependentContactNumberForm,
+	#else
+	   #checkfields($cobj) 
+	#end
+    #if($fields.jaxb.name == "DependentItems")
+	#set($form3id=$classobj.name+"Form3")
+   {
+      name:"Dummy",
+      id:"dummy",
+      hidden:true
+    }
+	]},{
+	title:'DependentItems',
+	xtype:'form',
+	id:'$form3id',
+	autoScroll:true,
+        items:[DependentItemPanelForm,
+      #end
+      #if($fields.jaxb.name == "RelatedItems")
+       #set($form4id=$classobj.name+"Form4")
+        {
+	  name:"Dummy",
+	  id:"dummy",
+	  hidden:true
+	}
+        ]},{
+	title:'RelatedItems',
+	xtype:'form',
+	id:'$form4id',
+	autoScroll:true,
+        items:[RelatedItemPanelForm,
+      #end          
+    #end
+ #end
+#end
+#if($classobj.uiform == "true")
+#set($entitygroup = $classobj.entitygroup)
+#set($formname = $classobj.name+"Form")
+#set($form1id = $classobj.name+"Form1")
+var $formname = [
+{
+ title:'$classobj.name',
+ xtype:'form',
+ id:'$form1id',
+ autoScroll:true,
+ fieldDefaults:{
+   labelWidth:155
+ },
+ items:[
+ #checkfields($classobj)
+##end
+#end

@@ -1,0 +1,58 @@
+[20:01:46] ERROR [org.apache.directory.shared.ldap.entry.DefaultServerAttribute] - ERR_04450 The value {0} is incorrect, it hasnt been added
+[20:01:47] ERROR [org.apache.directory.shared.ldap.entry.DefaultServerAttribute] - ERR_04450 The value {0} is incorrect, it hasnt been added
+[20:03:44] ERROR [org.apache.directory.shared.ldap.entry.DefaultServerAttribute] - ERR_04450 The value {0} is incorrect, it hasnt been added
+[20:03:44] WARN [org.apache.directory.server.core.normalization.NormalizationInterceptor] - The RDN 'dc=sify' is not present in the entry
+[20:03:45] ERROR [org.apache.directory.server.ldap.LdapServer] - ERR_171 Failed to bind an LDAP service (10,389) to the service registry.
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind(Native Method)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:126)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:59)
+	at org.apache.mina.transport.socket.nio.NioSocketAcceptor.open(NioSocketAcceptor.java:251)
+	at org.apache.mina.transport.socket.nio.NioSocketAcceptor.open(NioSocketAcceptor.java:48)
+	at org.apache.mina.core.polling.AbstractPollingIoAcceptor.registerHandles(AbstractPollingIoAcceptor.java:523)
+	at org.apache.mina.core.polling.AbstractPollingIoAcceptor.access$200(AbstractPollingIoAcceptor.java:65)
+	at org.apache.mina.core.polling.AbstractPollingIoAcceptor$Acceptor.run(AbstractPollingIoAcceptor.java:407)
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:662)
+[20:05:41] ERROR [org.apache.directory.shared.ldap.entry.DefaultServerAttribute] - ERR_04450 The value {0} is incorrect, it hasnt been added
+[20:21:05] ERROR [org.apache.directory.server.core.partition.DefaultPartitionNexus] - ERR_35 No partition with suffix {0} can be found in the NamingContexts
+[20:21:05] WARN [org.apache.directory.server.core.partition.DefaultPartitionNexus] - Failed to destroy a partition: 2.5.4.11=system
+javax.naming.NameNotFoundException: ERR_35 No partition with suffix {0} can be found in the NamingContexts
+	at org.apache.directory.server.core.partition.DefaultPartitionNexus.removeContextPartition(DefaultPartitionNexus.java:981)
+	at org.apache.directory.server.core.partition.DefaultPartitionNexus.doDestroy(DefaultPartitionNexus.java:385)
+	at org.apache.directory.server.core.partition.AbstractPartition.destroy(AbstractPartition.java:98)
+	at org.apache.directory.server.core.DefaultDirectoryService.shutdown(DefaultDirectoryService.java:965)
+	at org.apache.directory.server.core.DefaultDirectoryService$1.run(DefaultDirectoryService.java:889)
+	at java.lang.Thread.run(Thread.java:662)
+[20:39:35] ERROR [org.apache.directory.shared.ldap.entry.DefaultServerAttribute] - ERR_04450 The value {0} is incorrect, it hasnt been added
+[20:39:54] ERROR [org.apache.directory.server.core.partition.DefaultPartitionNexus] - ERR_35 No partition with suffix {0} can be found in the NamingContexts
+[20:39:54] WARN [org.apache.directory.server.core.partition.DefaultPartitionNexus] - Failed to destroy a partition: 2.5.4.11=system
+javax.naming.NameNotFoundException: ERR_35 No partition with suffix {0} can be found in the NamingContexts
+	at org.apache.directory.server.core.partition.DefaultPartitionNexus.removeContextPartition(DefaultPartitionNexus.java:981)
+	at org.apache.directory.server.core.partition.DefaultPartitionNexus.doDestroy(DefaultPartitionNexus.java:385)
+	at org.apache.directory.server.core.partition.AbstractPartition.destroy(AbstractPartition.java:98)
+	at org.apache.directory.server.core.DefaultDirectoryService.shutdown(DefaultDirectoryService.java:965)
+	at org.apache.directory.server.core.DefaultDirectoryService$1.run(DefaultDirectoryService.java:889)
+	at java.lang.Thread.run(Thread.java:662)
+[20:46:59] ERROR [org.apache.directory.shared.ldap.entry.DefaultServerAttribute] - ERR_04450 The value {0} is incorrect, it hasnt been added
+[20:47:21] ERROR [org.apache.directory.server.core.partition.DefaultPartitionNexus] - ERR_35 No partition with suffix {0} can be found in the NamingContexts
+[20:47:21] WARN [org.apache.directory.server.core.partition.DefaultPartitionNexus] - Failed to destroy a partition: 2.5.4.11=system
+javax.naming.NameNotFoundException: ERR_35 No partition with suffix {0} can be found in the NamingContexts
+	at org.apache.directory.server.core.partition.DefaultPartitionNexus.removeContextPartition(DefaultPartitionNexus.java:981)
+	at org.apache.directory.server.core.partition.DefaultPartitionNexus.doDestroy(DefaultPartitionNexus.java:385)
+	at org.apache.directory.server.core.partition.AbstractPartition.destroy(AbstractPartition.java:98)
+	at org.apache.directory.server.core.DefaultDirectoryService.shutdown(DefaultDirectoryService.java:965)
+	at org.apache.directory.server.core.DefaultDirectoryService$1.run(DefaultDirectoryService.java:889)
+	at java.lang.Thread.run(Thread.java:662)
+[20:56:30] ERROR [org.apache.directory.shared.ldap.entry.DefaultServerAttribute] - ERR_04450 The value {0} is incorrect, it hasnt been added
+[20:56:36] ERROR [org.apache.directory.server.core.partition.DefaultPartitionNexus] - ERR_35 No partition with suffix {0} can be found in the NamingContexts
+[20:56:36] WARN [org.apache.directory.server.core.partition.DefaultPartitionNexus] - Failed to destroy a partition: 2.5.4.11=system
+javax.naming.NameNotFoundException: ERR_35 No partition with suffix {0} can be found in the NamingContexts
+	at org.apache.directory.server.core.partition.DefaultPartitionNexus.removeContextPartition(DefaultPartitionNexus.java:981)
+	at org.apache.directory.server.core.partition.DefaultPartitionNexus.doDestroy(DefaultPartitionNexus.java:385)
+	at org.apache.directory.server.core.partition.AbstractPartition.destroy(AbstractPartition.java:98)
+	at org.apache.directory.server.core.DefaultDirectoryService.shutdown(DefaultDirectoryService.java:965)
+	at org.apache.directory.server.core.DefaultDirectoryService$1.run(DefaultDirectoryService.java:889)
+	at java.lang.Thread.run(Thread.java:662)

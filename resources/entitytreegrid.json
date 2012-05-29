@@ -1,0 +1,49 @@
+{"text":".","children": [{
+        treeitem:'Entities',
+        iconCls:'task-folder',
+        children:[
+                              {
+	            treeitem: 'Article',
+	            id:'Article',
+	            iconCls:'task',
+	            leaf:true
+             },
+                                        {
+	            treeitem: 'Form',
+	            id:'Form',
+	            iconCls:'task',
+	            leaf:true
+             },
+                                        {
+	            treeitem: 'Gallery',
+	            id:'Gallery',
+	            iconCls:'task',
+	            leaf:true
+             },
+                                        {
+	            treeitem: 'Media',
+	            id:'Media',
+	            iconCls:'task',
+	            leaf:true
+             },
+                                        {
+	            treeitem: 'News',
+	            id:'News',
+	            iconCls:'task',
+	            leaf:true
+             },
+                                        {
+	            treeitem: 'Scheme',
+	            id:'Scheme',
+	            iconCls:'task',
+	            leaf:true
+             },
+                                         {
+	            treeitem: 'Service',
+	            id:'Service',
+	            iconCls:'task',
+	            leaf:true
+             }
+                          ]
+    }]
+}

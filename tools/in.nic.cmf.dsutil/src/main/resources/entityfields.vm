@@ -1,0 +1,16 @@
+#set($entity = $classobj.name+"Fields")
+#set($i = 1)
+#if(!$fieldlist.isEmpty())
+Ext.$entity = [
+ ##checkfields($classobj)
+ #foreach($item in $fieldlist)
+  #if($i == $fieldlist.size())
+    ["$item"]
+  #else
+    ["$item"],
+  #end
+  #set($i = $i+1)
+ #end
+ ]
+#end
+

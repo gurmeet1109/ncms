@@ -1,0 +1,91 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>NIC Portal</title>
+<style type="text/css">
+<!--
+.style1 {font-family: Arial;}
+-->
+</style>
+</head>
+
+<body><br />
+<table width="70%" align="center" 
+    cellpadding="5" 
+    style="border: 1px solid #CED2B4; border-collapse:collapse;"
+    >
+  <tr>
+    <td colspan="2" bgcolor= "#BED730" style="font-family:arial; FONT-STYLE: normal; FONT-WEIGHT: bold; FONT-SIZE: 20px; COLOR: #FFFFFF; line-height:50px">
+        <strong>NIC&trade; PORTALS</strong></td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor= "#F8FBF2" style="FONT-STYLE: normal; FONT-SIZE: 11px; COLOR: #606A74">
+        <p><strong><span style="FONT-STYLE: normal; FONT-SIZE: 11px; COLOR: #606A74; FONT-FAMILY: Arial;"><br />
+      Dear $map.get('user')</span></strong></p>
+      <p style="FONT-STYLE: normal; FONT-SIZE: 11px; COLOR: #606A74; FONT-FAMILY: Arial;">Thank you for using NCMS&trade;.  You may please keep this email as a   record.<br />
+ </p>
+    <p><span style="FONT-STYLE: normal; FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #606A74; FONT-FAMILY: Arial;">
+        Your Content details are:</span><br />
+      <br />
+    </p></td>
+  </tr>
+  
+  <tr>
+    <td width="25%" bgcolor="#919599" 
+        style="FONT-STYLE:normal; FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #fff;border: 1px solid #CED2B4"><span class="style1"> Id &nbsp;</span></td>
+    <td bgcolor="#F0F0F0" 
+        style="FONT-STYLE: normal; FONT-WEIGHT: normal; FONT-SIZE: 11px; 
+        COLOR: #606A74; FONT-FAMILY: Arial;border: 1px solid #CED2B4">
+        $map.get('id')</td>
+  </tr>
+  <tr>
+    <td width="25%" bgcolor="#919599" 
+        style="FONT-STYLE:normal; FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #fff;border: 1px solid #CED2B4"><span class="style1"> EntityType &nbsp;</span></td>
+    <td bgcolor="#F0F0F0" 
+        style="FONT-STYLE: normal; FONT-WEIGHT: normal; FONT-SIZE: 11px; 
+        COLOR: #606A74; FONT-FAMILY: Arial;border: 1px solid #CED2B4">
+        $map.get('entitytype')</td>
+  </tr>
+
+  <tr>
+    <td width="25%" bgcolor="#919599" 
+        style="FONT-STYLE:normal; FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #fff;border: 1px solid #CED2B4"><span class="style1"> Status   &nbsp;</span></td>
+    <td bgcolor="#F0F0F0" 
+        style="FONT-STYLE: normal; FONT-WEIGHT: normal; FONT-SIZE: 11px; 
+        COLOR: #606A74; FONT-FAMILY: Arial;border: 1px solid #CED2B4">
+        $map.get('status')</td>
+  </tr>
+  <tr>
+    <td width="25%" bgcolor="#919599" 
+        style="FONT-STYLE:normal; FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #fff;border: 1px solid #CED2B4"><span class="style1">
+        CreatedBy</span></td>
+    <td bgcolor="#F0F0F0" 
+        style="FONT-STYLE: normal; FONT-WEIGHT: normal; FONT-SIZE: 11px; 
+        COLOR: #606A74; FONT-FAMILY: Arial;border: 1px solid #CED2B4">
+        $map.get('createdby')</td>
+  </tr>
+
+  <tr>
+     <td colspan="2" bgcolor= "#F8FBF2" style="FONT-STYLE: normal; FONT-SIZE: 12px; COLOR: #606A74">
+        <p><a style="FONT-FAMILY:ARIAL; FONT-STYLE: normal; FONT-WEIGHT: bold; COLOR:#009900" 
+        href="$map.get('appurl')">$map.get('appurllink')</a></p>
+   
+      <p style="FONT-STYLE: normal; FONT-SIZE: 12px; COLOR: #606A74; FONT-FAMILY: Arial;">THIS IS AN AUTOMATED MAIL. PLEASE DO NOT   REPLY.</p>
+    <p style="FONT-STYLE: normal; FONT-WEIGHT: normal; FONT-SIZE: 12px; COLOR: #606A74; FONT-FAMILY: Arial;">Regards,<strong><br />
+        <span style="FONT-STYLE: normal; FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #606A74; FONT-FAMILY: Arial;">
+             NCMS&trade; Admin</span></strong><br />
+        <br />
+    </p></td>
+  </tr>
+
+
+
+
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

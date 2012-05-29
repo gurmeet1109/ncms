@@ -1,0 +1,54 @@
+package in.nic.cmf.transformers;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+rule 'site_rule'
+when 
+	map:HashMap(Site =='');
+then			
+	System.out.println("inside default rule of dummy drl file.");
+	 map.put("Site","kavita.in");
+	 update(map);
+end
+	
+rule 'version_rule'
+when 
+	map:HashMap(Version == '');
+then			
+	System.out.println("inside default rule of dummy drl file.");
+	 map.put("Version","1.0.0.0");
+	 update(map);
+end
+	
+rule 'id_rule'
+when 
+	map:HashMap(Id == '');
+then			
+	System.out.println("inside default rule of dummy drl file.");
+	 map.put("Id","ooooooooooooooooooooooooooooooo");
+	 update(map);
+end
+	
+rule 'seo_rule'
+when 
+	map:HashMap(SeoUrl == '');
+then			
+	System.out.println("inside default rule of dummy drl file.");
+	map.put("SeoUrl","http://kavitha.com");
+	update(map);
+end
+	
+rule 'all_rule'
+when 
+	map:HashMap();
+then			
+	System.out.println("inside default rule of dummy drl file.");
+	 map.put("Site","kavita.in");
+	 map.put("Id","ooooooooooooooooooooooooooooooo");
+	 map.put("Version","1.0.0.0");
+	 map.put("SeoUrl","http://kavitha.com");
+	update(map);
+end
+	

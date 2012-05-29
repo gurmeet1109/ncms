@@ -1,0 +1,224 @@
+function ValidationReport addToList(String strContent, ValidationReport report){List<String> lstMessage = new ArrayList<String>();if(report.getMessage()!=null){lstMessage = report.getMessage(); lstMessage.add(strContent); report.setMessage(lstMessage); }  else { lstMessage.add(strContent);report.setMessage(lstMessage);}return report;}
+function boolean validateMimeTypes(String value){List<String> mimeTypes = new ArrayList<String>(); mimeTypes.add("text/plain"); mimeTypes.add("text/xml"); mimeTypes.add("image/gif"); mimeTypes.add("image/png"); mimeTypes.add("image/bmp"); mimeTypes.add("image/jpeg"); mimeTypes.add("video/x-flv"); mimeTypes.add("video/x-msvideo"); mimeTypes.add("video/mpeg");if(mimeTypes.contains(value)){return false;}else{return true;}} 
+function boolean validateLanguageCode(String value){List<String> languageCode = new ArrayList<String>(); languageCode.add("en"); languageCode.add("ta"); languageCode.add("te");if(languageCode.contains(value)){return false;}else{return true;}}
+function boolean fileNamevalidate(String value){String regArray[] = value.split("\\.");if(regArray.length==2){if((regArray[1]==null)||(regArray[1].isEmpty()))return true;if(regArray[0].length()>=1 && regArray[1].length()>=2 && regArray[1].length()<=4)return false;}else if(regArray.length==3){if((regArray[2]==null)||(regArray[2].isEmpty())) return true;if(regArray[0].length()>=1 && regArray[1].length()>=1 && regArray[2].length()>=2 && regArray[2].length()<=4)return false; }return true;}
+function boolean validateISBN(String isbnn) {String isbn=isbnn.replace("-", "");if(isbn.length() != 10 && isbn.length() != 13) {return false; } int checkDigit = 0; if(isbn.length() == 10) 
+{int value=10;for (int i=0;i<=isbn.length()-2;i++)
+{Character c = new Character(isbn.charAt(i));
+String s = c.toString();int charctervalue=Integer.parseInt(s); checkDigit+=value*charctervalue;value=value-1;} checkDigit = 11-(checkDigit % 11); if(checkDigit == 10) {return (isbn.charAt(9) == 'x' || isbn.charAt(9) == 'X') ? true : false; } else { Character c = new Character(isbn.charAt(9)); String s = c.toString(); int charctervalue=Integer.parseInt(s); return (charctervalue == checkDigit ? true : false);}} else {int[] value={1,3,1,3,1,3,1,3,1,3,1,3,1,3}; for (int i=0;i<=isbn.length()-2;i++){Character c = new Character(isbn.charAt(i));String s = c.toString(); int charctervalue=Integer.parseInt(s); checkDigit+=value[i]*charctervalue; }checkDigit = 10-(checkDigit % 10);Character c = new Character(isbn.charAt(12));String s = c.toString(); int charctervalue=Integer.parseInt(s);if(checkDigit == 10) {return (charctervalue ==0 ? true : false) ; } else {return (charctervalue == checkDigit ? true : false); }}}
+function boolean validateNpiMetadata(MetadataInfo metadataInfo) {
+        System.out.println("Inside ValidateNpiMetadata Function");
+        System.out.println("MetadataInfo sk Det :::: "
+                + metadataInfo.getSubjectKeywords().getSubjectKeyword());
+        List<String> sk = metadataInfo.getSubjectKeywords().getSubjectKeyword();
+        boolean skflag = false;
+        for (String s : sk) {
+            if (s.trim().equals("")) {
+                skflag = true;
+            } else {
+                skflag = false;
+            }
+        }
+System.out.println("MetadataInfo sc Det :::: "
+                + metadataInfo.getSubjectClassification().getSector());
+        List<String> sc = metadataInfo.getSubjectClassification().getSector();
+        boolean scflag = false;
+        for (String s : sc) {
+            if (s.trim().equals("")) {
+                scflag = true;
+            } else {
+                scflag = false;
+            }
+        }
+System.out.println("MetadataInfo po Det :::: "
+                +metadataInfo.getPublisherOrgNames().getPublisherOrgName());
+
+        List<String> po = metadataInfo.getPublisherOrgNames()
+                .getPublisherOrgName();
+        boolean poflag = false;
+        for (String s : po) {
+            if (s.trim().equals("")) {
+                poflag = true;
+            } else {
+                poflag = false;
+            }
+        }
+System.out.println("MetadataInfo pd Det :::: "
+                + metadataInfo.getPublisherDeptName().getPublisherDepartment());
+
+        List<String> pd = metadataInfo.getPublisherDeptName()
+                .getPublisherDepartment();
+        boolean pdflag = false;
+        for (String s : pd) {
+            if (s.trim().equals("")) {
+                pdflag = true;
+            } else {
+                pdflag = false;
+            }
+        }
+System.out.println("MetadataInfo co Det :::: "
+                + metadataInfo.getCreatorOrgNames().getCreatorOrgName());
+
+        List<String> co = metadataInfo.getCreatorOrgNames().getCreatorOrgName();
+        boolean coflag = false;
+        for (String s : co) {
+            if (s.trim().equals("")) {
+                coflag = true;
+            } else {
+                coflag = false;
+            }
+        }
+System.out.println("MetadataInfo cd Det :::: "
+                + metadataInfo.getCreatorDeptName().getCreatorDepartment());
+
+        List<String> cd = metadataInfo.getCreatorDeptName()
+                .getCreatorDepartment();
+        boolean cdflag = false;
+        for (String s : cd) {
+            if (s.trim().equals("")) {
+                cdflag = true;
+            } else {
+                cdflag = false;
+            }
+        }
+System.out.println("MetadataInfo ac Det :::: "
+                + metadataInfo.getAudience().getAudienceCategory());
+
+        List<String> ac = metadataInfo.getAudience().getAudienceCategory();
+        boolean acflag = false;
+        for (String s : ac) {
+            if (s.trim().equals("")) {
+                acflag = true;
+            } else {
+                acflag = false;
+            }
+        }
+System.out.println("MetadataInfo ct Det :::: "
+                + metadataInfo.getCategoryTypes().getCategoryType());
+
+        List<String> ct = metadataInfo.getCategoryTypes().getCategoryType();
+        boolean ctflag = false;
+        for (String s : ct) {
+            if (s.trim().equals("")) {
+                ctflag = true;
+            } else {
+                ctflag = false;
+            }
+        }
+System.out.println("MetadataInfo hp Det :::: "
+                + metadataInfo.getHasParts().getHasPart());
+
+        List<String> hp = metadataInfo.getHasParts().getHasPart();
+        boolean hpflag = false;
+        for (String s : hp) {
+            if (s.trim().equals("")) {
+                hpflag = true;
+            } else {
+                hpflag = false;
+            }
+        }
+        System.out.println("MetadataInfo Det After :::: ");
+        if ((metadataInfo.getIdentifier().trim().length() > 0
+                || metadataInfo.getIdentifierAlternate().trim().length() > 0
+                || metadataInfo.getTitleMain().trim().length() > 0
+                || metadataInfo.getTitleAlternate().trim().length() > 0
+                || metadataInfo.getMetadataDescription().trim().length() > 0
+                || metadataInfo.getPublisherAddress().trim().length() > 0
+                || metadataInfo.getCreatorAddress().trim().length() > 0
+                || metadataInfo.getFormat().trim().length() > 0
+                || metadataInfo.getLanguage().trim().length() > 0
+                || metadataInfo.getMetaDataCreatedDate().trim().length() > 0
+                || metadataInfo.getPublishedDate().trim().length() > 0
+                || metadataInfo.getValidDate().trim().length() > 0
+                || metadataInfo.getCoverageTemporal().trim().length() > 0
+                || metadataInfo.getConformsTo().trim().length() > 0
+                || metadataInfo.getIsPartOf().trim().length() > 0
+                || metadataInfo.getHasVersion().trim().length() > 0
+                || metadataInfo.getIsVersionOf().trim().length() > 0
+                || metadataInfo.getSource().trim().length() > 0
+                || metadataInfo.getCoverageJurisdiction().getJurisdiction()
+                        .getJurisdictionName().trim().length() > 0
+                || metadataInfo.getCoverageJurisdiction().getJurisdiction()
+                        .getJurisdictionStateId().trim().length() > 0
+                || metadataInfo.getCoverageJurisdiction().getJurisdiction()
+                        .getJurisdictionStateId().trim().length() > 0
+                || metadataInfo.getCoverageJurisdiction().getJurisdiction()
+                        .getJurisdictionStateName().trim().length() > 0
+                || metadataInfo.getCoverageJurisdiction().getJurisdiction()
+                        .getJurisdictionDistrictId().trim().length() > 0
+                || metadataInfo.getCoverageJurisdiction().getJurisdiction()
+                        .getJurisdictionDistrictName().trim().length() > 0
+                || metadataInfo.getCoverageSpatial().getSpatial()
+                        .getSpatialStateId().trim().length() > 0
+                || metadataInfo.getCoverageSpatial().getSpatial()
+                        .getSpatialStateName().trim().length() > 0
+                || metadataInfo.getCoverageSpatial().getSpatial()
+                        .getSpatialDistrictId().trim().length() > 0
+                || metadataInfo.getCoverageSpatial().getSpatial()
+                        .getSpatialDistrictName().trim().length() > 0
+                || !skflag || !scflag || !poflag || !pdflag || !coflag
+                || !cdflag || !acflag || !ctflag || !hpflag)
+                && (metadataInfo.getIdentifier().trim().length() <= 0
+                        || metadataInfo.getIdentifierAlternate().trim()
+                                .length() <= 0
+                        || metadataInfo.getTitleMain().trim().length() <= 0
+                        || metadataInfo.getTitleAlternate().trim().length() <= 0
+                        || metadataInfo.getMetadataDescription().trim()
+                                .length() <= 0
+                        || metadataInfo.getPublisherAddress().trim().length() <= 0
+                        || metadataInfo.getCreatorAddress().trim().length() <= 0
+                        || metadataInfo.getFormat().trim().length() <= 0
+                        || metadataInfo.getLanguage().trim().length() <= 0
+                        || metadataInfo.getMetaDataCreatedDate().trim()
+                                .length() <= 0
+                        || metadataInfo.getPublishedDate().trim().length() <= 0
+                        || metadataInfo.getValidDate().trim().length() <= 0
+                        || metadataInfo.getCoverageTemporal().trim().length() <= 0
+                        || metadataInfo.getConformsTo().trim().length() <= 0
+                        || metadataInfo.getIsPartOf().trim().length() <= 0
+                        || metadataInfo.getHasVersion().trim().length() <= 0
+                        || metadataInfo.getIsVersionOf().trim().length() <= 0
+                        || metadataInfo.getSource().trim().length() <= 0
+                        || metadataInfo.getCoverageJurisdiction()
+                                .getJurisdiction().getJurisdictionName().trim()
+                                .length() <= 0
+                        || metadataInfo.getCoverageJurisdiction()
+                                .getJurisdiction().getJurisdictionStateId()
+                                .trim().length() <= 0
+                        || metadataInfo.getCoverageJurisdiction()
+                                .getJurisdiction().getJurisdictionStateId()
+                                .trim().length() <= 0
+                        || metadataInfo.getCoverageJurisdiction()
+                                .getJurisdiction().getJurisdictionStateName()
+                                .trim().length() <= 0
+                        || metadataInfo.getCoverageJurisdiction()
+                                .getJurisdiction().getJurisdictionDistrictId()
+                                .trim().length() <= 0
+                        || metadataInfo.getCoverageJurisdiction()
+                                .getJurisdiction()
+                                .getJurisdictionDistrictName().trim().length() <= 0
+                        || metadataInfo.getCoverageSpatial().getSpatial()
+                                .getSpatialStateId().trim().length() <= 0
+                        || metadataInfo.getCoverageSpatial().getSpatial()
+                                .getSpatialStateName().trim().length() <= 0
+                        || metadataInfo.getCoverageSpatial().getSpatial()
+                                .getSpatialDistrictId().trim().length() <= 0
+                        || metadataInfo.getCoverageSpatial().getSpatial()
+                                .getSpatialDistrictName().trim().length() <= 0
+                        || skflag || scflag || poflag || pdflag || coflag
+                        || cdflag || acflag || ctflag || hpflag)) {
+            System.out.println("Inside True :::: ");
+            return true;
+        } else {
+            System.out.println("Inside False :::: ");
+            return false;
+        }
+    }
+    function boolean validateStatus(String value){
+if(value.equalsIgnoreCase("Draft")){
+return false;
+}else{
+return true;
+}
+}
+    

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<process xmlns="http://drools.org/drools-5.0/process"
+         xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+         xs:schemaLocation="http://drools.org/drools-5.0/process drools-processes-5.0.xsd"
+         type="RuleFlow" name="dmsFlow" id="dms" package-name="in.nic.cmf.appflow" version="1.0.0" >
+
+  <header>
+  </header>
+
+  <nodes>
+    <start id="1" name="Start" x="16" y="56" width="100" height="48" />
+    <end id="6" name="End" x="1784" y="96" width="164" height="48" />
+    <workItem id="9" name="DMS" x="1220" y="96" width="184" height="48" >
+      <work name="DMS" >
+      </work>
+    </workItem>
+    <workItem id="10" name="ReadKnowledge" x="1568" y="96" width="184" height="48" >
+      <work name="ReadKnowledge" >
+      </work>
+    </workItem>
+    <workItem id="11" name="ACL" x="148" y="56" width="184" height="48" >
+      <work name="ACL" >
+      </work>
+    </workItem>
+    <workItem id="12" name="Transformer" x="364" y="56" width="164" height="48" >
+      <work name="Transformer" >
+      </work>
+    </workItem>
+    <workItem id="13" name="Media" x="560" y="56" width="100" height="48" >
+      <work name="Media" >
+      </work>
+    </workItem>
+    <workItem id="14" name="RuleEngine" x="824" y="56" width="100" height="48" >
+      <work name="RuleEngine" >
+      </work>
+    </workItem>
+    <split id="15" name="Gateway" x="956" y="56" width="100" height="49" type="2" >
+      <constraints>
+        <constraint toNodeId="18" toType="DROOLS_DEFAULT" name="successConstraint" priority="1" type="code" dialect="java" >System.out.println("in successcons:"+ kcontext.getVariable("validationerror"));
+boolean v  = (Boolean) kcontext.getVariable("validationerror");
+System.out.println("su:"+v);
+if(v==true){
+return false;
+}else{
+return true;
+}</constraint>
+        <constraint toNodeId="16" toType="DROOLS_DEFAULT" name="Failureconstraint" priority="1" type="code" dialect="java" >System.out.println("4"+ kcontext.getVariable("validationerror"));
+boolean v = (Boolean) kcontext.getVariable("validationerror");
+if(v==true){
+return true;
+}else{
+return false;
+}</constraint>
+      </constraints>
+    </split>
+    <end id="17" name="End" x="1220" y="16" width="184" height="48" />
+    <workItem id="16" name="Finalize" x="1088" y="16" width="100" height="48" >
+      <work name="Finalize" >
+      </work>
+    </workItem>
+    <workItem id="19" name="SiteBuilder" x="1436" y="96" width="100" height="48" >
+      <work name="SiteBuilder" >
+      </work>
+    </workItem>
+    <workItem id="18" name="SearchEngine" x="1088" y="96" width="100" height="48" >
+      <work name="SearchEngine" >
+      </work>
+    </workItem>
+    <workItem id="20" name="Workflow" x="692" y="56" width="100" height="48" >
+      <work name="Workflow" >
+      </work>
+    </workItem>
+  </nodes>
+
+  <connections>
+    <connection from="10" to="6" />
+    <connection from="18" to="9" />
+    <connection from="19" to="10" />
+    <connection from="1" to="11" />
+    <connection from="11" to="12" />
+    <connection from="12" to="13" />
+    <connection from="20" to="14" />
+    <connection from="14" to="15" />
+    <connection from="16" to="17" />
+    <connection from="15" to="16" />
+    <connection from="9" to="19" />
+    <connection from="15" to="18" />
+    <connection from="13" to="20" />
+  </connections>
+
+</process>

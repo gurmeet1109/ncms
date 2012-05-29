@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Kalidoss.M</author>
+        <title>SearchAPI - Block Diagram</title>
+    </properties>
+    <meta name="keyword" content="Search, API, Java"/>
+    <body>
+        <section name="Block Diagram">
+		<p><img src="site_images/block.gif" NAME="DrawObject" ALT="DrawObject" /></p>
+
+		<h3>Block Diagram Explained</h3>
+
+		<p>
+</p>
+<p>
+</p>
+<p>
+<b><a href="glossary.html#owsap">OWASP</a> Security:</b>
+	Security Layer wrapped around the component and scrutinizes the each
+and every request for vulnerabilities.</p>
+
+<p>
+</p>
+<p>
+
+<b>ACL: 	</b> <a href="glossary.html#access_control">Access Control</a> Layer
+validates the request parameters and permits the request if it is
+matched with business rules defined for the user&#x2019;s role.</p>
+<p>
+</p>
+<p>
+<b>RESTful API: 	</b>A
+<a href="glossary.html#restful">REST</a>
+
+compliant http interface provides programs for other components /
+browsers interaction.</p>
+<p>
+
+</p>
+<p>	<b><a href="glossary.html#caching">Caching</a>:</b>		A
+in memory storage, for storing/retrieving frequently accessed
+content.</p>
+<p>
+</p>
+<p><b>	Validation:		</b>Validates
+the data either index-able or not.</p>
+
+<p>
+</p>
+<p>	<b>Bean
+Conversion:</b>Transforms the
+XML data into a Java Object.</p>
+
+<p>
+</p>
+<p>	<b>SOLR
+Conversion:</b>	Transforms the
+Java Object into a  <a href="glossary.html#solr">SOLR</a>
+understandable Document.</p>
+
+<p>
+</p>
+<p>	<b><a href="glossary.html#solr">Solr</a>:			</b>An
+open source tool provides API for content searching. 
+</p>
+
+
+     </section>
+    </body>
+</document>

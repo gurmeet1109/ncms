@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!--parent> <groupId>org.terracotta.forge</groupId> <artifactId>forge-parent</artifactId> 
+		<version>2.2</version> </parent -->
+	<groupId>in.nic.cmf</groupId>
+	<version>1.0.0</version>
+	<artifactId>cache</artifactId>
+	<packaging>jar</packaging>
+	<url>http://maven.apache.org</url>
+	<name>cache</name>
+	<description />
+	<distributionManagement>
+		<repository>
+			<id>jboss-releases-repository</id>
+			<name>JBoss Releases Repository</name>
+			<url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
+	<repositories>
+		<!--repository> <id>terracotta-releases</id> <url>http://www.terracotta.org/download/reflector/releases</url> 
+			<releases><enabled>true</enabled></releases> <snapshots><enabled>true</enabled></snapshots> 
+			</repository -->
+		<repository>
+			<id>maven repo</id>
+			<name>maven repo</name>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+		<repository>
+			<id>jboss</id>
+			<name>jboss repo</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.0.0</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		<!--dependency> <groupId>net.sf.ehcache</groupId> <artifactId>ehcache-terracotta</artifactId> 
+			<version>2.3.1</version> </dependency > <dependency> <groupId>org.terracotta</groupId> 
+			<artifactId>terracotta-toolkit-1.1-runtime</artifactId> <version>2.0.0</version> 
+			</dependency -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-jdk14</artifactId>
+			<version>1.5.11</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>in.nic.cmf</groupId>
+			<artifactId>propertyutil</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>in.nic.cmf</groupId>
+			<artifactId>exceptions</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>in.nic.cmf</groupId>
+			<artifactId>logger</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>in.nic.cmf</groupId>
+			<artifactId>contract</artifactId>
+			<version>1.0.0</version>
+		</dependency>		
+		<dependency>
+			<groupId>in.nic.cmf</groupId>
+			<artifactId>convertors</artifactId>
+			<version>1.0.0</version>
+		</dependency>		
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.umlgraph</groupId>
+			<artifactId>doclet</artifactId>
+			<version>5.1</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<resources>
+			<resource>
+				<directory>
+		src/main/resources
+		</directory>
+			</resource>
+		</resources>
+		<plugins>
+
+<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.0-beta-2</version>
+				<configuration>
+					<reportPlugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-javadoc-plugin</artifactId>
+							<version>2.7</version>
+							<configuration>
+								<aggregate>true</aggregate>
+								<source>1.5</source>
+								<breakiterator>true</breakiterator>
+								<charset>UTF-8</charset>
+								<docencoding>UTF-8</docencoding>
+								<locale>en_US</locale>
+								<excludepackagenames>org.exoplatform.services.portletcontainer.test</excludepackagenames>
+								<links>
+									<link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
+									<link>http://java.sun.com/j2ee/sdk_1.2.1/techdocs/api</link>
+									<link>http://commons.apache.org/chain/apidocs</link>
+									<link>http://commons.apache.org/digester/commons-digester-1.6/docs/api</link>
+									<link>http://commons.apache.org/logging/commons-logging-1.1/apidocs</link>
+								</links>
+								<doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
+								<docletArtifact>
+									<groupId>org.umlgraph</groupId>
+									<artifactId>doclet</artifactId>
+									<version>5.1</version>
+								</docletArtifact>
+								<additionalparam>
+									-inferrel -inferdep -quiet -hide java.*
+									-collpackages java.util.*
+									-qualify -postfixpackage -nodefontsize
+									9 -nodefontpackagesize 7
+									-operations -constructors -visibility
+									-types -link
+									http://java.sun.com/j2se/1.5/docs/api -all
+			</additionalparam>
+							</configuration>
+						</plugin>
+
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-jxr-plugin</artifactId>
+							<version>2.1</version>
+							<configuration>
+								<aggregate>true</aggregate>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-report-plugin</artifactId>
+							<version>2.6</version>
+						</plugin>
+						<plugin>
+							<groupId>org.codehaus.mojo</groupId>
+							<artifactId>cobertura-maven-plugin</artifactId>
+							<version>2.4</version>
+							<!--executions> <execution> <goals> <goal>cobertura</goal> </goals> 
+								</execution> </executions> -->
+							<configuration>
+								<formats>
+									<format>xml</format>
+									<format>html</format>
+								</formats>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-checkstyle-plugin</artifactId>
+							<version>2.6</version>
+						</plugin>
+					</reportPlugins>
+				</configuration>
+			</plugin>			
+		</plugins>
+	</build>
+	<!--plugin> <groupId>org.terracotta.maven.plugins</groupId> <artifactId>tc-maven-plugin</artifactId> 
+		<version>1.5.1</version> <executions> <execution> <id>run-integration</id> 
+		<phase>pre-integration-test</phase> <goals> <goal>start</goal> </goals> </execution> 
+		<execution> <id>terminate-integration</id> <phase>post-integration-test</phase> 
+		<goals> <goal>stop</goal> </goals> </execution> </executions> </plugin> <plugin> 
+		<groupId>org.terracotta.maven.plugins</groupId> <artifactId>tc-maven-plugin</artifactId> 
+		<version>1.5.1</version> <executions> <execution> <id>run-integration</id> 
+		<phase>pre-integration-test</phase> <goals> <goal>run-integration</goal> 
+		</goals> </execution> <execution> <id>terminate-integration</id> <phase>post-integration-test</phase> 
+		<goals> <goal>terminate-integration</goal> </goals> </execution> </executions> 
+		</plugin> <plugin> <artifactId>maven-assembly-plugin</artifactId> <configuration> 
+		<descriptorRefs> <descriptorRef>jar-with-dependencies</descriptorRef> </descriptorRefs> 
+		</configuration> <executions> <execution> <id>make-my-jar-with-dependencies</id> 
+		<phase>package</phase> <goals> <goal>single</goal> </goals> </execution> 
+		</executions> </plugin> <plugin> <groupId>org.terracotta.maven.plugins</groupId> 
+		<artifactId>tc-maven-plugin</artifactId> <version>1.6.1</version> </plugin> 
+		</plugins> </build> <pluginRepositories> <pluginRepository> <id>terracotta-snapshots</id> 
+		<url>http://www.terracotta.org/download/reflector/maven2</url> <releases> 
+		<enabled>true</enabled> </releases> <snapshots> <enabled>true</enabled> </snapshots> 
+		</pluginRepository> </pluginRepositories -->
+
+
+</project>

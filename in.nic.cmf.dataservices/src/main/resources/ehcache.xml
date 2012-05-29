@@ -1,0 +1,29 @@
+ <ehcache>
+     <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="30"
+            timeToLiveSeconds="30"
+            overflowToDisk="true"
+            diskSpoolBufferSizeMB="30"
+            maxElementsOnDisk="10000000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="30"
+            memoryStoreEvictionPolicy="LRU"
+            statistics="false"
+            />
+
+    <cache name="nicdefault"
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="30"
+            timeToLiveSeconds="30"
+            overflowToDisk="true"
+            diskSpoolBufferSizeMB="30"
+            maxElementsOnDisk="10000000"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="30"
+            memoryStoreEvictionPolicy="LRU"
+            statistics="false"
+            />
+</ehcache>   

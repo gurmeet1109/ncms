@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Component Id 9 - User Management">
+	<body>
+		<div class="section">
+			<h2>Flow Chart</h2>
+			<p>The following schematic diagram representation dipicts how the different modules of this component are interconnected.</p>
+			
+            <table align="center" class="bodyTable" cellspacing="0" cellpadding="0" border="0">
+<tr class="a">
+<td><b>Algorithm for Serviceclient</b></td><td><b>Flowchart</b></td>
+</tr>
+<tr class="a">
+<td align="left" width="50%"> 
+<b>Step 1. </b>Start <br /><br /><br />
+<b>Step 2. </b>INPUT  - Input Http method name(get,post,delete) and service name on which service which method is called.<br /><br /><br />
+<b>Step 3. </b>If corresponding service url is available in /serviceclient/src/main/resources/services.properties go to step 4 else go to step 7. <br /><br /><br />
+<b>Step 4. </b>Make Http connection to specified service.<br /><br /><br />
+<b>Step 5. </b>Process the request of specified method of service (get,post,delete)then go to step 6<br /><br /><br />
+<b>Step 6. </b>Send the output to the requester.<br /><br /><br />
+<b>Step 7. </b>Generate the Log File. and through the user specific exception.<br /><br /><br />
+<b>Step 8. </b>End<br /><br />
+
+</td>
+
+
+
+	<td>
+		     <img src="images/Service_Client_Flow_Chart.gif" alt="DrawObject" />
+        </td></tr>
+
+<!--<tr class="a">
+<td><b>Algorithm for Role Management</b></td><td><b>Flowchart</b></td>
+</tr>
+<tr class="a">
+<td align="left" width="50%">
+<b>Step 1. </b>Start <br /><br /><br />
+<b>Step 2. </b>INPUT  - Read the access rights from xml file and Input parameters request for role on Browser/Curl for CRUD operation.<br /><br /><br />
+<b>Step 3. </b> Check if input parameter is valid then go to step 4 else go to step 7. <br /><br /><br />
+<b>Step 4. </b>Check for LDAP connection if LDAP server is connected the go step 5 else go to step 7<br /><br /><br />
+<b>Step 5. </b>Process the request of user on LDAP server as well as on XML file then go to step 8<br /><br /><br />
+<b>Step 6. </b>Send the output to the requester.<br /><br /><br />
+<b>Step 7. </b>Generate the Log File. and through the user specific exception.<br /><br /><br />
+<b>Step 8. </b>End<br /><br />
+</td>
+
+
+
+	<td>
+		     <img src="images/RoleManagement_Flow_chart.gif" alt="DrawObject" />
+        </td></tr>
+<tr class="a">
+<td><b>Algorithm for Login</b></td><td><b>Flowchart</b></td>
+</tr>
+<tr class="a">
+<td align="left" width="50%">
+<b>Step 1. </b>Start <br /><br /><br />
+<b>Step 2. </b>INPUT  - Input parameters Use Id and password for login on Browser/Curl.<br /><br /><br />
+<b>Step 3. </b> Check if input parameter is valid then go to step 4 else display error. <br /><br /><br />
+<b>Step 4. </b>Check for LDAP connection if LDAP server is connected then go step 5 else make connection then go step 5<br /><br /><br />
+<b>Step 5. </b>Process the request of user on LDAP server then go to step 6<br /><br /><br />
+<b>Step 6. </b>Make singel signOn and get user rights on the basis of user role then go to step 7.<br /><br /><br />
+<b>Step 7. </b>Send response then go to step 8.<br /><br /><br />
+<b>Step 8. </b>End<br /><br />
+</td>
+	<td>
+		     <img src="images/Login.gif" alt="DrawObject" />
+        </td></tr>-->
+</table>   
+		</div>
+	</body>
+</project>

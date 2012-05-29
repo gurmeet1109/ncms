@@ -1,0 +1,53 @@
+{
+Article: {
+      typeMapping: {
+         Id: 'String',
+         EntityType: 'String',
+         GeoTags: 'Object',
+         Locations: 'Object',
+         Location:'Object',
+         City: 'String',
+         Country: 'String',
+         IsNpiMetadata:'Boolean',
+         Categories:'Object',
+         Category:'List',
+         Property:'String',
+         Properties:'Object',
+         Property1:'List',
+         Property2:'String',
+         Property3:'List',
+         LocationName:'String', 
+         Category1:'List'
+          
+      },
+      fieldMapping: {
+         City: 'GeoTags/Location/City',
+         Country: 'GeoTags/Location/Country',
+         LocationName:'GeoTags/Locations/LocationName',
+         Category:'Categories/C/A/T/E/G/Category',
+         Category1:'Categories/C/A/T/E/G/Category1',
+         Property:'Properties/Prop/Prop1/Prop2/Prop3/Property',
+         Property1:'Properties/Prop/Prop1/Prop2/Property1',
+         Property2:'Properties/Property2',
+         Property3:'Properties/Property3',
+         Lat: 'GeoTags/Location/Lat',
+         Lng: 'GeoTags/Location/Lng',
+         LocationId: 'GeoTags/Location/LocationId',
+         State: 'GeoTags/Location/State',
+         Ip: 'GeoTags/Location/Ip',
+         District: 'GeoTags/Location/District',
+         CurrentUser: 'WorkflowInfo/CurrentUser',
+         CurrentEvent: 'WorkflowInfo/CurrentEvent',
+         User: 'WorkflowInfo/AssignedTo/User',
+         Stage: 'WorkflowInfo/Stage',
+         PossibleEvent: 'WorkflowInfo/PossibleEvents/PossibleEvent',
+         WorkflowComments: 'WorkflowInfo/WorkflowComments',
+         ItemId: 'RelatedItems/RelatedItem/ItemId',
+         ItemEntityType: 'RelatedItems/RelatedItem/ItemEntityType',
+         ItemTitle: 'RelatedItems/RelatedItem/ItemTitle',
+         ItemDescription: 'RelatedItems/RelatedItem/ItemDescription',
+         ItemFilePath: 'RelatedItems/RelatedItem/ItemFilePath',
+         ItemThumbnailPath: 'RelatedItems/RelatedItem/ItemThumbnailPath'
+      }
+   }
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Kalidoss.M</author>
+        <title>Location Services - Deployment Details</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+      <section name="Software Requirements">
+<p><b>Operating System</b></p>
+
+<ol>
+              <li>
+                <p><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Ubuntu Server or Redhat Enterprise Linux will be the base OS for all the VM servers.</span></p></li>
+            </ol>
+<p><b>Languages and Tools</b></p>
+<ol>
+              <li>
+                <p><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Java 1.6</span></p> </li>
+              <li>
+                <p><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Any servlet container application server</span></p> </li>
+              <li>
+                <p><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Geoip.dat embeded open source binary store provided by <a href="http://maxmind.com" >maxmind.com</a></span></p> </li>
+              <li>
+                <p><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">City xmls files store, with defined directory stucture., ie. if city name is chennai, the file should stored as data/c/ch/chennai.xml </span></p> </li>
+            </ol>
+				
+				<h3>Installation</h3>
+				<p><b>Java Installation</b></p>
+				<blockquote>1.	<a href="http://docs.redhat.com/docs/en-US/JBoss_Enterprise_SOA_Platform/5/html/Getting_Started_Guide/appe-install_jdk_rhel.html">Sun Java Developer Kit on Red Hat Enterprise Linux 5</a></blockquote>
+				</section> 
+    </body>
+</document>

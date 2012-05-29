@@ -1,0 +1,426 @@
+{
+"uijson":[{
+ title:'Article',
+ xtype:'formpanel',
+ items:[
+                                                                                             {
+     name :"ImageUrl",
+          xtype:"textfield",
+     fieldLabel : "Enter Image Url",
+                     allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"Title",
+          xtype:"textfield",
+     fieldLabel : "Enter Title",
+                     allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"Description",
+          fieldLabel : "Enter Description",
+     xtype : "htmleditor",  
+     height:200,
+     anchor :'100%',   
+                     allowBlank : true
+         
+},
+
+                                               {
+     name :"ArticleType",
+     fieldLabel : "Enter Article Type",
+     xtype:"combobox",
+	store: Ext.create('Ext.data.Store', {
+	autoLoad: true,
+	pageSize: 10,
+	model: 'ArticleType',
+	proxy: {
+	    type: 'ajax',
+	    url : 'http://localhost/newncms/in.nic.cmf.ui.extjs/src/data/postdata.json',
+	    reader: {
+	        type: 'json',
+	        root:'Collections.ArticleType',
+		totalProperty:'Collections.Count'
+	    }
+	}
+      }),
+     queryMode:"remote",
+     displayField:"Type",
+     emptyText:"Select a ArticleType",
+     allowBlank : true
+         
+}
+                       , { 
+
+     name :"AssociatedIAName",
+            fieldLabel : "Select Associated IA Name",
+               xtype:"combobox",
+               store: Ext.create('Ext.data.Store', {
+		autoLoad: true,
+		pageSize: 10,
+		model: 'InformationArchitecture',
+		proxy: {
+		    type: 'ajax',
+		    url : 'http://localhost/newncms/in.nic.cmf.ui.extjs/src/data/postdata.json',
+		    reader: {
+			type: 'json',
+			root:'Collections.InformationArchitecture',
+			totalProperty:'Collections.Count'
+		    }
+		}
+               }),
+     queryMode:"remote",
+          displayField:"AssociatedIAName",
+     emptyText:"Select a AssociatedIAName",
+                allowBlank : true
+         
+}
+                       ,
+
+                                               {
+     name :"DependentItems",
+          xtype:"textfield",
+     fieldLabel : "Enter Dependent Items",
+                     allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"Status",
+            fieldLabel : "Select Status",
+               xtype:"combobox",
+               store:Ext.create('Ext.data.ArrayStore', {
+                        fields: ["status"],
+                        data : Ext.status // from data.js
+                    }),
+     queryMode:"local",
+          displayField:"status",
+     emptyText:"Select a Status",
+                allowBlank : true
+         
+}
+                       ,
+                                                                                             
+{
+     name :"City",
+          xtype:"textfield",
+     fieldLabel : "Enter the City",
+                     allowBlank : true
+         
+}
+                                                                                                                                                                                                                                                                      ],
+{
+      title:'NPIMetadata',
+       xtype:'formpanel',
+      items:[
+                                 {
+     name :"url",
+          xtype:"textfield",
+     fieldLabel : "Enter URI",
+                     allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"AltURI",
+          xtype:"textfield",
+     fieldLabel : "Enter Alternate URI",
+                     allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"MainTitle",
+          xtype:"textfield",
+     fieldLabel : "Enter Main Title",
+                     allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"AltTitle",
+          xtype:"textfield",
+     fieldLabel : "Enter Alternate Title",
+                     allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"NPIDescription",
+          fieldLabel : "Enter Description",
+     xtype : "htmleditor",  
+     height:200,
+     anchor :'100%',   
+                     allowBlank : true
+         
+}
+                       ,
+                                                                      {
+     name :"Keyword",
+          xtype:"textfield",
+     fieldLabel : "Enter Keyword",
+                     allowBlank : true
+         
+}
+                       ,
+                                                                           {
+     name :"Sector",
+            fieldLabel : "Select Sectors",
+               xtype:"combobox",
+          multiSelect:true,
+               store:this.createStore('Sector', 'Sector', 'Collections.Sector'),
+     queryMode:"remote",
+          displayField:"Sector",
+     emptyText:"Select a Sector",
+                allowBlank : true
+         
+}
+                       ,
+                                                                           {
+     name :"PublisherOrgName",
+            fieldLabel : "Select Organisation",
+               xtype:"combobox",
+          multiSelect:true,
+               store:this.createStore('PublisherOrgName', 'PublisherOrgName', 'Collections.PublisherOrgName'),
+     queryMode:"remote",
+          displayField:"PublisherOrgName",
+     emptyText:"Select a PublisherOrgName",
+                allowBlank : true
+         
+}
+                       ,
+                                                                           {
+     name :"PublisherDepartment",
+            fieldLabel : "Select Department",
+               xtype:"combobox",
+          multiSelect:true,
+               store:this.createStore('PublisherDepartment', 'PublisherDepartment', 'Collections.PublisherDepartment'),
+     queryMode:"remote",
+          displayField:"PublisherDepartment",
+     emptyText:"Select a PublisherDepartment",
+                allowBlank : true
+         
+}
+                       ,
+                                                    {
+     name :"PublisherAddress",
+          xtype:"textfield",
+     fieldLabel : "Enter Publisher Address",
+                     allowBlank : true
+         
+}
+                       ,
+                                                                      {
+     name :"CreatorOrgName",
+            fieldLabel : "Select CreatorOrgName",
+               xtype:"combobox",
+          multiSelect:true,
+               store:this.createStore('CreatorOrgName', 'CreatorOrgName', 'Collections.CreatorOrgName'),
+     queryMode:"remote",
+          displayField:"CreatorOrgName",
+     emptyText:"Select a CreatorOrgName",
+                allowBlank : true
+         
+}
+                       ,
+                                                                           {
+     name :"CreatorDepartment",
+            fieldLabel : "Select Department",
+               xtype:"combobox",
+          multiSelect:true,
+               store:this.createStore('CreatorDepartment', 'CreatorDepartment', 'Collections.CreatorDepartment'),
+     queryMode:"remote",
+          displayField:"CreatorDepartment",
+     emptyText:"Select a CreatorDepartment",
+                allowBlank : true
+         
+}
+                       ,
+                                                    {
+     name :"CreatorAddress",
+          xtype:"textfield",
+     fieldLabel : "Enter Creator address",
+                     allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"Format",
+          xtype:"textfield",
+     fieldLabel : "Enter Format",
+                     allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"LanguageType",
+            fieldLabel : "Select Language Type",
+               xtype:"combobox",
+               store:Ext.create('Ext.data.ArrayStore', {
+                        fields: ["language"],
+                        data : Ext.language // from data.js
+                    }),
+     queryMode:"local",
+          displayField:"language",
+     emptyText:"Select a LanguageType",
+                allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"CreatedDate",
+          fieldLabel : "Select Created Date",
+     xtype : "datefield",
+                     allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"PublishedDate",
+          fieldLabel : "Select Published Date",
+     xtype : "datefield",
+                     allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"ValidDate",
+          fieldLabel : "Select Valid Date",
+     xtype : "datefield",
+                     allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"ModifiedDate",
+          fieldLabel : "Select Modified Date",
+     xtype : "datefield",
+                     allowBlank : true
+         
+}
+                       ,
+                                                                      {
+     name :"Jurisdiction",
+            fieldLabel : "Select Jurisdiction",
+               xtype:"combobox",
+          multiSelect:true,
+               store:this.createStore('Jurisdiction', 'Jurisdiction', 'Collections.Jurisdiction'),
+     queryMode:"remote",
+          displayField:"Jurisdiction",
+     emptyText:"Select a Jurisdiction",
+                allowBlank : true
+         
+}
+                       ,
+                                                                           {
+     name :"District",
+            fieldLabel : "Select District",
+               xtype:"combobox",
+          multiSelect:true,
+               store:this.createStore('District', 'District', 'Collections.District'),
+     queryMode:"remote",
+          displayField:"District",
+     emptyText:"Select a District",
+                allowBlank : true
+         
+}
+                       ,
+                                                                           {
+     name :"Group",
+            fieldLabel : "Select Group",
+               xtype:"combobox",
+          multiSelect:true,
+               store:this.createStore('Group', 'Group', 'Collections.Group'),
+     queryMode:"remote",
+          displayField:"Group",
+     emptyText:"Select a Group",
+                allowBlank : true
+         
+}
+                       ,
+                                                                           {
+     name :"AudienceCategory",
+            fieldLabel : "Select the Audience Category",
+               xtype:"combobox",
+          multiSelect:true,
+               store:this.createStore('AudienceCategory', 'AudienceCategory', 'Collections.AudienceCategory'),
+     queryMode:"remote",
+          displayField:"AudienceCategory",
+     emptyText:"Select a AudienceCategory",
+                allowBlank : true
+         
+}
+                       ,
+                                                                           {
+     name :"CategoryType",
+            fieldLabel : "Select the Category Type",
+               xtype:"combobox",
+          multiSelect:true,
+               store:this.createStore('CategoryType', 'CategoryType', 'Collections.CategoryType'),
+     queryMode:"remote",
+          displayField:"CategoryType",
+     emptyText:"Select a CategoryType",
+                allowBlank : true
+         
+}
+                       ,
+                                                    {
+     name :"ConformsTo",
+          xtype:"textfield",
+     fieldLabel : "Enter Relation ConformsTo",
+                     allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"HasPart",
+          xtype:"textfield",
+     fieldLabel : "Enter Relation HasPart",
+                     allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"IsPartOf",
+          xtype:"textfield",
+     fieldLabel : "Enter Relation IsPartOf",
+                     allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"HasVersion",
+          xtype:"textfield",
+     fieldLabel : "Enter Relation HasVersion",
+                     allowBlank : true
+         
+}
+                       ,
+                                               {
+     name :"IsVersionOf",
+          xtype:"textfield",
+     fieldLabel : "Enter Relation IsVersionof",
+                     allowBlank : true
+         
+}
+                       ,
+                                                                      {
+     name :"Source",
+            fieldLabel : "Select the Source",
+               xtype:"combobox",
+          multiSelect:true,
+               store:this.createStore('Source', 'Source', 'Collections.Source'),
+     queryMode:"remote",
+          displayField:"Source",
+     emptyText:"Select a Source",
+                allowBlank : true
+         
+}
+                                      ]}
+}
+]
+}
+

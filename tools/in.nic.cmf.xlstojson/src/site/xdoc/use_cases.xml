@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Ulaganathan Ramesh</author>
+        <title>Document Management System - Use-Cases</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Use-Cases">
+<p>
+Following use cases describe the component’s behavior as it responds to a series of related requests from the user.
+</p>
+
+<p align="justify" style="margin-bottom: 0cm;"><h3>Use-Case 1</h3></p>
+
+<span style="font-weight: bold;">Description:             </span>
+      Document Upload.<br />
+      <span style="font-weight: bold;">Actor:                     </span>
+      Any Component or Allowed User.<br />
+      <span style="font-weight: bold;">Pre-condition:            </span>Authenticated<br />
+      <span style="font-weight: bold;">Post-condition:</span>         
+      NA<br />
+      <strong>Basic Flows:     </strong>    <br />
+                                            1. User initiates the request to save content or file.
+ <br />
+                                            2. A Component collects the data and sends request to DMS.
+ <br />
+                                            3. DMS collects and stores the data.
+ <br />
+                                            4. The requestor is given back XML or acceptance status.
+ <br />
+
+<p align="justify" style="margin-bottom: 0cm;"><h3>Use-Case 2</h3></p>
+
+<span style="font-weight: bold;">Description:             </span> 
+      Document Download.<br />
+      <span style="font-weight: bold;">Actor:                   </span>  
+      Any Component or Allowed User.<br />
+      <span style="font-weight: bold;">Pre-condition:            </span>Authenticated<br />
+      <span style="font-weight: bold;">Post-condition:</span>         
+      NA<br />
+      <strong>Basic Flows:     </strong>    <br />
+                                            1. User initiates the retrieve request Component.
+ <br />
+                                            2. A Component retrieve the data from storage.
+ <br />
+                                            3. Display or Send the retrieve data to requestor.
+ <br />
+
+
+        </section>
+    </body>
+</document>

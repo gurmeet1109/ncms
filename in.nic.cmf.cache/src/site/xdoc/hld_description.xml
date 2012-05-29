@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Kalidoss.M</author>
+        <title>SearchAPI - HLD Description</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="High Level Design">
+            <p>
+		<b>Objective</b><br/><br/>
+		The purpose of this High Level Design (HLD) Document is to add the necessary detail to
+		the current project description to represent a suitable model for coding. This document is
+		also intended to help detect contradictions prior to coding, and can be used as a reference
+		manual for how the modules interact at a high level.
+	    </p>
+
+	<p><br/>
+	<b>Scope</b> <br/><br/>
+		The HLD documentation presents the structure of the component, application flow (Block diagram) and
+		technology architecture. The HLD uses technical terms, which are hyperlinked to <a href="glossary.html">glossary</a> of terms.
+	 </p>
+        </section>
+    </body>
+</document>

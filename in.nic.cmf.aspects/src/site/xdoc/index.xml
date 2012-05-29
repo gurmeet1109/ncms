@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Logger">
+	<body>
+		<div class="section">
+			<h2>Overview</h2>
+			<p align="justify">
+				The component Logger provides log information for all
+				component.
+			</p>
+		</div>
+
+		<div class="section">
+			<div class="section">
+				<h3>
+					Overview
+					<a name="Overview"></a>
+				</h3>
+				<table align="center" border="0" class="bodyTable">
+					<tr class="a">
+						<th align="left">Document</th>
+						<th align="left">Description</th>
+					</tr>
+					<tr class="b">
+						<td align="left">
+							<b>
+								<a href="index.html">Overview</a>
+							</b>
+						</td>
+						<td align="left">Introduction document.
+						</td>
+					</tr>
+					<tr class="b">
+						<td align="left">
+							<b>High Level Design</b>
+						</td>
+						<td align="left">
+						</td>
+					</tr>
+					<tr class="b">
+						<td align="left">
+							<b>
+								<a href="hld_introduction.html">Introduction</a>
+							</b>
+						</td>
+						<td align="left">Introduction Document.
+						</td>
+					</tr>
+					<tr class="b">
+						<td align="left">
+							<b>
+								<a href="block_diagram.html">Block Diagram</a>
+							</b>
+						</td>
+						<td align="left">The block diagram that dipicts the component's
+							interation in the application flow.
+						</td>
+					</tr>
+					<tr class="b">
+						<td align="left">
+							<b>Low Level Design</b>
+						</td>
+						<td align="left">
+						</td>
+					</tr>
+					<tr class="b">
+						<td align="left">
+							<b>
+								<a href="lld_introduction.html">Introduction</a>
+							</b>
+						</td>
+						<td align="left">Introduction Document.
+						</td>
+					</tr>
+					<tr class="b">
+						<td align="left">
+							<b>
+								<a href="flow_chart.html">Flow Chart</a>
+							</b>
+						</td>
+						<td align="left">The flowchart for RuleEngine.
+						</td>
+					</tr>
+					<tr class="b">
+						<td align="left">
+							<b>
+								<a href="class_diagram.html">Class Diagram</a>
+							</b>
+						</td>
+						<td align="left">The class diagram for RuleEngine.
+						</td>
+					</tr>
+					<tr class="b">
+						<td align="left">
+							<b>
+								<a href="use_cases.html">Use Cases</a>
+							</b>
+						</td>
+						<td align="left">The block diagram for RuleEngine.
+						</td>
+					</tr>
+				</table>
+			</div>
+
+		</div>
+	</body>
+</project>

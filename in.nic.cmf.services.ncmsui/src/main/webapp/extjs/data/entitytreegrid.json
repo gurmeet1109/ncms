@@ -1,0 +1,31 @@
+{"text":".","children": [{
+        treeitem:'Entities',
+        iconCls:'task-folder',
+        children:[
+                              {
+	            treeitem: 'Article',
+	            id:'Article',
+	            iconCls:'task',
+	            leaf:true
+             },
+                                        {
+	            treeitem: 'Gallery',
+	            id:'Gallery',
+	            iconCls:'task',
+	            leaf:true
+             },
+                                        {
+	            treeitem: 'Image',
+	            id:'Image',
+	            iconCls:'task',
+	            leaf:true
+             },
+                                         {
+	            treeitem: 'Video',
+	            id:'Video',
+	            iconCls:'task',
+	            leaf:true
+             }
+                          ]
+    }]
+}

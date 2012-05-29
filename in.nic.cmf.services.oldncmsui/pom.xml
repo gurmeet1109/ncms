@@ -1,0 +1,298 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+<!--   <parent>
+    <artifactId>initial-pom</artifactId>
+    <groupId>in.nic.cmf</groupId>    
+    <version>1.0.0</version>
+  </parent> -->
+  <groupId>in.nic.cmf.services</groupId>
+  <artifactId>ncmsui</artifactId>
+  <packaging>war</packaging>
+  <version>1.0.0</version>
+  <name>in.nic.cmf.services.ncmsui</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+		<java-version>1.6</java-version>
+		<org.springframework-version>3.0.5.RELEASE</org.springframework-version>
+		<org.springframework.roo-version>1.0.2.RELEASE</org.springframework.roo-version>
+	</properties>
+	<!-- Easymock -->
+	 <dependencies>
+	
+		<!-- For RestEasy -->
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>2.1-beta-1</version>
+			</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-spring</artifactId>
+			<version>2.1-beta-1</version>
+		</dependency>
+		<dependency>
+			<groupId>in.nic.cmf</groupId>
+			<artifactId>generate</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxb-provider</artifactId>
+			<version>2.1-beta-1</version>
+		</dependency>
+		<!-- End -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+	<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<distributionManagement>
+
+		<!-- <snapshotRepository> <id>snapshots</id> <url>http://124.7.228.91:8081/archiva/repository/snapshots/</url> 
+			</snapshotRepository> -->
+
+		<repository>
+			<id>jboss-releases-repository</id>
+			<name>JBoss Releases Repository</name>
+			<url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/</url>
+		</repository>
+
+
+	</distributionManagement>
+
+	<!-- Add the Spring Maven Repositories to this project -->
+	<repositories>
+
+       	<repository>
+			<id>my-local-repo</id>
+			<url>file://${basedir}/../in.nic.cmf.dependentjars/lib/</url>
+		</repository>
+		
+		<repository>
+			<id>jboss</id>
+			<name>jboss repo</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+		</repository>
+		
+		<repository>
+			<id>org.springframework.maven.snapshot</id>
+			<name>Spring Maven Snapshot Repository</name>
+			<url>http://maven.springframework.org/snapshot</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		
+		<repository>
+			<id>com.springsource.repository.bundles.release</id>
+			<name>EBR Spring Release Repository</name>
+			<url>http://repository.springsource.com/maven/bundles/release</url>
+		</repository>
+		
+
+	</repositories>
+
+
+	<build>
+	   <finalName>${artifactId}</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.15</version>
+				<configuration>
+					<!-- By default the artifactId is taken, override it with something 
+						simple -->
+					<contextPath>/</contextPath>
+					<scanIntervalSeconds>2</scanIntervalSeconds>
+					<stopKey>foo</stopKey>
+					<stopPort>9999</stopPort>
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>9095</port>
+							<maxIdleTime>60000</maxIdleTime>
+						</connector>
+					</connectors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>start-jetty</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<scanIntervalSeconds>0</scanIntervalSeconds>
+							<daemon>true</daemon>
+						</configuration>
+					</execution>
+					<execution>
+						<id>stop-jetty</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>stop</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.0-beta-2</version>
+				<configuration>
+					<reportPlugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-javadoc-plugin</artifactId>
+							<version>2.7</version>
+							<configuration>
+								<aggregate>true</aggregate>
+								<source>1.5</source>
+								<breakiterator>true</breakiterator>
+								<charset>UTF-8</charset>
+								<docencoding>UTF-8</docencoding>
+								<locale>en_US</locale>
+								<excludepackagenames>org.exoplatform.services.portletcontainer.test</excludepackagenames>
+								<links>
+									<link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
+									<link>http://java.sun.com/j2ee/sdk_1.2.1/techdocs/api</link>
+									<link>http://commons.apache.org/chain/apidocs</link>
+									<link>http://commons.apache.org/digester/commons-digester-1.6/docs/api</link>
+									<link>http://commons.apache.org/logging/commons-logging-1.1/apidocs</link>
+								</links>
+								<doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
+								<docletArtifact>
+									<groupId>org.umlgraph</groupId>
+									<artifactId>doclet</artifactId>
+									<version>5.1</version>
+								</docletArtifact>
+								<additionalparam>
+									-inferrel -inferdep -quiet -hide java.*
+									-collpackages java.util.*
+									-qualify -postfixpackage -nodefontsize
+									9 -nodefontpackagesize 7
+									-operations -constructors -visibility
+									-types -link
+									http://java.sun.com/j2se/1.5/docs/api -all
+								</additionalparam>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-jxr-plugin</artifactId>
+							<version>2.1</version>
+							<configuration>
+								<aggregate>true</aggregate>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-report-plugin</artifactId>
+							<version>2.6</version>
+						</plugin>
+						<plugin>
+							<groupId>org.codehaus.mojo</groupId>
+							<artifactId>cobertura-maven-plugin</artifactId>
+							<version>2.4</version>
+							<!--executions> <execution> <goals> <goal>cobertura</goal> </goals> 
+								</execution> </executions -->
+							<configuration>
+								<formats>
+									<format>xml</format>
+									<format>html</format>
+								</formats>
+							</configuration>
+						</plugin>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-checkstyle-plugin</artifactId>
+							<version>2.6</version>
+						</plugin>
+					</reportPlugins>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.5</version>
+				<executions>
+					<execution>
+						<id>jsonbased</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.basedir.parent}/in.nic.cmf.allwars/</outputDirectory>
+							<ignoreMissingFile>true</ignoreMissingFile>
+							<resources>
+								<resource>
+									<directory>${project.basedir.parent}/in.nic.cmf.services.dataservices/target/</directory>
+									<includes>
+										<include>${artifactId}.war</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+	
+		</plugins>
+	</build>
+</project> 

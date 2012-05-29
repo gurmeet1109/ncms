@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Ulaganathan Ramesh</author>
+        <title>OWASP - Broken Authentication and Session Management</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Definition">
+       <p>Application functions related to authentication and session management are often not implemented correctly, allowing attackers to compromise passwords, keys, session tokens, or exploit implementation flaws to assume other users’ identities.</p>
+</section>
+  <section name="Sample Attack">
+ <div style="color: rgb(79, 129, 189); font-size: 150%;">Example Scenarios</div>
+<p><u>Scenario #1</u>: Airline reservations application supports URL rewriting, putting session IDs in the URL:
+</p>
+<div style="border: 2px dashed rgb(68, 68, 68); background-color: rgb(208, 208, 208); font-family: courier; padding: 4px; margin-left: 20px; margin-right: 20px;">http://example.com/sale/saleitems;<span style="color: red;">jsessionid=2P0OC2JDPXM0OQSNDLPSKHCJUN2JV</span>?dest=Hawaii</div>
+<p>An authenticated user of the site wants to let his friends know about the sale. He e-mails the above link without knowing he is also giving away his session ID. When his friends use the link they will use his session and credit card.
+</p><p><u>Scenario #2</u>: Application’s timeouts aren’t set properly. User uses a public computer to access site. Instead of selecting “logout” the user simply closes the browser tab and walks away. Attacker uses the same browser an hour later, and that browser is still authenticated.
+</p><p><u>Scenario #3</u>: Insider or external attacker gains access to the system’s password database. User passwords are not encrypted, exposing every users’ password to the attacker.
+</p>
+        </section>
+        <section name="How to prevent?">
+	<p>To prevent these types of vulnerabilities from occurring in your application, developers should first ensure that SSL is used for all authenticated parts of the application. In addition, verify that all credentials are stored in a hashed form.</p>
+	<p>As with all prevention methods preventing these vulnerabilities takes careful planning from the design stage of the application. The following should all be considered:</p>
+	<ul>
+	<li>Only use the native session management mechanism. Do not write your own session handlers. Do not use home-grown cookies for authentication or session-management.</li>
+	<li>Use a single authentication mechanism. Again, do not write your own authentication mechanism.</li>
+	<li>Do not allow the login process to happen from an unencrypted page.</li>
+	<li>Once a user authenticates, issue them a new session cookie and invalidate the previous session cookie. This will prevent session hijacking attacks from occurring.</li>
+        <li>Verify that every page of the application has a logout link that is easily identified by the user.</li>
+        <li>Have adequate timeouts for inactive sessions. Shorter is better.</li>
+        <li>Verify the user knows their old password before changing their password.</li>
+        <li>Do not send credentials (including the user name) over insecure channels, such as email.</li>
+        <li>Do not expose session identifiers, such as the session token, in the URL.</li>
+	</ul>
+        </section>
+<section name="Available APIs">
+         <p>
+<a href="apidocs/in/nic/cmf/security/owasp/BrokenAuthenticationSessionManagement.html">Broken Authentication and Session Management</a>	
+	 </p>
+        </section>
+    </body>
+</document>

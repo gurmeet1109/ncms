@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="seplugin">
+	<body>
+		<menu name="Search Engine Plugin">
+			<item name="About" href="index.html"/>
+			<item name="Class Diagram" href="classdiagram.html"/>
+			<item name="Configuration" href="configuration.html"/>
+			<item name="Deployment" href="deployment.html"/>
+			<item name="Execution" href="execution.html"/>
+		</menu>
+	</body>
+</project>

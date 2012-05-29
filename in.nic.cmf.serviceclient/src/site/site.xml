@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd">
+    <bannerLeft>
+        <name>Serviceclient</name>
+    </bannerLeft>
+        <body>
+        <links>
+            <item name="National Portal Of India"/>
+        </links>
+    <menu name="Serviceclient">
+            <item name="Overview" href="index.html"/>
+        </menu>
+        <menu name="High Level Design">
+            <item name="Introduction" href="hld_introduction.html"/>
+            <item name="Block Diagram" href="block_diagram.html"/>
+        </menu>
+        <menu name="Low Level Design">
+            <item name="Introduction" href="lld_introduction.html"/>
+            <item name="Flow Chart" href="flow_chart.html"/>
+            <item name="Class Diagram" href="class_diagram.html"/>
+        <item name="Use Cases" href="use_cases.html"/>
+      
+        </menu>
+       <!-- <menu name="Deployment Details">
+            <item name="Deployment Diagram" href="deploy_doc.html"/>
+            <item name="Explanation Of Deployment" href="deploy_doc.html#Explanation_of_Deploy_Diagram"/>
+            <item name="Diagram" href="deploy_doc.html#Deploy_Diagram"/>
+        <item name="Deliverables" href="deploy_doc.html#Deliverables"/>
+        <item name="Software Requirements" href="deploy_doc.html#Software_Requirements"/>
+        <item name="Installation" href="deploy_doc.html#Installation"/>
+        <item name="Execution" href="deploy_doc.html#Execution"/>
+        </menu>-->
+        <menu name="References">
+        <item name="Glossary" href="glossary.html"/>
+        </menu>
+    <menu ref="reports"/>
+    </body>
+</project> 

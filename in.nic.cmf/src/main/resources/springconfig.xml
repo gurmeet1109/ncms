@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:oxm="http://www.springframework.org/schema/oxm" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+				http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-3.0.xsd 
+				http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+				http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<context:component-scan base-package="in.nic.cmf">
+		<context:include-filter type="annotation"
+			expression="javax.ws.rs.ext.Provider" />
+	</context:component-scan>
+
+	<import resource="classpath:springmvc-resteasy.xml" />
+
+	<!-- Auth Aspect -->
+
+	<!--<bean id="authAspectHelper" class="in.nic.cmf.util.AuthAspectHelper"/> -->
+	<bean id="authAspect" class="in.nic.cmf.aspects.authentication.AuthAspect"
+		scope="prototype" />
+
+	<bean id="authAspectHelper" class="in.nic.cmf.util.AuthAspectHelper"
+		factory-method="getInstanceof">
+		<constructor-arg index="0" type="java.lang.String"
+			name="domain" value="" />
+	</bean>
+
+	<!-- <aop:config proxy-target-class="true">
+		<aop:aspect ref="authAspect">
+			<aop:before method="authEntry"
+				pointcut="execution(* in.nic.cmf.services.CMFControllerImpl.*(..))" />
+		</aop:aspect>
+	</aop:config> -->
+
+
+	<!-- cache aspect 
+
+	<bean id="cacheAspect" class="in.nic.cmf.aspects.cache.CacheAspect"
+		scope="prototype">
+		<constructor-arg index="0" type="java.lang.String"
+			name="domain" value="" />
+	</bean>
+
+
+	<bean id="ehCache" class="in.nic.cmf.cache.EHCache"
+		factory-method="getInstanceof">
+		<constructor-arg index="0" type="java.lang.String"
+			name="domain" value="" />
+	</bean>
+
+
+	<aop:config proxy-target-class="true">
+		<aop:aspect ref="cacheAspect">
+			<aop:around
+				pointcut="execution(* in.nic.cmf.services.CMFControllerImpl.*(..))"
+				method="cacheAroundAdvice" />
+		</aop:aspect>
+	</aop:config>
+
+-->
+	<!-- cache burster aspect -->
+
+	<!-- <bean id="cacheBursterAspect" class="in.nic.cmf.aspects.cacheburster.CacheBursterAspect" 
+		scope="prototype"> </bean> <bean id="cacheBurster" class="in.nic.cmf.cacheburster.CacheBursterService" 
+		factory-method="getInstanceOf"> <constructor-arg index="0" type="java.lang.String" 
+		name="domain" value="" /> </bean> <aop:config proxy-target-class="true"> 
+		<aop:aspect ref="cacheBursterAspect"> <aop:after pointcut="execution(* in.nic.cmf.services.CMFControllerImpl.get*(..))" 
+		method="cacheBursterGetEntry" /> <aop:after pointcut="execution(* in.nic.cmf.services.CMFControllerImpl.post*(..))" 
+		method="cacheBursterPostEntry" /> <aop:after pointcut="execution(* in.nic.cmf.services.CMFControllerImpl.delete*(..))" 
+		method="cacheBursterDeleteEntry" /> </aop:aspect> </aop:config> -->
+
+	<bean id="log" class="in.nic.cmf.logger.LogTracer">
+		<constructor-arg index="0" type="java.lang.String"
+			name="domain" value="" />
+		<constructor-arg index="1" type="java.lang.String"
+			name="loggerName" value="genericservice" />
+	</bean>
+
+
+	<!-- <bean id="log" class="in.nic.cmf.logger.LogTracer"> <constructor-arg 
+		index="0" type="java.lang.String" name="loggerName" value="genericservice" 
+		/> </bean> <bean id="serviceFactory" class="in.nic.cmf.helper.ServiceFactory"> 
+		<property name="logTracer" ref="log" /> </bean> -->
+</beans>

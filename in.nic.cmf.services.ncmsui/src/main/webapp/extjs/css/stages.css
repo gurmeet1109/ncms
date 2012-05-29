@@ -1,0 +1,39 @@
+.Forwarded-row-background-class .x-stage-cell{   
+     background-color:#FCE7FA !important;    
+     background-image: none !important;
+}
+
+.Approved-row-background-class .x-stage-cell{   
+     background-color:#E7F1FC !important;    
+     background-image: none !important;
+}
+
+.Moderated-row-background-class .x-stage-cell{   
+     background-color:#FCF9E9 !important;    
+     background-image: none !important;
+}
+
+.Published-row-background-class .x-stage-cell{   
+     background-color:#EFFFF0 !important;    
+     background-image: none !important;
+}
+
+.Deleted-row-background-class .x-stage-cell{   
+     background-color:#E1F6F9 !important;    
+     background-image: none !important;
+}
+
+.Rejected-row-background-class .x-stage-cell{   
+     background-color:#F6DCE0 !important;    
+     background-image: none !important;
+}
+
+.Expired-row-background-class .x-stage-cell{   
+     background-color:#E4BBFB !important;    
+     background-image: none !important;
+}
+
+.Archived-row-background-class .x-stage-cell{   
+     background-color:#E4E1E1 !important;    
+     background-image: none !important;
+}

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Kalidoss.M</author>
+        <title>Feed Processor - Glossary</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Glossary">
+
+<h3 style="font-weight: normal;" class="western"><a name="access_control"></a> Access control</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">A security service that regulates the use of system resources according to a security policy and permits their use only by authorized entities (users, programs, processes, or other systems in a network). Firewalls are often referred to as access control devices between networks.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="alchemy_extractor"></a> Alchemy Extractor</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Alchemy Extractor is a free online web-service providing meta-data extraction from any given content. It provides meta-data like Personalities, Locations, Events, Keywords / Tags…</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="analytics"></a> Analytics</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">The process of gathering and analyzing web server logs so as to monitor metrics such as visitor numbers, page views, regency, loyalty and bounce rates.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 class="western"><a name="asynchronous"></a>Asynchronous</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Asynchronous operation means that a process operates independently of other processes, whereas synchronous operation means that the process runs only as a result of some other process being completed or handing off operation.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="audit_trail"></a> Audit Trail</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">A record showing who has accessed a computer system and what operations he or she has performed during a given period of time. Audit trails are useful both for maintaining security and for recovering lost transactions. Most accounting systems and database management systems include an audit trail component. In addition, there are separate audit trail software products that enable network administrators to monitor use of network resources.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="authentication"></a> Authentication</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Authentication is the process of determining whether someone or something is, in fact, who or what it is declared to be. In private and public computer networks (including the Internet), authentication is commonly done through the use of logon passwords.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="bpmn"></a>BPMN</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Business Process Modeling Notation (</span><span style="font-weight: bold; font-family: Arial,sans-serif;">BPMN</span><span style="font-family: Arial,sans-serif;">) is a method of illustrating business processes in the form of a diagram similar to a flowchart.</span></p>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="bookmarking_sites"></a> Bookmarking Sites</h3>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Social bookmarking sites are a popular way to store, classify, share and search links through the practice of folksonomy (an Internet-based information retrieval methodology consisting of collaboratively generated, open-ended labels that categorize content such as Web pages, online photographs, and Web links) techniques on the Internet.</span></p>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="caching"></a> Caching</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">A fast temporary storage where most recent or most frequent values are stored to avoid having to reload from a slower storage medium.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="component"></a> Component</h3>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">A software component is a unit of composition with contractually specified interfaces and explicit context dependencies only. A software component can be deployed independently and is subject to composition by third parties</span></p>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="container"></a> Container</h3>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">A container is a class, a data structure, or an abstract data type (ADT) whose instances are collections of other objects. In other words; They are used to store objects in an organized way following specific access rules</span></p>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a href="crawler"></a>Crawler</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">A "robot" or "crawler" that goes to every page or representative pages on a Web site, or the whole Web, and creates an index; or, a program that receives your search request, compares it to the entries in the index, and returns results to you.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="crud"></a>CRUD</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Create, Read, Update and Delete (CRUD) are the four basic functions of persistent storage.</span><span style="text-decoration: underline; color: rgb(0, 0, 128);"><a href="http://en.wikipedia.org/wiki/CRUD_%28acronym%29#cite_note-0"><sup><span style="font-family: Arial,sans-serif;">[1]</span></sup></a></span><span style="font-family: Arial,sans-serif;"> Sometimes </span><span style="font-style: italic; font-family: Arial,sans-serif;">CRUD</span><span style="font-family: Arial,sans-serif;"> is expanded with the words </span><span style="font-style: italic; font-family: Arial,sans-serif;">retrieve</span><span style="font-family: Arial,sans-serif;"> instead of </span><span style="font-style: italic; font-family: Arial,sans-serif;">read</span><span style="font-family: Arial,sans-serif;"> or </span><span style="font-style: italic; font-family: Arial,sans-serif;">destroy</span><span style="font-family: Arial,sans-serif;"> instead of </span><span style="font-style: italic; font-family: Arial,sans-serif;">delete</span><span style="font-family: Arial,sans-serif;">. It is also sometimes used to describe user interface conventions that facilitate viewing, searching, and changing information; often using computer-based forms and reports. The term was likely first popularized by James Martin in a 1983 book titled "Managing the Data-base Environment".</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 class="western"><a name="curl"></a>CURL</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">cURL is a computer software project providing a library and command-line tool for transferring data using various protocols. The cURL project produces two products, libcurl and cURL</span></p><br />
+
+<h3 style="font-weight: normal;" class="western"><a name="distributed_cache"></a> Distributed Cache</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">In-memory distributed caching is a form of caching that allows the cache to span multiple servers so that it can grow in size and in transactional capacity.</span></p><br />
+
+<h3 style="font-weight: normal;" class="western"><a name="momain_model"></a> Domain Model</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">A domain model is </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">a conceptual model of a domain of interest which describes the various entities, their attributes and relationships, plus the constraints that govern the integrity of the model elements comprising that problem domain</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="drools"></a> Drools</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Drools is a business rule management system (BRMS) with a forward chaining inference based rules engine, more correctly known as a production rule system, using an enhanced implementation of the Rete algorithm.<br />
+    </span><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="drools_guvnor"></a> Drools Guvnor</h3>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><a name="_LDAP"></a> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Drools Guvnor</span><span style="font-family: Arial,sans-serif;"> is a centralized repository for Drools Knowledge Bases, with rich web based GUIs, editors, and tools to aid in the management of large numbers of rules. As you know, Drools allows you to create executable knowledge bases. The repository component is where you can store versions of rules, models, functions, processes etc that all relate to these knowledge bases. Access is controlled, and it is possible to lock down access and restrict features so domain experts (non programmers) can view and edit rules without being exposed to all the features at once.</span></p> <br />
+
+<h3 class="western"><a name="extendable"></a>Extendable</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Extensibility</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">is a system design</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">principle where the implementation takes into consideration future growth. It is a systemic measure of the ability to extend a</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">system</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">and the level of effort required to implement the extension. Extensions can be through the addition of new functionality or through modification of existing functionality. The central theme is to provide for change while minimizing impact to existing system functions.</span></p>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="ehcache"></a> EHCache</h3>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;">Ehcache is an open source, standards-based cache used to boost performance, offload the database and simplify scalability. Ehcache is robust, proven and full-featured, which has made it the most popular Java-based cache with 100,000’s of production deployments.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="esb"></a>ESB</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="font-size: 10pt; color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Enterprise Service Bus is an Universal Integration Backbone. An ESB acts as a shared messaging layer for connecting applications and other services throughout an enterprise computing infrastructure. It supplements its core asynchronous messaging backbone with intelligent transformation and routing to ensure messages are passed reliably. Services participate in the ESB using either web services messaging standards or the Java Message System (JMS). Originally defined by analysts at Gartner, ESB is increasingly seen as a core component in a service-oriented infrastructure.</span></p>
+<h3 style="font-weight: normal;" class="western"><a name="framework"></a> Framework</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">A set of software (compile/run-time elements, libraries, tools, services), documentation, policies, procedures, that supports the implementation of technology specific higher level software elements.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 class="western"><a name="high_available"></a>High Available</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">High availability</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">is a</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="text-decoration: underline; color: rgb(0, 0, 128);"><a href="http://en.wikipedia.org/wiki/System_design"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">system design</span></a></span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">approach and associated service implementation that ensures a prearranged level of operational performance will be met during a contractual measurement period.</span></p> <br />
+
+<h3 style="font-weight: normal;" class="western"><a href="java_coding"></a>Java Coding Standards</h3>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span></p>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-family: Arial,sans-serif;">This </span><span style="font-style: italic; font-family: Arial,sans-serif;">Code </span><span style="font-style: italic;"><span style="font-style: normal; font-family: Arial,sans-serif;">Conventions for the Java Programming Language</span></span><span style="font-style: italic; font-family: Arial,sans-serif;"> </span><span style="font-family: Arial,sans-serif;">document contains the standard conventions that we at Sun follow and recommend that others follow. It covers filenames, file organization, indentation, comments, declarations, statements, white space, naming conventions etc. </span><span style="text-decoration: underline; color: rgb(0, 0, 128);"><a href="http://www.oracle.com/technetwork/java/codeconv-138413.html"><span style="font-family: Arial,sans-serif;">more</span></a></span><span style="color: rgb(0, 0, 0);"> </span> </p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 class="western"><a name="marshalling"></a>Marshalling</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><a name="_Service_Oriented_Architecture_(SOA)"></a> <span style="font-family: Arial,sans-serif;">Marshalling</span><span style="font-family: Arial,sans-serif;"> the process of transforming the memory representation of an object to a data format suitable for storage or transmission.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 class="western"><a name="maven"></a>Maven</h3>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-family: Arial,sans-serif;">Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information.</span></p>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm;"><br />
+   </p>
+<h3 class="western"><a name="memcache"></a>Memcache</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Memcache</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> or </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Memcached </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">is a general-purpose distributed</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">memory caching</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">system or </span><span style="color: rgb(51, 51, 51); font-family: Arial,sans-serif;">an in-memory key-value store for small chunks of arbitrary data (strings, objects) from results of database calls, API calls, or page rendering.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="meta_data"></a> Meta Data</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Literally, "data about data," metadata includes data associated with either an information system or an information object for purposes of description, administration, legal requirements, technical functionality, use and usage, and preservation.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="meta data_repository"></a> Meta Data Repository</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">A metadata repository is a collection of information that documents databases. It tells what data we have, where they are located, what they mean, who collects the data, who is responsible for the data quality and how to get access to the data. A good metadata repository would work like a card catalog system for a library—helping you to inventory, organize research and easily find your information assets and application components.</span></p>
+<h3 style="font-weight: normal;" class="western"><a name="meta data_replication"></a>Meta Data Replication</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="font-size: 12pt;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;">Meta Data replication is the frequent electronic copying</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;">data</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;">from a database in one computer or</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;">server</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;">to a database in another so that all users share the same level of information. The result is a</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;">distributed database</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;">in which users can access data relevant to their tasks without interfering with the work of others. The implementation of Meta Data replication for the purpose of eliminating data ambiguity or inconsistency among users is known as</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;">normalization</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;">.</span></span></p>
+
+<h3 class="western"><a name="mime_type"></a>MIME Type</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif; font-size: 10pt;">MIME stands for Multi-purpose Internet Mail Extensions. MIME types form a standard way of classifying file types on the Internet. Internet programs such as Web servers and browsers all have a list of MIME types, so that they can transfer files of the same type in the same way, no matter what operating system they are working in.</span></p>
+
+<h3 style="font-weight: normal;" class="western"><a name="multilingual"></a>Multilingual</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-family: Arial,sans-serif;">An application that can simultaneously display and manipulate text in multiple languages. For example, a word processor that allows Hindi and Tamil in the same document is multilingual.</span></p>
+<h3 style="font-weight: normal;" class="western"><a name="multi-tenancy"></a>Multi-Tenancy</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-family: Arial,sans-serif;">Multi-tenancy is an architecture in which a single instance of a software application serves multiple customers. Each customer is called a tenant. Tenants may be given the ability to customize some parts of the application, such as color of the user interface (UI) or business rules, but they cannot customize the application's code.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="layered_architecture"></a> Layered Architecture</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">A technique used in designing computer software, hardware, and communications in which system or network components are isolated in layers so that changes can be made in one layer without affecting the others.</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"><br />
+    </span><br />
+   </p> <h3 style="font-weight: normal;" class="western"><a name="ldap"></a> LDAP</h3>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-family: Arial,sans-serif;">Lightweight Directory Access Protocol. A typical LDAP server is a simple network-accessible database where an organization stores information about its authorized users and what privileges each user has. Thus, rather than create a new employee account on 50 different computers, the new employee is entered into LDAP and granted rights to those 50 systems. If the employee leaves, revoking all privileges is as simple as removing one entry in the LDAP directory. LDAP is a bit confusing because original implementations were presented as alternatives to the Web and the relational database management system. Nowadays many LDAP servers are implemented using standard RDBMSes underneath, and they talk to the rest of the world via XML documents served over HTTP.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="life_cycle"></a> Life cycle</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">The phases a software product goes through between when it is conceived and when it is no longer available for use. The software life-cycle typically includes the following:</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">requirements analysis,</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">design, construction, testing (validation), installation, operation, maintenance, and retirement.</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="life_cycle_management"></a> Life cycle management</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-weight: bold; font-family: Arial,sans-serif;">Lifecycle management</span><span style="font-family: Arial,sans-serif;"> is the process of managing the entire lifecycle of a product from its conception, through design and manufacture, to service and disposal.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="loosely_coupled"></a> Loosely Coupled</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Service-Oriented Architectures are built using a loosely coupled approach, where a change in one service does not require changes in linked services.</span></p>
+<h3 class="western">Open Social</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-weight: bold; font-family: Arial,sans-serif;">OpenSocial</span><span style="font-family: Arial,sans-serif;"> is a set of common application programming interfaces (APIs) for web-based social network applications, developed by Google along with MySpace and a number of other social networks.</span></p>
+<p style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="owsap"></a>OWASP</h3>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-family: Arial,sans-serif;">The Open Web Application Security Project (OWASP) is an open-source application security project. The OWASP community includes corporations, educational organizations, and individuals from around the world.</span></p>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm;"><br />
+   </p>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-family: Arial,sans-serif;">OWASP top 10 vulnerabilities.</span></p>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-weight: bold;"><span style="font-weight: normal; font-family: Arial,sans-serif;">A1 – Injection<br />
+      A2 – Cross Site Scripting (XSS)<br />
+      A3 – Broken Authentication and Session Management<br />
+      A4 – Insecure Direct Object References<br />
+      A5 – Cross Site Request Forgery (CSRF)<br />
+      A6 – Security Misconfiguration(NEW)<br />
+      A7 – Failure to Restrict URL Access<br />
+      A8 – Invalidated Redirects and Forwards (NEW)<br />
+      A9 – Insecure Cryptographic Storage<br />
+      A10 – Insufficient Transport Layer Protection</span></span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="restful"></a> Restful</h3>
+<p style="margin-left: 1.27cm; margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="font-size: 12pt;"><span style="font-family: Arial,sans-serif; font-size: 10pt;">Representational State Transfer</span><span style="font-family: Arial,sans-serif; font-size: 10pt;"> (</span><span style="font-family: Arial,sans-serif; font-size: 10pt;">REST</span><span style="font-family: Arial,sans-serif; font-size: 10pt;">) is a style of software architecture for distributed hypermedia systems such as the World Wide Web. The term </span><span style="font-family: Arial,sans-serif;"><span style="font-style: italic; font-size: 10pt;">Representational State Transfer</span></span><span style="font-family: Arial,sans-serif; font-size: 10pt;"> was introduced and defined in 2000 by Roy Fielding in his doctoral dissertation. Fielding is one of the principal authors of the Hypertext Transfer Protocol (HTTP) specification versions 1.0 and 1.1. Conforming to the REST constraints is referred to as being ‘RESTful’.</span></span></p>
+<h3 style="font-weight: normal;" class="western"><a name="RSS"></a>RSS</h3>
+<p style="margin-left: 1.27cm; margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="font-size: 12pt;"><span style="font-family: Arial,sans-serif;"><span style="font-weight: bold; font-size: 10pt;">RSS</span></span><span style="font-family: Arial,sans-serif; font-size: 10pt;"> (most commonly expanded as </span><span style="font-family: Arial,sans-serif;"><span style="font-weight: bold; font-size: 10pt;">Really Simple Syndication</span></span><span style="font-family: Arial,sans-serif; font-size: 10pt;">) is a family of web feed formats used to publish frequently updated works—such as blog entries, news headlines, audio, and video—in a standardized format</span></span></p>
+<h3 class="western"><a name="sso"></a>Single Sign-On (SSO)</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Single sign-on (SSO) is a</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">session/user</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">authentication</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">process that permits a user to enter one name and password in order to access multiple applications. The process authenticates the user for all the applications they have been given rights to and eliminates further prompts when they switch applications during a particular session.</span></p>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">A MIME type has two parts: a type and a subtype. They are separated by a slash (</span><span style="color: rgb(0, 0, 0);"><span style="font-weight: bold; font-family: Arial,sans-serif;">/</span></span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">). For example, the MIME type for Microsoft Word files is</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">application </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">and the subtype is</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">msword</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">. Together, the complete MIME type is </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">application/msword</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 class="western"><a name="soa"></a>Service Oriented Architecture (SOA)</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"><br />
+    </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">A system for linking resources on demand. In an SOA, resources are made available to other participants in the network as independent services that are accessed in a standardized way. This provides for more flexible loose coupling of resources than in traditional systems architectures.</span></p>
+<h3 style="font-weight: normal;" class="western"><a name="solr"></a>Solr</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-family: Arial,sans-serif;">Solr is the popular, blazing fast open source enterprise search platform from the Apache Lucene project. Its major features include powerful full-text search, hit highlighting, faceted search, dynamic clustering, database integration, and rich document (e.g., Word, PDF) handling. Solr is highly scalable, providing distributed search and index replication, and it powers the search and navigation features of many of the world's largest internet sites.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="subversion"></a> Subversion</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-family: Arial,sans-serif;">Apache Subversion</span><span style="font-family: Arial,sans-serif;"> (often abbreviated </span><span style="font-family: Arial,sans-serif;">SVN</span><span style="font-family: Arial,sans-serif;">, after the command name </span><span style="font-style: italic; font-family: Arial,sans-serif;">svn</span><span style="font-family: Arial,sans-serif;">) is a software versioning and a revision control system founded and sponsored in 2000 by CollabNet Inc. Developers use Subversion to maintain current and historical versions of files such as source code, web pages, and documentation. Its goal is to be a mostly-compatible successor to the widely used Concurrent Versions System (CVS).</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="tika"></a>TIKA</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-family: Arial,sans-serif;">Apache Tika™ is a toolkit for detecting and extracting metadata and structured text content from various documents using existing parser libraries.</span></p>
+
+<h3 class="western"><a name="un-marshalling"></a><span style="font-weight: normal;">Un-Marshalling</span></h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-family: Arial,sans-serif;">Un Marshalling</span><span style="font-family: Arial,sans-serif;"> the process of transforming the physical storage file content to the memory representation of an object.</span></p>
+
+<h3 style="font-weight: normal;" class="western"><a name="versioning"></a>Versioning</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-family: Arial,sans-serif;">A </span><span style="font-family: Arial,sans-serif;">versioning file system</span><span style="font-family: Arial,sans-serif;"> is any computer file system which allows a computer file to exist in several versions at the same time. Thus it is a form of revision control. Most common versioning file systems keep a number of old copies of the file.</span></p>
+<p align="JUSTIFY" style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="web_service"></a> Web Service</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-family: Arial,sans-serif;">Describes a standardized way of integrating Web-based applications using the XML, SOAP, WSDL and UDDI open standards over an Internet protocol backbone.</span></p>
+<p style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="widget"></a> Widget</h3>
+<p style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Widget is an element of a graphical user interface (</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">gui</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">) that displays information or provides a specific way for a user to interact with the application</span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> </span><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">. Widgets include icons, pull-down menus, buttons, selection boxes, progress indicators, on-off checkmarks, scroll bars, windows, window edges (that let you resize the window), toggle buttons, forms, and many other devices for displaying information and for inviting, accepting, and responding to user actions</span></p>
+<p style="margin-bottom: 0cm;"><br />
+   </p>
+<h3 style="font-weight: normal;" class="western"><a name="work_flow"></a> Work flow</h3>
+<p align="JUSTIFY" style="margin-left: 1.27cm; margin-bottom: 0cm;"><span style="font-family: Arial,sans-serif;">A </span><span style="font-weight: bold; font-family: Arial,sans-serif;">workflow</span><span style="font-family: Arial,sans-serif;"> consists of a sequence of connected steps. It is a depiction of a sequence of operations, declared as work of a person, a group of persons,</span><span style="text-decoration: underline; color: rgb(0, 0, 128);"><a href="http://en.wikipedia.org/wiki/Workflow#cite_note-0"><sup><span style="font-family: Arial,sans-serif;">[1]</span></sup></a></span><span style="font-family: Arial,sans-serif;"> an organization of staff, or one or more simple or complex mechanisms. Workflow may be seen as any abstraction of real work. For control purposes, workflow may be a view on real work under a chosen aspect, thus serving as a virtual representation of actual work. The flow being described often refers to a document that is being transferred from one step to another.</span></p>
+<h1 style="margin-left: 0cm; text-indent: 0cm;" class="western"></h1> 
+        </section>
+    </body>
+</document>

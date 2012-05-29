@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+	<properties>
+		<author>Premananda</author>
+		<title>User Management - Deployment Details</title>
+	</properties>
+	<meta name="keyword" content="monitoring, java" />
+	<body>
+		<section name="Deployment Details">
+			<h3>Deployment Diagram</h3>
+			<p>The below Deployment Diagram provides an overview of the software
+				deliverables of a particular service component.</p>
+			<a name="Deploy_Diagram"></a><img src="images/UserManagement_DeploymentDiagram.png" />
+			<h3><a name="Explanation_of_Deploy_Diagram"></a>Explanation of Deploy Diagram</h3>
+			<blockquote>
+				<li type="disc">Web Container</li>
+			</blockquote>
+			<blockquote>
+				<blockquote>Any Web/Application Server component like Jetty, Tomcat,
+					Oracle AS, WebLogic, WebSphere, etc. to deploy and manage the web
+					applications.</blockquote>
+			</blockquote>
+			<blockquote>
+				<li type="disc">webapps</li>
+			</blockquote>
+			<blockquote>
+				<blockquote>A folder inside the web containner on which web
+					applications are deployed.</blockquote>
+			</blockquote>
+
+			<blockquote>
+				<li type="disc">usermanagement.war</li>
+			</blockquote>
+			<blockquote>
+				<blockquote>An usermanagement war file will be delivered after
+					completion of the development phase. A WAR file (which stands for
+					"web application archive" ) is a compressed file format for storing
+					all the resources required to install and run a Web application in
+					a single file.</blockquote>
+			</blockquote>
+
+			<blockquote>
+				<li type="disc">REST Servlet</li>
+			</blockquote>
+			<blockquote>
+				<blockquote>This is a central servlet which intializes REST
+					application and accepts web services API as request to generate
+					response.</blockquote>
+			</blockquote>
+			<p>
+				<h3 style="font-weight: normal;" class="western"><a name="Deliverables"></a>Deliverables</h3>
+				<p>The deliverables for the User Management API consist of just one
+					file called usermanagement.war, Function_Specification.doc</p>
+				<p>
+					This file conforms to the Java Web Application Archive format,
+					which is and contains all of the code and resources that reside on
+					the application server in a single deployable package. Information
+					about war files can be found at this URL:
+					<a
+						href="http://java.sun.com/j2ee/tutorial/1_3-fcs/doc/WebComponents3.html">http://java.sun.com/j2ee/tutorial/1_3-fcs/doc/WebComponents3.html
+					</a>
+				</p>
+			</p>
+
+			<h3 style="font-weight: normal;" class="western"><a name="Software_Requirements"></a>Software Requirements</h3>
+			<p>
+				<b>Operating System</b>
+			</p>
+			<p>
+				<span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Ubuntu Server or Redhat Enterprise Linux will be
+					the base OS for all the VM servers.</span>
+			</p>
+			<p>
+				<b>Languages and Tools</b>
+			</p>
+			<ol>
+				<li>
+					<p>
+						<span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Sun Jdk 1.6.</span>
+					</p>
+				</li>
+				<li>
+					<p>
+						<span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">OpenLDAP 2.4 Software.</span>
+					</p>
+				</li>
+
+				<li>
+					<p>
+						<span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Apache Tomcat 5.5 or later version </span>
+					</p>
+				</li>
+				<li>
+					<p>
+						<span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Curl</span>
+					</p>
+				</li>
+
+			</ol>
+			<h3 style="font-weight: normal;" class="western"><a name="Installation"></a>Installation</h3>
+			<p>
+				<b>OpenLDAP Installation</b>
+			</p>
+
+			<p>
+				<ol style="list-style-type: decimal">
+					<li>
+						<a class="externalLink" href="http://www.tldp.org/HOWTO/html_single/LDAP-HOWTO/">Making and Installing the OpenLDAP
+							</a>
+					</li>
+				</ol>
+			</p>
+
+			<h3 style="font-weight: normal;" class="western"><a name="Execution"></a>Execution</h3>
+			<p>
+				<b>Configuration of Build Properties</b>
+			</p>
+
+			<p>
+				<b>1. usermanagement.properties</b>
+			</p>
+
+			<p>
+				<blockquote>
+					<blockquote>Edit the file usermanagement.properties as follows:
+					</blockquote>
+				</blockquote>
+			</p>
+
+			<p>
+				<blockquote>
+					<blockquote>Change the value of key 'xmlfolder' according to the
+						location of folder in which all website URLs will be stored in an
+						XML file (Default: /var/www).</blockquote>
+				</blockquote>
+			</p>
+
+			<p>
+				<blockquote>
+					<blockquote>Change the value of 'ldaphost' according to the desire
+						OpenLDAP server.</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Restart Tomcat.</blockquote>
+				</blockquote>
+			</p>
+
+			<p>
+				<b>Execution of Web Services:</b>
+			</p>
+			<!-- Rights (Start) -->
+			<p>
+				<b>1. Rights API</b>
+			</p>
+
+			<p>
+				<blockquote>
+					<blockquote>#1 Create:</blockquote>
+				</blockquote>
+			</p>
+
+			<p>
+				<blockquote>
+					<blockquote> Request API:
+						http://localhost:8080/usermanagement/accessControl</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote> Description: This API is used to delete Right.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote> Method: GET</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote> Roles: Any authenticated and authorized user.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Parameter: Access Right,Explanation,Short Name
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote> Response: success or failure page .</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote> Usage: Right Addition.</blockquote>
+				</blockquote>
+			</p>
+
+
+			<p>
+				<blockquote>
+					<blockquote>#2 Delete </blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Request API:
+						http://localhost:8080/usermanagement/deleteaccesscontrolui
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Description: This API is used to delete Right.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Method: GET</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Roles: Any authenticated and authorized user.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Parameter: Access Rights.</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Response: success or failure page.</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Usage : Right Deletion</blockquote>
+				</blockquote>
+			</p>
+
+			<p>
+				<blockquote>
+					<blockquote>#3 Update</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Request API:
+						http://localhost:8080/usermanagement/updateaccesscontrolui
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Description: This API is used to Update Right.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Method: GET</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Roles: Any authenticated and authorized user.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Parameter: Access Rights.</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Response: success or failure page.</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Usage : Update Right.</blockquote>
+				</blockquote>
+			</p>
+
+
+			<p>
+				<blockquote>
+					<blockquote>#4 Read or View
+						Request API:
+						http://localhost:8080/usermanagement/viewaccesscontrolui
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>
+						Description: This API is used to view Rights.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Method: GET</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Roles: Any authenticated and authorized user.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Parameter: Access Rights.</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Response: success or failure page.</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Usage : Used for Rights View.</blockquote>
+				</blockquote>
+			</p>
+			<!-- Rights (End) -->
+			<!-- Role (Start) -->
+			<p>
+				<b>2. Role API</b>
+			</p>
+
+
+			<p>
+				<blockquote>
+					<blockquote>#1 Create</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Request API:
+						http://localhost:8080/usermanagement/addroleui</blockquote>
+				</blockquote>
+			</p>
+
+			<p>
+				<blockquote>
+					<blockquote>Description: This API is used to Create Role.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Method: GET</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Roles: Any authenticated and authorized user.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Parameter: Role Name,Short Name,Explanation,Access
+						Right</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Response: success or failure page .</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Usage : Role Addition</blockquote>
+				</blockquote>
+			</p>
+
+			<p>
+				<blockquote>
+					<blockquote>
+						#2 Delete</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Request API:
+						http://localhost:8080/usermanagement/deleteroleui</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote> Description: This API is used to delete Role.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Method: GET</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Roles: Any authenticated and authorized user.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Parameter: Role Name</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Response: success or failure page .</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote> Usage : Role Deletion</blockquote>
+				</blockquote>
+			</p>
+
+			<p>
+				<blockquote>
+					<blockquote>#3 Update</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Request API:
+						http://localhost:8080/usermanagement/updaterole
+								</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Description: This API is used to Update Role.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Method: GET</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Roles: Any authenticated and authorized user.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Parameter: Role Name</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Response: success or failure page .</blockquote>
+				</blockquote>
+			</p>
+
+			<p>
+				<blockquote>
+					<blockquote>#4 Read or View</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Request API:
+						http://localhost:8080/usermanagement/viewrole  </blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Description: This API is used to view Role.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Method: GET</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Roles: Any authenticated and authorized user.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Parameter: Role Name</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Response: success or failure page .</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote> Usage : Role View</blockquote>
+				</blockquote>
+			</p>
+
+
+			<!-- Role (End) -->
+
+
+			<!-- User(Start) -->
+			<p>
+				<b>User API</b>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>#1 Create</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Request API: http://localhost:8080/usermanagement/user
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote> Description: This API
+						is used to Create User.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Method: GET</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Roles: Any authenticated and authorized user.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Parameter: Role name, User name,Password,Short
+						Name,phone No</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Response: success or failure page .</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Usage : User creation</blockquote>
+				</blockquote>
+			</p>
+
+			<p>
+				<blockquote>
+					<blockquote>#2 Delete</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Request API:
+						:http://localhost:8080/usermanagement/delete </blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Description: This API is used to delete User.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Method: GET </blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Roles: Any authenticated and authorized user.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Parameter: User Name </blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Response: success or failure page . </blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Usage : User Deletion </blockquote>
+				</blockquote>
+			</p>
+
+			<p>
+				<blockquote>
+					<blockquote>#3 Update </blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Request API:
+						:http://localhost:8080/usermanagement/updateUser  </blockquote>
+				</blockquote>
+			</p>
+
+			<p>
+				<blockquote>
+					<blockquote>Description: This API is used to Update User.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Method: GET </blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Roles: Any authenticated and authorized user.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Parameter: User Name </blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Response: success or failure page . </blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Usage :- User Updation </blockquote>
+				</blockquote>
+			</p>
+
+			<p>
+				<blockquote>
+					<blockquote>#4 Read or View </blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Request API:
+						http://localhost:8080/usermanagement/getuser  </blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Description: This
+						API is used to view User. </blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Method: GET </blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Roles: Any authenticated and authorized user.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Parameter: User Name </blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Response: success or failure page . </blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Usage : User View </blockquote>
+				</blockquote>
+			</p>
+
+			<!-- User(End) -->
+
+			<!-- Login (Start) -->
+			<p>
+				<b>Login API</b>
+			</p>
+
+			<p>
+				<blockquote>
+					<blockquote>Request API: http://localhost:8080/usermanagement/login
+						</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Description: This API is used to login.</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Method: GET</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Roles: Any authenticated and authorized user.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Parameter: User Name and password</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Response: success or failure page .</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Usage : For User login</blockquote>
+				</blockquote>
+			</p>
+
+
+
+
+
+			<p>
+				<blockquote>
+					<blockquote>Home ApI</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Request API: http://localhost:8080/usermanagement/home</blockquote>
+				</blockquote>
+			</p>
+						<p>
+				<blockquote>
+					<blockquote>Description: This API
+						is used to logout.</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Method: GET</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Roles: Any authenticated and authorized user.
+					</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Parameter: NA</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Response: success or failure Message .</blockquote>
+				</blockquote>
+			</p>
+			<p>
+				<blockquote>
+					<blockquote>Usage : For logout</blockquote>
+				</blockquote>
+			</p>
+
+			<!-- Login (End) -->
+			
+		</section>
+	</body>
+</document>

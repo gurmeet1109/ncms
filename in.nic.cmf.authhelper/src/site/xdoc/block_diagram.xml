@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Component Id 9 - User Management">
+	<body>
+		<div class="section">
+			<h2>Block Diagram</h2>
+			<blockquote><img src="images/Data_Service_Block_Diagram.gif"/></blockquote>
+		</div>
+		<div class="section">
+			<h2>Block Diagram Explained</h2>
+				<table align="center" border="0" class="bodyTable">
+
+                                        <tr class="b">
+						<td align="left"><b><a href="glossary.html#restful">RESTful API </a> </b></td>
+						<td align="left">A REST compliant http interface provides programs for other components / browsers interaction.
+						</td>
+					</tr>
+					<tr class="b">
+						<td align="left"><b><a href="glossary.html#owsap">OWASP</a> Security</b></td>
+						<td align="left">Security Layer wrapped around the <a href="glossary.html#component">component</a> and scrutinizes the each and every request for vulnerabilities.
+						</td>
+					</tr>
+					<tr class="b">
+						<td align="left"><b><a href="glossary.html#access_control">ACL</a></b></td>
+						<td align="left">Access Control Layer validates the request parameters and permits the request if it is matched with business rules defined for the user&#x2019;s role.
+						</td>
+					</tr>
+					
+					<tr class="b">
+						<td align="left"><b><a href="glossary.html#work_flow">WorkFlow</a></b></td>
+						<td align="left"><a href="glossary.html#work_flow">Workflow</a> Controls the application flow based on the defined flow and the request received. 
+
+						</td>
+					</tr>
+
+                                        <tr class="b">
+						<td align="left"><b>PROXY</b></td>
+						<td align="left">Controls the application flow based on the defined flow and the request received. 
+
+						</td>
+					</tr>
+
+                                       <tr class="b">
+						<td align="left"><b><a href="glossary.html#">Data Services </a></b></td>
+						<td align="left"><a href="glossary.html#work_flow">Data Services </a> Process the request communicating with metadata extractor, search engine, document management system.
+
+						</td></tr>
+
+                                       <tr class="b">
+						<td align="left"><b><a href="glossary.html#">DMS  </a></b></td>
+						<td align="left"><a href="glossary.html#work_flow">DMS  </a> A web service that stores / retrieves persistent data of a defined domain model.
+
+						</td></tr>
+
+                                        <tr class="b">
+						<td align="left"><b><a href="glossary.html#">Search API  </a></b></td>
+						<td align="left"><a href="glossary.html#work_flow">Search API  </a> A web service that stores / retrieves persistent data of a defined domain model.
+
+						</td>
+					</tr>
+					<tr class="b">
+						<td align="left"><b><a href="glossary.html#meta_data">Meta Data Extractor</a></b></td>
+						<td align="left"><a href="glossary.html#meta_data">Meta Data Extractor</a>Takes the argument (binary file or XML content) sends them to TIKA and gets the meta xml and content. The content will be sent to ALCHEY for keywords, tags, events etc., extraction and the result is merged and returns the METADATA XML.
+
+						</td>
+					</tr>
+					
+				</table>
+		</div>
+	</body>
+</project>

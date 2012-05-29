@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Ulaganathan Ramesh</author>
+        <title>Location Services - Use-Cases</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Use-Cases">
+<p>
+Following use cases describe the component’s behavior as it responds to a series of related requests from the user.
+</p>
+
+            <p>
+
+<p align="justify" style="margin-bottom: 0cm;"><h3>Use-Case 1</h3></p>
+
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"><strong>Description:</strong> Find the location details based on the city name</span></p>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Actor:</strong> Anonymous Users </span> </p>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Pre-condition:</strong> NA.</span></p>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Post-condition:</strong> NA.</span> </p>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Sample URI:</strong> http://domain.com/geotagger/getinfo?city=chennai</span> </p>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Basic Flow:</strong> </span></p>
+
+<ol style="">
+  <ol style="">
+    <ol style="">
+      <ol style="">
+        <ol style="">
+          <ol style="">
+            <ol style="">
+              <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Browser / Curl initiates the request by the anonymous user and <strong>city</strong> name passed as a query string along with the request.</span>
+		</p> 
+	     </li>
+             <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Location service fetches the city name from the request.</span>
+                  </p> 
+	     </li>
+              <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Constructs the city xml url and fetches the content from the storage</span>
+		</p> 
+	     </li>
+             <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Checks the catch store, whether the city location details is already cached or not. If it is cached, then read the data from the cache, else reads the content from sile store (file system).</span>
+                  </p> 
+	     </li>
+<li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Sends the output to the requester.</span>
+                  </p> 
+	     </li>
+            </ol>
+          </ol>
+        </ol>
+      </ol>
+    </ol>
+  </ol>
+</ol>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Sample Output:</strong> <br /><br />
+<pre> <![CDATA[
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+            <GeoTags>
+                     <Location>
+                               <Area_code></Area_code>
+                               <City>Chennai</City>
+                               <Country>IN</Country>
+                               <Ip></Ip>
+                               <Latitude>13.0833</Latitude>
+                               <Loc_id>30619</Loc_id>
+                               <Longitude>80.2833</Longitude>
+                               <Metro_code></Metro_code>
+                               <Postal_code></Postal_code>
+                               <Region>25</Region>
+                               <State></State>
+                     </Location>
+             </GeoTags>
+
+]]></pre>
+
+</span> </p>
+
+
+
+
+
+<p align="justify" style="margin-bottom: 0cm;"><h3>Use-Case 2</h3></p>
+
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"><strong>Description:</strong> Find location details based on IP address</span></p>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Actor:</strong> Anonymous Users </span> </p>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Pre-condition:</strong> NA.</span></p>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Post-condition:</strong> NA.</span> </p>
+
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Sample URI:</strong> http://domain.com/geotagger/getinfo?ip=124.7.124.20</span> </p>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Basic Flow:</strong> </span></p>
+<ol style="">
+  <ol style="">
+    <ol style="">
+      <ol style="">
+        <ol style="">
+          <ol style="">
+            <ol style="">
+              <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Browser / Curl initiates the request by the anonymous user and <strong>IP address</strong> supplied as a query string.</span>
+		</p> 
+	     </li>
+             <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Location service fetches the IP address from the request.</span>
+                  </p> 
+	     </li>
+              <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Get the city name for the IP from the city lookup service where IP ranges are mapped to city names.</span>
+		</p> 
+	     </li>
+              <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Constructs the city xml url and fetches the content from the storage</span>
+		</p> 
+	     </li>
+             <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Checks the catch store, whether the city location details is already cached or not. If it is cached, then read the data from the cache, else reads the content from sile store (file system).</span>
+                  </p> 
+	     </li>
+<li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Sends the output to the requester.</span>
+                  </p> 
+	     </li>
+            </ol>
+          </ol>
+        </ol>
+      </ol> 
+    </ol>
+  </ol>
+</ol>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Sample Output:</strong> <br /><br />
+<pre> <![CDATA[
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+            <GeoTags>
+                     <Location>
+                               <Area_code></Area_code>
+                               <City>Chennai</City>
+                               <Country>IN</Country>
+                               <Ip>124.7.124.20</Ip>
+                               <Latitude>13.0833</Latitude>
+                               <Loc_id>30619</Loc_id>
+                               <Longitude>80.2833</Longitude>
+                               <Metro_code></Metro_code>
+                               <Postal_code></Postal_code>
+                               <Region>25</Region>
+                               <State></State>
+                     </Location>
+             </GeoTags>
+
+]]></pre>
+
+</span> </p>
+
+<p align="justify" style="margin-bottom: 0cm;"><h3>Use-Case 3</h3></p>
+
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"><strong>Description:</strong> Update location details in the POSTed xml content</span></p>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Actor:</strong> Anonymous Users </span> </p>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Pre-condition:</strong> NA.</span></p>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Post-condition:</strong> NA.</span> </p>
+
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Sample URI:</strong> http://domain.com/geotagger/getinfo/updatecontent</span> <p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Sample Post Content:</strong> <br /><br />
+<pre> 
+<![CDATA[
+<Article>
+  <Id>lcpak6idgef</Id>
+  <Title>Obama sends Congress $3.73 trillion budget</Title>
+  <AdTags>
+    <AdTag>Obama Budget</AdTag>
+    <AdTag>US</AdTag>
+  </AdTags>
+  <Caption/>
+  <Categories>
+    <Category>Others</Category>
+    <Category>International</Category>
+  </Categories>
+  <Channels>
+    <Channel>News</Channel>
+    <Channel>Business</Channel>
+  </Channels>
+  <ContentRevision>1</ContentRevision>
+  <Description><p> President Barack Obama sent Congress a $3.73 trillion budget Monday that holds out the prospect of eventually bringing deficits under control through spending cuts and tax increases. But the fiscal blueprint largely ignores his own deficit commission's view that the nation is imperiled unless huge entitlement programs like Social Security and Medicare are slashed.</p><p>Obama called his new budget one of "tough choices and sacrifices," but most of those cuts would be held off until after the next presidential election.</p><p>Overall, Obama proposed trimming the deficits by $1.1 trillion over a decade. The administration is projecting that the deficit will hit an all-time high of $1.65 trillion this year and then drop sharply to $1.1 trillion in 2012, with an expected improvement in the economy and as reductions in Social Security withholding and business taxes expire.</p><p>Obama's 2012 budget would actually add $8 billion to the projected deficit for that year because the bulk of the savings he would achieve through a freeze in many domestic programs would be devoted to increased spending in areas Obama considers priorities, such as education, clean energy and high-speed rail.</p><p>"We have more work to do to live up to our promise by repairing the damage this brutal recession has inflicted on our people," Obama said.</p><p>The president went to a middle school outside of Baltimore to highlight the education initiatives in his budget and told the crowd, "We can't sacrifice our future.</p></Description>
+  <EntityType>ARTICLE</EntityType>
+  <EventDate>2011-02-14T18:20:48Z</EventDate>
+  <Events>
+    <Event/>
+  </Events>
+  <ExpiryDate>2037-12-31T00:00:00Z</ExpiryDate>
+  <GeoTags>
+    <Location>
+      <Area_code/>
+      <City>Chennai></City>
+      <Country/>
+      <Latitude/>
+      <Loc_id/>
+      <Longitude/>
+      <Metro_code/>
+      <Postal_code/>
+      <Region/>
+      <State/>
+    </Location>
+  </GeoTags>
+  <Language>en</Language>
+  <Offline>false</Offline>
+  <Personalities>
+    <Personality/>
+  </Personalities>
+  <Priority>5</Priority>
+  <SEOURL/>
+  <ShortDescription><p> President Barack Obama sent Congress a $3.73 trillion budget Monday that holds out the prospect of eventually bringing deficits under control through spending cuts and tax increases. But the</ShortDescription>
+  <Source>All India Radio</Source>
+  <Tags>
+    <Tag>Obama Budget</Tag>
+    <Tag>US</Tag>
+  </Tags>
+  <Version>1.2</Version>
+</Article>]]>
+</pre>
+
+</span> </p></p>
+
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Basic Flow:</strong> </span></p>
+<ol style="">
+  <ol style="">
+    <ol style="">
+      <ol style="">
+        <ol style="">
+          <ol style="">
+            <ol style="">
+              <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Browser / Curl initiates the POST request by the anonymous user along with <strong>any entity xml</strong> which requires geo location details.</span>
+		</p> 
+	     </li>
+             <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Location service fetches the xml content from the request and extract city from the content.</span>
+                  </p> 
+	     </li>
+              <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Constructs the city xml url and fetches the content from the storage.</span>
+		</p> 
+	     </li>
+             <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Checks the catch store, whether the city location details is already cached or not. If it is cached, then read the data from the cache, else reads the content from sile store (file system).</span>
+                  </p> 
+	     </li>
+	    <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Sends the output to the requester.</span>
+                  </p> 
+	     </li>
+            </ol>
+          </ol>
+        </ol>
+      </ol>
+    </ol>
+  </ol>
+</ol>
+
+
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Sample Output:</strong> <br /><br />
+<pre> 
+<![CDATA[
+<Article>
+  <Id>lcpak6idgef</Id>
+  <Title>Obama sends Congress $3.73 trillion budget</Title>
+  <AdTags>
+    <AdTag>Obama Budget</AdTag>
+    <AdTag>US</AdTag>
+  </AdTags>
+  <Caption/>
+  <Categories>
+    <Category>Others</Category>
+    <Category>International</Category>
+  </Categories>
+  <Channels>
+    <Channel>News</Channel>
+    <Channel>Business</Channel>
+  </Channels>
+  <ContentRevision>1</ContentRevision>
+  <Description><p> President Barack Obama sent Congress a $3.73 trillion budget Monday that holds out the prospect of eventually bringing deficits under control through spending cuts and tax increases. But the fiscal blueprint largely ignores his own deficit commission's view that the nation is imperiled unless huge entitlement programs like Social Security and Medicare are slashed.</p><p>Obama called his new budget one of "tough choices and sacrifices," but most of those cuts would be held off until after the next presidential election.</p><p>Overall, Obama proposed trimming the deficits by $1.1 trillion over a decade. The administration is projecting that the deficit will hit an all-time high of $1.65 trillion this year and then drop sharply to $1.1 trillion in 2012, with an expected improvement in the economy and as reductions in Social Security withholding and business taxes expire.</p><p>Obama's 2012 budget would actually add $8 billion to the projected deficit for that year because the bulk of the savings he would achieve through a freeze in many domestic programs would be devoted to increased spending in areas Obama considers priorities, such as education, clean energy and high-speed rail.</p><p>"We have more work to do to live up to our promise by repairing the damage this brutal recession has inflicted on our people," Obama said.</p><p>The president went to a middle school outside of Baltimore to highlight the education initiatives in his budget and told the crowd, "We can't sacrifice our future.</p></Description>
+  <EntityType>ARTICLE</EntityType>
+  <EventDate>2011-02-14T18:20:48Z</EventDate>
+  <Events>
+    <Event/>
+  </Events>
+  <ExpiryDate>2037-12-31T00:00:00Z</ExpiryDate>
+  <GeoTags>
+     <Location>
+               <Area_code></Area_code>
+               <City>Chennai</City>
+               <Country>IN</Country>
+               <Ip></Ip>
+               <Latitude>13.0833</Latitude>
+               <Loc_id>30619</Loc_id>
+               <Longitude>80.2833</Longitude>
+               <Metro_code></Metro_code>
+               <Postal_code></Postal_code>
+               <Region>25</Region>
+               <State></State>
+     </Location>
+  </GeoTags>
+  <Language>en</Language>
+  <Offline>false</Offline>
+  <Personalities>
+    <Personality/>
+  </Personalities>
+  <Priority>5</Priority>
+  <SEOURL/>
+  <ShortDescription><p> President Barack Obama sent Congress a $3.73 trillion budget Monday that holds out the prospect of eventually bringing deficits under control through spending cuts and tax increases. But the</ShortDescription>
+  <Source>All India Radio</Source>
+  <Tags>
+    <Tag>Obama Budget</Tag>
+    <Tag>US</Tag>
+  </Tags>
+  <Version>1.2</Version>
+</Article>]]>
+</pre>
+
+</span> </p>
+
+
+<p align="justify" style="margin-bottom: 0cm;"><h3>Use-Case 4</h3></p>
+
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"><strong>Description:</strong> Find location detail based on the client machine ip</span></p>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Actor:</strong> Anonymous Users </span> </p>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Pre-condition:</strong> NA.</span></p>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Post-condition:</strong> NA.</span> </p>
+<p align="justify" style="margin-bottom: 0cm;"><span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;"> <strong>Basic Flow:</strong> </span></p>
+<ol style="">
+  <ol style="">
+    <ol style="">
+      <ol style="">
+        <ol style="">
+          <ol style="">
+            <ol style="">
+              <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Browser / Curl initiates the request by the anonymous user without giving any parameter.</span>
+		</p> 
+	     </li>
+             <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Location service detect the client IP from the request.</span>
+                  </p> 
+	     </li>
+              <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Constructs the city xml url and fetches the content from the storage</span>
+		</p> 
+	     </li>
+              <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Get the city name for IP from the city lookup service where IP ranges are mapped to city names.</span>
+		</p> 
+	     </li>
+             <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Checks the catch store, whether the content for the city is already cached. If it is cached, read the data from the cache, else grab the content from sile store (file system).</span>
+                  </p> 
+	     </li>
+             <li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Checks the catch store, whether the content for the city is already cached. If it is cached, read the data from the cache, else grab the content from file store (file system).</span>
+                  </p> 
+	     </li>
+<li style="">
+                <p align="justify" style="margin-top: 0.11cm; margin-bottom: 0.11cm; line-height: 100%; widows: 2; orphans: 2;"> <span style="color: rgb(0, 0, 0); font-family: Arial,sans-serif;">Sends the output to the requester.</span>
+                  </p> 
+	     </li>
+            </ol>
+          </ol>
+        </ol>
+      </ol>
+    </ol>
+  </ol>
+</ol>
+</p>
+        </section>
+    </body>
+</document>

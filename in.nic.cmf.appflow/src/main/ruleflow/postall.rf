@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<process xmlns="http://drools.org/drools-5.0/process"
+         xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+         xs:schemaLocation="http://drools.org/drools-5.0/process drools-processes-5.0.xsd"
+         type="RuleFlow" name="postAllFlow" id="postall" package-name="in.nic.cmf.appflow" >
+
+  <header>
+  </header>
+
+  <nodes>
+    <start id="1" name="Start" x="16" y="16" width="48" height="48" />
+    <workItem id="5" name="DMS" x="492" y="16" width="100" height="48" >
+      <work name="DMS" >
+      </work>
+      <onEntry>
+        <action type="expression" dialect="mvel" ></action>
+        <action type="expression" dialect="mvel" ></action>
+      </onEntry>
+    </workItem>
+    <end id="6" name="End" x="888" y="16" width="48" height="48" />
+    <workItem id="7" name="Geotagger" x="96" y="16" width="100" height="48" >
+      <work name="Geotagger" >
+      </work>
+    </workItem>
+    <workItem id="8" name="MetadataExtractor" x="228" y="16" width="100" height="48" >
+      <work name="MetadataExtractor" >
+      </work>
+    </workItem>
+    <workItem id="9" name="SEM" x="624" y="16" width="100" height="48" >
+      <work name="SEM" >
+      </work>
+    </workItem>
+    <workItem id="10" name="Audit" x="756" y="16" width="100" height="48" >
+      <work name="Audit" >
+      </work>
+    </workItem>
+    <workItem id="11" name="SearchEngine" x="360" y="16" width="100" height="48" >
+      <work name="SearchEngine" >
+      </work>
+    </workItem>
+  </nodes>
+
+  <connections>
+    <connection from="11" to="5" />
+    <connection from="10" to="6" />
+    <connection from="1" to="7" />
+    <connection from="7" to="8" />
+    <connection from="5" to="9" />
+    <connection from="9" to="10" />
+    <connection from="8" to="11" />
+  </connections>
+
+</process>

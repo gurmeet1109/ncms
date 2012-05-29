@@ -1,0 +1,20 @@
+package in.nic.cmf.cacheburster;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+global List urls;
+
+function List<String> addToUrlList(String url, List urls)  
+  {    
+ 	urls.add(url);
+	return urls; 
+ }
+
+rule 'Default Empty Rule'
+when eval(1==1) 
+then 
+	System.out.println("i am inside rule Default Empty Rule ");
+end
+
+

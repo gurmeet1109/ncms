@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Ramesh U</author>
+        <title>Location Services - Deployment Details</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Limitations and Open Questions">
+			<div class="sectioncd ">
+				<h3>Limitations</h3>
+
+				<blockquote><li type="disc">Locating Cities Limitations</li></blockquote>
+				<blockquote><blockquote>1. Recently renamed city names details are not available in the datastore, but old name details are available i.e Bangaluru - Banglore etc.</blockquote></blockquote>
+				<blockquote><blockquote>2. Component's output is based on the input, mispelled city names are not automatically corrected by the system. i.e, city=Nashik wrong , city=Nasik correct</blockquote></blockquote>
+				
+				
+				<blockquote><li type="disc">Finding Mapped city for a given IP</li></blockquote>
+				<blockquote><blockquote>1. We use maxmind.com geoip embedded data store for look up services, This is a open source version, so the accuracy of detecting city name from ip is lesser than the Commercial Version.</blockquote></blockquote>
+			
+				<h3>Open Questions</h3>
+				<p>The look up service limitations can be overcomed by buying the commercial version geoip datastore.</p>
+				<p>Please visit <a href="http://www.maxmind.com/app/products">http://www.maxmind.com/app/products</a> for more info.</p> 
+			</div>
+        </section>
+    </body>
+</document>

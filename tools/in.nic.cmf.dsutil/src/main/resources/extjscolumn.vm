@@ -1,0 +1,93 @@
+#set($entityMap = {"Admin":"admin","CMS":"cms","PMS":"pms","Users And Roles":"user","Feed Automation":"feed","Domain":"domain","Workflow":"workflow"})
+#set($entitygroup = "")
+#macro(add $fields, $chkflag)
+#if($fields.annotations.UI)  
+     {
+        #set($label = $dsutilobj.getLabel($fields.annotations.UI.label))
+        header:"$label",
+        width:250,
+        editor:"textfield",
+        dataIndex:"$fields.jaxb.name"
+     },
+#end
+#end
+#macro(checkfields $obj)
+ #set($j = 1)
+ #foreach($fields in $obj.fields)
+    #if($fields.type !="Object" && $fields.type !="IsMultiObject" && $fields.type != "JsonString")
+    #if($fields.annotations.UI.listing == "true")
+      #add($fields, $chkflag)
+    #end
+    #else
+      #set($objflag = 1)
+      #set($cobj = $classesobj.get($fields.jaxb.name))
+      #checkfields($cobj)
+    #end
+ #end
+#end
+#if($classobj.ui == "true")
+#if($entityMap.containsKey($classobj.entitygroup))
+#set($entitygroup = $entityMap.get($classobj.entitygroup))
+#else
+#set($entitygroup = $classobj.entitygroup)
+#end
+#set($columnname = $classobj.name+"Column")
+var $columnname = [
+ #checkfields($classobj)
+  #if($classobj.downloadoption == "true") 
+  {	
+	       header: 'Download',
+	       xtype:'actioncolumn', 
+	       width: 100,
+	       align : 'center',
+               scope:this,
+	       items: [{
+		 icon: imagePath+'/icons/application_put.png',  // Use a URL in the icon config
+		 tooltip: 'Download',
+                 handler:function(grid,rowIndex,colIndex){
+                    var rec = grid.getStore().getAt(rowIndex);
+                    if(!rec.data.FilePath)
+                       Ext.example.msg("<div class = 'errorHeaderMsg'>404</div>", "<div class = 'errorMsg'>File Not Found</div>"); 
+                    else
+                      window.open(location.protocol+'//'+location.host+mediaPath+rec.data.FilePath+'?format=download');
+		  }
+	       }]
+    },
+  #end
+  #if($classobj.editoption == "true")
+  {	
+	       header: 'Edit',
+	       xtype:'actioncolumn', 
+	       width:50,
+	       align : 'center',
+           scope:this,
+	       items: [{
+		   icon: imagePath+'/icons/application_edit.png',  // Use a URL in the icon config
+		   tooltip: 'Edit',
+                 handler:function(grid,rowIndex,colIndex){
+                 #if($classobj.name == "Media")
+                     if(pmsCurrentEntity=="Media")
+                       cmsCurrentEntity = pmsCurrentEntity;
+                 #end
+                 #set($window = $entitygroup+"CreateWindow")
+                   createWindow(grid, rowIndex, "edit","",false);
+                 }
+	       }]
+
+            
+    },
+   #end
+    {	
+	       header: 'Delete',
+	       xtype:'actioncolumn', 
+	       width:50,
+	       align : 'center',
+	       items: [{
+	       icon: imagePath+'/icons/delete.png',  // Use a URL in the icon config
+	       tooltip: 'Delete',
+	       handler: function(grid, rowIndex, colIndex) {
+                        globalDelete(grid, rowIndex, colIndex);
+		}
+	       }]               
+    },
+#end

@@ -1,0 +1,70 @@
+package in.nic.cmf.transformers;
+
+import java.util.List;
+import java.util.ArrayList;
+import in.nic.cmf.uniqueid.Uniqueid;
+import java.util.HashMap;
+import java.util.Map;
+import in.nic.cmf.util.DateUtils;
+import in.nic.cmf.properties.PropertiesUtil;
+import in.nic.cmf.transformer.helper.SeoUrlHelper;
+global Map inputMap;
+
+rule 'id_rule'
+salience 100
+when 
+	map:HashMap(Id == null || Id.equals(""));
+then			
+	map.put("Id",Uniqueid.getId());
+	System.out.println("inside Id rule : "+map.get("Id"));
+	update(map);
+end
+	
+rule 'site_rule'
+salience 99
+when 
+	map:HashMap(Site == null || Site.equals(""));
+then			
+	map.put("Site",inputMap.get("domain"));
+	System.out.println("inside Site rule :"+map.get("Site"));
+	update(map);
+end
+	
+
+rule 'version_rule'
+salience 98
+when 
+	map:HashMap(Version == null || Version.equals(""));
+then			
+	String version = ((PropertiesUtil)inputMap.get("propUtil")).getProperty("version");
+	map.put("Version",version);
+	System.out.println("inside Version rule : "+version);
+	update(map);
+end
+	
+
+rule 'created_date_rule'
+salience 97
+when 
+	map:HashMap(CreatedDate == null || CreatedDate.equals(""));
+then			
+	DateUtils du = (DateUtils)inputMap.get("date");
+	String createdDate = du.getSolrFormattedDateByForm("");
+	map.put("CreatedDate",createdDate);
+	System.out.println("inside created date rule :"+map.get("CreatedDate"));
+	update(map);
+end
+
+rule 'modified_date_rule'
+salience 96
+when 
+	map:HashMap(LastModifiedDate == null || LastModifiedDate.equals(""));
+then			
+	map.put("LastModifiedDate",((DateUtils)inputMap.get("date")).getSolrFormattedDateByForm(""));
+	System.out.println("inside lastmodified date rule :"+map.get("LastModifiedDate"));
+	update(map);
+end
+
+
+
+

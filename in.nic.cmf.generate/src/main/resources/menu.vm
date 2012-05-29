@@ -1,0 +1,114 @@
+#macro (getstagemenu $obj)
+#if(!$obj.isEmpty())
+##set($stagelist = $cmobj.getVal($obj.StageName))
+#set($i = 1)
+menu:{
+  items:[
+#foreach($item in $obj)
+#if($stagelist.size() == $i)
+{
+   text:'$item.get("StageName")',
+   checked:false,
+   group:'stage',
+   handler: 'Ext.JSON.decode(currentMenuHandler)'
+}
+#else
+{
+   text:'$item.get("StageName")',
+   checked:false,
+   group:'stage',
+   handler: 'Ext.JSON.decode(currentMenuHandler)'
+},
+#end
+#set($i = $i+1)
+#end
+]}
+#end
+#end
+
+#macro (getiamenu $obj)
+#if(!$obj.isEmpty())
+#set($nobj= $obj.get($entity))
+#set($keylist = $nobj.get($entity))
+menu:{
+  items:[
+#foreach($key in $keylist)
+#set($nkey = $cmobj.removeSymbol($key))
+#set($text = $cmobj.getVal($nkey, 0))
+
+{
+   text:'$cmobj.encodeIAName($text)',
+   checked:false,
+   group:'associatedianame',
+   #set($gobj = $mapping.get($key))
+   #if(!$gobj.isEmpty())
+    handler: 'Ext.JSON.decode(currentMenuHandler)',
+     #getialistmenu($gobj)
+   #else
+     handler: 'Ext.JSON.decode(currentMenuHandler)'
+   #end
+},
+#end
+]}
+#end
+#end
+
+#macro (getialistmenu $obj)
+#if(!$obj.isEmpty())
+menu:{
+  items:[
+#foreach($key in $obj)
+#set($nkey = $cmobj.removeSymbol($key))
+#set($text = $cmobj.getVal($nkey, 0))
+{
+   text:'$cmobj.encodeIAName($text)',
+   checked:false,
+   group:'associatedianame',
+   #set($gobj = $mapping.get($key))
+   #if(!$gobj.isEmpty())
+    handler: 'Ext.JSON.decode(currentMenuHandler)',
+     #getialistmenu($gobj)
+   #else
+     handler: 'Ext.JSON.decode(currentMenuHandler)'
+   #end
+},
+#end
+]}
+#end
+#end
+ ##set($stageobj = $cmobj.getCollectionObject("Stage", $domainName, $userContext))
+ ##if((!$stageobj.isEmpty()) && (!$hobj.isEmpty()))
+ {items: [
+                                                  {   
+                                                     text: 'Stage',
+                                                     #getstagemenu($stageobj)
+                                                 },
+                                                 {
+                                                      text: 'AssociatedIAName',
+                                                      #getiamenu($hobj)
+                                                  },
+                                                  {   
+													   text: 'List Data',
+													   menu:{
+													      items:[
+														{
+														  text:'CreatedBy Me',
+														  group:'createdby',
+														  handler: 'Ext.JSON.decode(currentMenuHandler)'
+														},
+														{
+														  text:'AssignedTo Me',
+														  group:'user',
+														  handler: 'Ext.JSON.decode(currentMenuHandler)'
+														},
+														{
+                                                              text:'All Published',
+                                                              group:'status',
+                                                              handler: Ext.JSON.decode(currentMenuHandler)
+                                                            }
+													     ] 
+													  }
+												  }                                           
+                                              ],
+  }
+  ##end

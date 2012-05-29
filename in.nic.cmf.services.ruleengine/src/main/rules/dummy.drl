@@ -1,0 +1,30 @@
+package in.nic.cmf.services.ruleengine
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import in.nic.cmf.domain.ValidationReport;
+global in.nic.cmf.domain.ValidationReport validatereport;
+function ValidationReport addToList(String strContent, ValidationReport report)  
+  {    
+ 	List<String> lstMessage = new ArrayList<String>();
+   	if(report.getMessage()!=null)
+	{  
+ 		lstMessage = report.getMessage();  
+ 		lstMessage.add(strContent); 
+  		report.setMessage(lstMessage);
+ 	 } 
+ 	else 
+ 	{ 
+ 		lstMessage.add(strContent);
+   		report.setMessage(lstMessage);
+  	} 
+ 	return report;  
+}
+	rule 'testing'
+	when
+		map:HashMap();
+		then 
+		System.out.println("i am inside test rule.");
+	end
+
+

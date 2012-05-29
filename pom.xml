@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<name>NIC CMF parent model</name>
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>in.nic.cmf</groupId>
+	<artifactId>initial-pom</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<distributionManagement>
+		<repository>
+			<id>jboss-releases-repository</id>
+			<name>JBoss Releases Repository</name>
+			<url>https://repository.jboss.org/nexus/service/local/staging/deploy/maven2/
+			</url>
+		</repository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>java.net</id>
+			<url>http://download.java.net/maven/1</url>
+			<layout>legacy</layout>
+		</repository>
+		<repository>
+			<id>maven repo</id>
+			<name>maven repo</name>
+			<url>http://repo1.maven.org/maven2/</url>
+		</repository>
+		<repository>
+			<id>jboss</id>
+			<name>jboss repo</name>
+			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<plugins>
+	<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-resources-plugin</artifactId> 
+		<version>2.5</version> <executions> <execution> <id>copy-resources</id> <phase>package</phase> 
+		<goals> <goal>copy-resources</goal> </goals> <configuration> <ignoreMissingFile>false</ignoreMissingFile> 
+		<outputDirectory>${basedir}/jsonbased/src/main/resources/</outputDirectory> 
+		<resources> <resource> <directory>${basedir}</directory> <includes> <include>domain.json</include> 
+		</includes> </resource> </resources> </configuration> </execution> </executions> 
+		</plugin> -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<modules>
+        <module>in.nic.cmf.logger</module>
+        <module>in.nic.cmf.propertiesutil</module>
+        <module>in.nic.cmf.exception</module>
+        <module>in.nic.cmf.util</module>
+        <module>in.nic.cmf.security.owasp</module>
+        <module>in.nic.cmf.convertors</module>
+        <module>in.nic.cmf.serviceclient</module>
+        <module>in.nic.cmf.uniqueid</module>
+        <module>in.nic.cmf.contract</module>
+        <module>in.nic.cmf.accesscontrol</module>
+        <module>in.nic.cmf.auditing</module>
+        <module>in.nic.cmf.analytics</module>
+        <module>in.nic.cmf.appflow</module>
+        <module>in.nic.cmf.aspects</module>
+        <module>in.nic.cmf.auth</module>
+        <module>in.nic.cmf.businessflow</module>
+        <module>in.nic.cmf.cache</module>
+        <module>in.nic.cmf.crawler</module>
+        <module>in.nic.cmf.dms</module>
+        <module>in.nic.cmf.email</module>
+        <module>in.nic.cmf.feedautomation</module>
+        <module>in.nic.cmf.filter</module>
+        <module>in.nic.cmf.generate</module>
+        <module>in.nic.cmf.geotagger</module>
+        <module>in.nic.cmf.ldap</module>
+        <module>in.nic.cmf.mqroutebean</module>
+        <module>in.nic.cmf.ruleengine</module>
+        <module>in.nic.cmf.searchengine</module>
+        <module>in.nic.cmf.sem</module>
+        <module>in.nic.cmf.seplugin</module>
+        <module>in.nic.cmf.transformer</module>
+        <module>in.nic.cmf.sms</module>
+        <module>in.nic.cmf</module>
+        <module>in.nic.cmf.services.ncmsui</module>
+	<module>in.nic.cmf.mediahandler</module>
+         <module>in.nic.cmf.sitebuilder</module>
+        <!--
+          <module>in.nic.cmf.dataservices</module>
+            <module>in.nic.cmf.dsserver</module>
+        -->
+		<!--Compilable (17)-->
+        <!-- <module>in.nic.cmf.logger</module>
+		<module>in.nic.cmf.propertiesutil</module> 
+		<module>in.nic.cmf.util</module>
+		<module>in.nic.cmf.security.owasp</module>
+		<module>in.nic.cmf.serviceclient</module>
+		<module>in.nic.cmf.convertors</module>
+ 	 	<module>in.nic.cmf.exception</module>
+	 	<module>in.nic.cmf.accesscontrol</module>
+		<module>in.nic.cmf.auditing</module>
+	  	<module>in.nic.cmf.contract</module>
+	 	<module>in.nic.cmf.searchengine</module>
+		<module>in.nic.cmf.cache</module>
+		<module>in.nic.cmf.uniqueid</module>
+		<module>in.nic.cmf.dms</module>
+		<module>in.nic.cmf.appflow</module>
+		<module>in.nic.cmf.transformer</module>
+		<module>in.nic.cmf.ruleengine</module>
+		<module>in.nic.cmf</module>
+    	<module>in.nic.cmf.auth</module>
+		<module>in.nic.cmf.generate</module>
+		<module>in.nic.cmf.ldap</module>	
+		<module>in.nic.cmf.sem</module>
+		<module>in.nic.cmf.services.ncmsui</module>
+        <module>in.nic.cmf.filter</module>
+        -->
+
+		<!--Non-compilable (16)-->
+		<!--
+		<module>in.nic.cmf.cache</module>
+		<module>in.nic.cmf.dms</module>
+		<module>in.nic.cmf.email</module>
+		<module>in.nic.cmf.uniqueid</module>
+		<module>in.nic.cmf.crawler</module>	
+		<module>in.nic.cmf.aspects</module>
+		<module>in.nic.cmf.dataservices</module>
+		<module>in.nic.cmf.appflow</module>
+		<module>in.nic.cmf.businessflow</module>
+		<module>in.nic.cmf.ruleengine</module>
+		<module>in.nic.cmf.geotagger</module>
+		<module>in.nic.cmf.feedautomation</module>
+		<module>in.nic.cmf.analytics</module>
+		<module>in.nic.cmf</module>
+		<module>in.nic.cmf.mqroutebean</module>
+		<module>in.nic.cmf.transformers</module>
+		-->
+
+		<!-- moved to tools-->
+
+		<!--
+		<module>in.nic.cmf.xlstojson</module>
+		<module>in.nic.cmf.domainmodeler.jsonbased</module>		
+        	<module>in.nic.cmf.dsutil</module>
+ 	 	<module>in.nic.cmf.domain</module>
+		<module>in.nic.cmf.domaincreation</module>
+		<module>in.nic.cmf.rulegenerator</module>
+		-->
+
+
+		<!--Not there in trunk-->
+		<!--
+		
+		<module>in.nic.cmf.metadata</module>	
+		<module>in.nic.cmf.migration</module>
+		<module>in.nic.cmf.services.usermanagement</module> 
+		-->
+
+  </modules>
+</project>

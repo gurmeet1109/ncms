@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Ulaganathan Ramesh</author>
+        <title>OWASP - Introduction</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Definition">
+         <p>
+SQL injection or LDAP injection is an attack in which malicious code is inserted into strings that are later passed to an instance of SQL Server for parsing and execution. Any procedure that constructs SQL statements should be reviewed for injection vulnerabilities because SQL Server will execute all syntactically valid queries that it receives. Even parameterized data can be manipulated by a skilled and determined attacker.
+
+The primary form of SQL injection consists of direct insertion of code into user-input variables that are concatenated with SQL commands and executed. A less direct attack injects malicious code into strings that are destined for storage in a table or as metadata. When the stored strings are subsequently concatenated into a dynamic SQL command, the malicious code is executed.
+
+The injection process works by prematurely terminating a text string and appending a new command. Because the inserted command may have additional strings appended to it before it is executed, the malefactor terminates the injected string with a comment mark "--". Subsequent text is ignored at execution time.
+	 </p>
+        </section>
+        <section name="Sample Attack">
+         <p>
+The following script shows a simple SQL injection. The script builds an SQL query by concatenating hard-coded strings together with a string entered by the user:
+Copy
+
+var Shipcity;
+ShipCity = Request.form ("ShipCity");
+var sql = "select * from OrdersTable where ShipCity = '" + ShipCity + "'";
+
+The user is prompted to enter the name of a city. If she enters Redmond, the query assembled by the script looks similar to the following:
+
+SELECT * FROM OrdersTable WHERE ShipCity = 'Redmond'
+
+However, assume that the user enters the following:
+
+Redmond'; drop table OrdersTable--
+
+In this case, the following query is assembled by the script:
+
+SELECT * FROM OrdersTable WHERE ShipCity = 'Redmond';drop table OrdersTable--'
+
+The semicolon (;) denotes the end of one query and the start of another. The double hyphen (--) indicates that the rest of the current line is a comment and should be ignored. If the modified code is syntactically correct, it will be executed by the server. When SQL Server processes this statement, SQL Server will first select all records in OrdersTable where ShipCity is Redmond. Then, SQL Server will drop OrdersTable.
+
+As long as injected SQL code is syntactically correct, tampering cannot be detected programmatically. Therefore, you must validate all user input and carefully review code that executes constructed SQL commands in the server that you are using. Coding best practices are described in the following sections in this topic.
+	 </p>
+        </section>
+        <section name="How to prevent?">
+         <p>
+SQL injection or LDAP injection is an attack in which malicious code is inserted into strings that are later passed to an instance of SQL Server for parsing and execution. Any procedure that constructs SQL statements should be reviewed for injection vulnerabilities because SQL Server will execute all syntactically valid queries that it receives. Even parameterized data can be manipulated by a skilled and determined attacker.
+Basic principles to prevent an injection are:
+1. Use dynamic SQL query only if absolutely necessary.
+2. Escape user input.
+3. Assume magic quotes is always off.
+4. Install patches regularly and timely.
+5. Remove all functionality you don't use.
+6. Use automated test tools for SQL injections.
+	 </p>
+        </section>
+        <section name="Available injection APIs">
+         <p>
+API: JAVA and ESAPI
+Class: Injection.java
+	 </p>
+        </section>
+    </body>
+</document>

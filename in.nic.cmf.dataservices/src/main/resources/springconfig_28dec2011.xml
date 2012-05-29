@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:oxm="http://www.springframework.org/schema/oxm" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+                http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-3.0.xsd 
+                http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+                http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<context:component-scan base-package="in.nic.cmf">
+		<context:include-filter type="annotation"	expression="javax.ws.rs.ext.Provider" />
+	</context:component-scan>
+	<context:annotation-config />
+
+	<import resource="classpath:springmvc-resteasy.xml" />
+
+	<bean id="photoUploadMultipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize">
+			<value>100000</value>
+		</property>
+	</bean>
+
+	<bean id="jsView" class="in.nic.cmf.services.dfdataservices.formatters.FormatJS" />
+	 <bean id="jsonView" class="in.nic.cmf.services.dfdataservices.formatters.FormatJson" /> 
+	<!-- <bean id="jsonpView" class="in.nic.cmf.services.dataservices.formatters.FormatJsonp" /> -->
+	<bean id="xmlView" class="in.nic.cmf.services.dfdataservices.formatters.FormatXML" />
+	<bean id="mediaView" class="in.nic.cmf.services.dfdataservices.formatters.FormatMedia" />
+    <bean id="downloadView" class="in.nic.cmf.services.dfdataservices.formatters.FormatDownload" />
+	<bean id="extjsonView"
+		class="in.nic.cmf.services.dfdataservices.formatters.FormatExtJsonp" />
+<!-- 	<bean id="addjsonView"
+		class="in.nic.cmf.services.dataservices.formatters.FormatAddJson" />
+
+	<bean id="editjsonView"
+		class="in.nic.cmf.services.dataservices.formatters.FormatEditJson" /> 
+	<bean id="treejsonView"
+		class="in.nic.cmf.services.dataservices.formatters.FormatTreeJson" /> -->
+
+
+	<bean id="widgetView"
+		class="in.nic.cmf.services.dfdataservices.formatters.FormatWidget" />
+	<bean id="rssView" class="in.nic.cmf.services.dfdataservices.formatters.FormatRSS" />
+	<bean id="sitemapView"
+		class="in.nic.cmf.services.dfdataservices.formatters.FormatSiteMap" />
+
+	<bean id="ClientExtJsView"
+		class="in.nic.cmf.services.dfdataservices.formatters.FormatClientExtJs" />
+
+	<bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="classesToBeBound">
+			<list>
+				<value>in.nic.cmf.domain.Collections</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="propertiesutil" class="in.nic.cmf.properties.PropertiesUtil">
+		<constructor-arg index="0" type="java.lang.String"
+			name="serviceName" value="dfdataservices" />
+	</bean>
+	
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+
+	<bean id="defaultViews"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/html/" />
+		<property name="suffix" value=".html" />
+	</bean>
+
+	<bean id="serviceImpl" class="in.nic.cmf.services.dfdataservices.ServiceImpl"
+		lazy-init="default">
+		<property name="excludeParams">
+			<list>
+				<value>format</value>
+				<value>type</value>
+				<value>_dc</value>
+				<value>callback</value>
+				<value>query</value>
+				<value>page</value>
+				<value>node</value>
+				<value>egroup</value>
+				<value>wid</value>
+				<value>wtype</value>
+				<value>wtitle</value>
+				<value>aclrole</value>
+			</list>
+		</property>
+		<property name="modifyParams">
+			<map>
+				<entry key="start" value="offset" />
+				<entry key="sort" value="orderBy" />
+				<entry key="dir" value="orderByDir" />
+				<entry key="query" value="q" />
+			</map>
+		</property>
+	</bean>
+	<bean id="dataservicesCacheAspect" class="in.nic.cmf.aspects.cache.CacheAspect" />
+	<!-- <bean id="xss" class="in.nic.cmf.security.owasp.CrossSiteScripting" /> -->
+	
+	    <bean id="dslog" class="in.nic.cmf.logger.LogTracer" >
+	<constructor-arg index="0" type="java.lang.String" name="loggerName" value="DataServicesTraceLogger" />
+	<constructor-arg index="1" type="java.lang.Boolean" name="debugStatus" value="true" />
+	<constructor-arg index="2" type="java.lang.Boolean" name="infoStatus" value="true" />
+	<constructor-arg index="3" type="java.lang.Boolean" name="warnStatus" value="true" />
+	<constructor-arg index="4" type="java.lang.Boolean" name="errorStatus" value="true" />
+	<constructor-arg index="5" type="java.lang.Boolean" name="fatalStatus" value="true" />
+	</bean>
+	
+	<!-- <aop:config>
+    	<aop:aspect ref="dslog">
+			<aop:before method="processStart"
+				pointcut="execution(* in.nic.cmf.services.dataservices.DSControllerImpl.*(..))" />
+			<aop:after method="processEnd"
+				pointcut="execution(* in.nic.cmf.services.dataservices.DSControllerImpl.*(..))" />
+    	</aop:aspect>
+	</aop:config> -->
+	<bean id="dfdataservicesLoggingAspect" class="in.nic.cmf.aspects.logger.LoggerAspect" />
+	<bean id="mediaHelper" class="in.nic.cmf.services.dfdataservices.MediaHandler">
+		<!-- <property name="thumbHeight" value="100" />
+		<property name="thumbWidth" value="80" /> -->
+
+		<property name="allowedFileExtns">
+			<list>
+				<value>jpg</value>
+				<value>gif</value>
+				<value>png</value>
+				<value>doc</value>
+				<value>pdf</value>
+				<value>xls</value>
+				<value>avi</value>
+				<value>flv</value>
+			</list>
+		</property>
+
+	</bean>
+	
+	<aop:config proxy-target-class="true">
+		<aop:aspect ref="dfdataservicesLoggingAspect">
+			<aop:before method="logEntry"
+				pointcut="execution(* in.nic.cmf.services.dfdataservices..*.*(..))" />
+			<aop:after method="logExit"
+				pointcut="execution(* in.nic.cmf.services.dfdataservices..*.*(..))" />
+		</aop:aspect>
+		
+	</aop:config>
+
+
+	
+	
+	<!-- Auth Aspect -->
+		<bean id="authAspectHelper" class="in.nic.cmf.util.AuthAspectHelper" />
+	    <bean id="authAspect" class="in.nic.cmf.aspects.authentication.AuthAspect" />
+
+
+
+	<aop:config proxy-target-class="true">
+		<aop:aspect ref="authAspect">
+			<aop:before method="authEntry"
+				pointcut="execution(* in.nic.cmf.services.dfdataservices.DSControllerImpl.*(..))" />
+		</aop:aspect>
+	</aop:config>
+	
+	<!-- Acl Aspects -->
+	<bean id="accessControlService" class="in.nic.cmf.accesscontrol.AccessControlServiceImpl" />
+	
+	<bean id="ACLAspect"
+		class="in.nic.cmf.aspects.acl.AccessControlAspect" />
+
+	 <aop:config>
+		<aop:aspect ref="ACLAspect">
+			<aop:before method="getEntityACLEntry"
+				pointcut="execution(* in.nic.cmf.services.dfdataservices.DSControllerImpl.getEntity(..)) and args(request,response, domain,entity,id,format)" />
+		</aop:aspect>
+	</aop:config>
+	 <aop:config>
+		<aop:aspect ref="ACLAspect">
+			<aop:before method="getEntitiesACLEntry"
+				pointcut="execution(* in.nic.cmf.services.dfdataservices.DSControllerImpl.getEntities(..)) and args(request,response, domain,entity,id,format)" />
+		</aop:aspect>
+	</aop:config>
+
+	<aop:config>
+		<aop:aspect ref="ACLAspect">
+			<aop:before method="getAllBySearchACLEntry"
+				pointcut="execution(* in.nic.cmf.services.dfdataservices.DSControllerImpl.getAllBySearch(..)) and args(request,response, domain,format)" />
+		</aop:aspect>
+	</aop:config>
+
+	<aop:config>
+		<aop:aspect ref="ACLAspect">
+			<aop:before method="getEntityBySearchACLEntry"
+				pointcut="execution(* in.nic.cmf.services.dfdataservices.DSControllerImpl.getEntityBySearch(..)) and args(request,response,domain,entity,format,entityType)" />
+		</aop:aspect>
+	</aop:config>
+
+	<aop:config>
+		<aop:aspect ref="ACLAspect">
+			<aop:before method="getEntityByFileNameACLEntry"
+				pointcut="execution(* in.nic.cmf.services.dfdataservices.DSControllerImpl.getEntityByFileName(..)) and args(request,response,domain,fileName)" />
+		</aop:aspect>
+	</aop:config>
+
+	<aop:config>
+		<aop:aspect ref="ACLAspect">
+			<aop:around method="postEntityByFormACLEntry"
+				pointcut="execution(* in.nic.cmf.services.dfdataservices.DSControllerImpl.postEntityByForm(..)) and args(request,response,domain,uriinfo,format)" />
+		</aop:aspect>
+	</aop:config>
+
+	 <aop:config>
+		<aop:aspect ref="ACLAspect">
+			<aop:around method="postEntityACLEntry"
+				pointcut="execution(* in.nic.cmf.services.dfdataservices.DSControllerImpl.postEntity(..)) and args(request,response,domain,format,collections)" />
+		</aop:aspect>
+	</aop:config>
+	
+	
+	<aop:config>
+		<aop:aspect ref="ACLAspect">
+			<aop:around method="postEntitiesACLEntry"
+				pointcut="execution(* in.nic.cmf.services.dfdataservices.DSControllerImpl.postEntities(..)) and args(request,response,domain,format,collections)" />
+		</aop:aspect>
+	</aop:config>
+
+	<aop:config>
+		<aop:aspect ref="ACLAspect">
+			<aop:before method="deleteEntityByIdACLEntry"
+				pointcut="execution(* in.nic.cmf.services.dfdataservices.DSControllerImpl.deleteEntityById(..)) and args(request,response,domain,entity,id)" />
+		</aop:aspect>
+	</aop:config>
+	
+	<bean id="ehCache" class="in.nic.cmf.cache.EHCache"
+		factory-method="getInstance" scope="singleton"/>
+	
+	<aop:config proxy-target-class="true">
+	<aop:aspect ref="dataservicesCacheAspect">
+			<aop:around
+				pointcut="execution(* in.nic.cmf.services.dfdataservices.ServiceImpl.search*(..))"
+				method="cacheAroundAdvice" />
+		</aop:aspect>
+	</aop:config>
+        <bean id="owaspAspect" class="in.nic.cmf.aspects.owasp.OWASPAspect" />
+
+	<aop:config proxy-target-class="true">
+		<aop:aspect ref="owaspAspect">
+			<aop:before method="preCheck"
+				pointcut="execution(* in.nic.cmf.services.dfdataservices.DSControllerImpl.*(..))" />
+			<!-- <aop:after-returning method="postCheck"   returning="result"	
+			pointcut="execution(* in.nic.cmf.services.dataservices.DSControllerImpl.*(..))" />	 -->
+		</aop:aspect>
+	</aop:config>
+
+        
+
+</beans>

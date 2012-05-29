@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Ulaganathan Ramesh</author>
+        <title> XlsToJson - LLD description</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Low Level Design">
+            <p>
+		<b>Objective</b><br/><br/>
+			The low-level design of this component provides a description of the internal workings of the System in terms of modules and their interrelationships and dependencies. The low-level design provides assurance that the Exel to Json subsystem has been correctly and effectively refined. 
+	    </p>
+
+	<p><br/>
+	<b>Scope</b> <br/><br/>
+		The LLD documentation presents Class Diagrams of this component. 
+	 </p>
+        </section>
+    </body>
+</document>

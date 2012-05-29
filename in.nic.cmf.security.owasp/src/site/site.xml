@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/DECORATION/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd">
+
+    <bannerLeft>
+        <name>OWASP Security</name>
+        <src>images/logo.png</src>
+        <href>#</href>
+    </bannerLeft>
+
+    <body>
+        <links>
+            <item name="National Portal Of India" href="#" />
+        </links>
+	<menu name="OWASP Security">
+            <item name="Overview" href="index.html"/>
+        </menu>
+        <menu name="High Level Design">
+            <item name="Introduction" href="hld_intro.html"/>
+	    <item name="What is OWASP?" href="whatisowasp.html"/>
+        </menu>
+        <menu name="Top 10 Vulnerabilities">
+            <item name="Injection" href="Injection.html"/>
+	    <item name="Cross Site Scripting" href="CrossSiteScripting.html"/>
+            <item name="Broken Authentication and Session Management" href="BrokenAuthenticationandSessionManagement.html"/>
+            <item name="Insecure Direct Object References" href="InsecureDirectObjectReferences.html"/>
+	    <item name="Cross Site Request Forgery" href="CrossSiteRequestForgery.html"/>
+	    <item name="Security Misconfiguration" href="SecurityMisconfiguration.html"/>
+            <item name="Insecure Cryptographic Storage" href="InsecureCryptographicStorage.html"/>
+	    <item name="Failure to Restrict URL Access" href="FailuretoRestrictURLAccess.html"/>
+            <item name="Insufficient Transport Layer Protection" href="InsufficientTransportLayerProtection.html"/>
+	    <item name="Unvalidated Redirects and Forwards" href="UnvalidatedRedirectsandForwards.html"/>
+        </menu>
+        <!--<menu name="Low Level Design">
+            <item name="Introduction" href="lld_description.html"/>
+            <item name="Flow Chart" href="flow_chart.html"/>
+            <item name="Class Diagram" href="class_diagram.html"/>
+	    <item name="Use-Cases" href="use_cases.html"/>
+        </menu>
+        <menu name="Deployment Details">
+            <item name="Introduction" href="deploy_description.html"/>
+            <item name="Software Requirement" href="soft_req.html"/>
+            <item name="Component Delployment" href="component_deployment.html"/>
+        </menu> -->
+        <menu name="References">
+	    <item name="Glossary" href="glossary.html"/>
+        </menu>
+        <menu ref="reports"/>
+    </body>
+
+</project>

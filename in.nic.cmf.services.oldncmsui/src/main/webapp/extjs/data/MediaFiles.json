@@ -1,0 +1,22 @@
+{
+    "Collections":{
+        "Count":5,
+        "Records":[{
+                "Name":"logo.gif",
+              },
+             {
+                "Name":"pm.jpg",
+             },
+             {
+                "Name":"tender.jpg",
+             },
+             {
+                "Name":"nic.jpg",
+             },
+             {
+                "Name":"gov.png"
+             }
+           
+        ]
+    }
+}

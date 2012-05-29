@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Component Id 9 - User Management">
+	<body>
+		<div class="section">
+			<h2>Flow Chart</h2>
+			<p>The following schematic diagram representation dipicts how the different modules of this component are interconnected.</p>
+			
+            <table align="center" class="bodyTable" cellspacing="0" cellpadding="0" border="0">
+<tr class="a">
+<td><b>Algorithm for DataServices Post</b></td><td><b>Flowchart</b></td>
+</tr>
+<tr class="a">
+<td align="left" width="50%"> 
+<b>Step 1. </b>Start <br /><br /><br />
+<b>Step 2. </b>INPUT  - Input parameters request for user on Browser/Curl for Post operation.<br /><br /><br />
+<b>Step 3. </b>Authenticate the user credentials if valid go to step 4 else go to step 9.<br /><br /><br />
+<b>Step 4. </b>ACL validates the request if valid then go to step 5 else go to step 9. <br /><br /><br />
+<b>Step 5. </b>workflow history will be added for the incoming entity xml using businessflow<br /><br /><br />
+<b>Step 6. </b>check whether incoming resource is binary content or xml content <br /><br /><br />
+<b>Step 7. </b>if it is binary content , this will be posted only into Data Management System.<br /><br /><br />
+<b>Step 8. </b>else ,this will be posted into both Search engine (for indexing the data) and  Data Management System(Storing whole xml/binary content)<br /><br /><br />
+<b>Step 9. </b>End<br /><br /> 
+</td>
+	<td>
+		     <img src="images/ds-post.jpg" alt="DrawObject" />
+        </td></tr>
+
+<tr class="a">
+<td><b>Algorithm for DataServices Get</b></td><td><b>Flowchart</b></td>
+</tr>
+<tr class="a">
+<td align="left" width="50%">
+<b>Step 1. </b>Start <br /><br /><br />
+<b>Step 2. </b>INPUT  - Input parameters request for user on Browser/Curl for Post operation.<br /><br /><br />
+<b>Step 3. </b>Authenticate the user credentials if valid go to step 4 else go to step 7.<br /><br /><br />
+<b>Step 4. </b>ACL validates the request if valid then go to step 5 else go to step 7. <br /><br /><br />
+<b>Step 5. </b>Request process by Search Engine for fetching Ids  then go to step 6<br /><br /><br />
+<b>Step 6. </b>DMS will return whole XML content/binary content based on the  Ids return by Search engine<br /><br />
+<b>Step 7. </b>End<br /><br /> 
+</td>
+
+
+
+	<td>
+		     <img src="images/ds-get.jpg" alt="DrawObject" />
+        </td></tr>
+<tr class="a">
+<td><b>Algorithm for DataServices Update</b></td><td><b>Flowchart</b></td>
+</tr>
+<tr class="a">
+<td align="left" width="50%">
+<b>Step 1. </b>Start <br /><br /><br />
+<b>Step 2. </b>INPUT  - Input parameters request for user on Browser/Curl for Post operation.<br /><br /><br />
+<b>Step 3. </b>Authenticate the user credentials if valid go to step 4 else go to step 8.<br /><br /><br />
+<b>Step 4. </b>ACL validates the request if valid then go to step 5 else go to step 8. <br /><br /><br />
+<b>Step 5. </b>workflow history xml will be added for the incoming entity xml using businessflow<br /><br /><br />
+<b>Step 6. </b>check whether incoming resource is binary content or xml content <br /><br /><br />
+<b>Step 7. </b>if it is binary content , this will be posted only into Data Management System.<br /><br /><br />
+<b>Step 8. </b>else ,this will be posted into both Search engine (for indexing the data) and  Data Management System(Storing whole xml/binary content)<br /><br /><br />
+<b>Step 9. </b>End<br /><br /> 
+
+</td>
+	<td>
+		     <img src="images/ds-updates.jpg" alt="DrawObject" />
+        </td></tr>
+
+<tr class="a">
+<td><b>Algorithm for DataServices Delete</b></td><td><b>Flowchart</b></td>
+</tr>
+<tr class="a">
+<td align="left" width="50%">
+<b>Step 1. </b>Start <br /><br /><br />
+<b>Step 2. </b>INPUT  - Input parameters request for user on Browser/Curl for delete operation.<br /><br /><br />
+<b>Step 3. </b>ACL validates the request if valid then go to step 4 else go to step 7. <br /><br /><br />
+<b>Step 4. </b>Backend system, using the workflow, sends a request to search engine then go to step 5. <br /><br /><br />
+<b>Step 5. </b>search engine will delete the indexed content then go to step 6.<br /><br /><br />
+<b>Step 6. </b>Then delete request will send to data management system then go to step 7.<br /><br /><br />
+<b>Step 7. </b>End.<br /><br /><br />
+</td>
+	<td>
+		     <img src="images/ds-delete.jpg" alt="DrawObject" />
+        </td></tr>
+
+</table>   
+		</div>
+	</body>
+</project>

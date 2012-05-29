@@ -1,0 +1,267 @@
+<html>
+<head>
+<title>NIC CMS 1.0</title>
+<link rel="stylesheet" type="text/css" href="/ncmsui/extjs/ext-4.0.7/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="/ncmsui/extjs/shared/dropdownalert.css" />
+<script type="text/javascript" src="/ncmsui/extjs/ext-4.0.7/ext-all-debug.js"></script>
+<script type="text/javascript" src="/ncmsui/extjs/shared/dropdownalert.js"></script>
+<script type="text/javascript" src="/ncmsui/extjs/js/library-all.js"></script>
+<script type="text/javascript">
+var buildVersion = "_dc=3001";
+document.write("<script type=text/javascript src=/ncmsui/extjs/js/global-js-fns.js?" + buildVersion + "><\/script>");
+document.write("<script type=text/javascript src=/context/default/resources/js/masterdomain-config.js?" + buildVersion + "><\/script>");
+document.write("<script type=text/javascript src=/ncmsui/extjs/js/config.js?" + buildVersion + "><\/script>");
+</script>
+</head>
+<body bgcolor="#F9FDFF">
+<script language="javascript">
+  var myMask; 
+  loginDestroy();
+  logoutDestroy();
+  Ext.onReady(function() {
+    Ext.QuickTips.init();
+    var login = new Ext.FormPanel(
+                {
+                    labelWidth : 80,
+                    url : authPostUrl,
+                    frame : true,
+                    layout : 'anchor',
+                    align : 'center',
+                    defaultType : 'textfield',
+                    timeout:20,
+                    monitorValid : true,
+                    items : [ {
+                fieldLabel : 'Username',
+                isFormField : false,
+                name : 'AuthUserName',
+                id:'AuthUserName',
+                maxLength : 50,
+                enforceMaxLength:true,
+                allowBlank : false,
+                vtype:'alphanumStrict'
+            }, {
+                fieldLabel : 'Password',
+                name : 'Password',
+                id:'Password',
+                inputType : 'password',
+                isFormField : false,
+                allowBlank : false,
+                maxLength : 32,
+                enforceMaxLength:true,
+                vtype: 'alphanumMid'
+            }, {
+                fieldLabel : 'format',
+                name : 'format',
+                hidden : true,
+                value : 'extjson'
+            }, {
+                fieldLabel : 'format',
+                name : 'EntityType',
+                hidden : true,
+                value : 'Authentication'
+            }
+                    ],
+
+                   buttons : [ {
+                        text : 'Login',
+            id: 'loginText',  
+                        formBind : true,
+                        handler : function() {
+                            onSubmit();
+                        }
+                    } ,
+            {
+                        text : 'Reset',
+                        id: 'loginReset', 
+                        formBind : true,
+            scope:this,
+                        handler : function() {
+                           login.getForm().reset();
+                            usernameEnc = Ext.getCmp('AuthUserName').setValue('');
+                            passwordEnc = Ext.getCmp('Password').setValue('');
+                        }
+                    } ],
+                    keys: new Ext.KeyMap(document, {
+                          key: Ext.EventObject.ENTER,
+                          fn: function() {
+                              onSubmit();
+                          },
+                          scope: this
+                    })
+        });
+
+        var loginWin = new Ext.Window({
+            layout : 'fit',
+            title : 'NIC CMS 1.0 ADMIN LOGIN for '  + domainName,
+            width : 275,
+            height : 150,
+            closable : false,
+            resizable : false,
+            //plain: true,
+            align : 'center',
+            border : false,
+            items : [ login ]
+        });
+
+        loginWin.show();
+    
+    function onSubmit(){
+        var username = Ext.getCmp('AuthUserName').getValue();
+        var passwordEnc = Ext.getCmp('Password').getValue();
+    var authToken; var salt;
+        if(username == ''  || passwordEnc == ''){
+           Ext.DropDownAlert.msg("<div class = 'errorHeaderMsg'>Validation Error!</div>", "<div class = 'errorMsg'>Enter valid username and password</div>");
+       return false;
+    }
+        else
+        {   
+            var loginform = login.getForm();
+
+                /*Ext.Ajax.request({
+                            method : 'GET',
+                            async: false,
+                            timeout:30,
+                            waitTitle : 'Connecting ...',
+                            url : authPostUrl,
+                            success : function(resp,reqe) {
+                var collectionsObj = Ext.JSON.decode(resp.responseText);
+                authToken = collectionsObj.AuthToken;
+                salt = collectionsObj.DynaSalt;
+                setCookie("auth_token",authToken, '', '/', '', '' );
+               },
+                failure: function (response, opts) {
+                login.getForm().reset();
+                if (response.responseText) {
+                    Ext.DropDownAlert.msg("<div class = 'errorHeaderMsg'>Status</div>", "<div class = 'errorMsg'>" + getCustomErrorInfo(response.responseText) + "</div>");
+                } else {
+                    Ext.DropDownAlert.msg("<div class = 'errorHeaderMsg'>Status</div>", "<div class = 'errorMsg'>" + response.statusText + "</div>");
+                }
+            },
+              });
+
+      if(Ext.isEmpty(authToken) || Ext.isEmpty(salt)){
+         // myMask.hide();
+          Ext.MessageBox.hide();
+          Ext.DropDownAlert.msg("<div class = 'errorHeaderMsg'>Access Denied</div>", "<div class = 'errorMsg'>Session not initialized</div>");
+          return false;
+      }  */
+          loginform.submit(
+           {
+                    method : 'POST',
+                    waitTitle : 'Please wait',
+                    waitMsg : 'Authentication in progress ...',
+                    params: {
+                                  AuthUserName:username,
+                                  //Password:md5(md5(passwordEnc)+salt),
+				   Password:md5(passwordEnc),
+                                  //AuthToken:authToken
+                            },
+                    timeout: 30,
+                    success : function(res,req){
+                          setCookie("authusername",req.result.Authentication.AuthUserName, '', '/', '', '' );
+                          setCookie("api_key",req.result.Authentication.ApiKey, '/', '/', '', '' );
+                          setCookie("aclrole",req.result.Authentication.AclRole, '', '/', '', '' );
+                          setCookie("uidomainname",domainName, '', '/', '', '' );
+                          //setCookie("auth_token",req.result.AuthToken, '', '/', '', '' );
+                          myMask = new Ext.LoadMask(Ext.getBody(), {msg:"Please wait..."});
+                          myMask.show();
+                          Ext.Ajax.request({
+                            method : 'GET',
+                            params: {entitytype:'cmsuserprofile',username:username,isactive:'true'},
+                            async: false,
+                            timeout:20,
+                            waitTitle : 'Connecting ...',
+                            url : dataservicesPath +'/search?q=&format=json',
+                            success : function(resp,reqe) {
+                var collectionsObj = Ext.JSON.decode(resp.responseText);
+                var successFlag = true;
+                var count = collectionsObj.Collections.Count;
+                var errMsg = '';
+                if(count == 0){
+                  successFlag = false;
+                  errMsg = "User doesn't exist OR Inactive";
+                }
+                else if(count > 1){
+                  successFlag = false;
+                  errMsg = "User duplication exists";
+                }
+                else if(count == 1){
+                    var roleName = collectionsObj.Collections.CmsUserProfile.UserRole;
+                    setCookie("role",roleName, '', '/', '', '' );
+                    Ext.Ajax.request({
+                    async: false,
+                    timeout:20,
+                    //url : dataservicesPath + '/search?q=&entitytype=role&format=json&rolename='+roleName.toLowerCase()+'&status=published',
+                    url : dataservicesPath + '/search?q=&entitytype=role&format=json&rolename='+roleName.toLowerCase(),
+                    success : function(resp,req) {
+                        collectionsObj = Ext.JSON.decode(resp.responseText);
+                        var count = collectionsObj.Collections.Count;
+                        if(count == 0){
+                          successFlag = false;
+                          errMsg = "Role doesn't exist";
+                        }
+                        else if(count > 1){
+                          successFlag = false;
+                          errMsg = "Role duplication exists";
+                        }
+                        else if(collectionsObj.Collections.Count == 1){
+                            setCookie("cmsmodules",
+                            collectionsObj.Collections.Role.UiTabs.UiTab, '', '/', '', '' );
+                            setCookie("issuperadmin",
+                            collectionsObj.Collections.Role.IsSuperAdmin, '', '/', '', '' );
+                            setCookie("domainentities",
+                            collectionsObj.Collections.Role.DomainEntities.DomainEntity, '', '/', '', '' );
+                            window.location = cmsPath;
+                        } 
+                    },
+                    failure : function() {
+                    login.getForm().reset();
+                         Ext.DropDownAlert.msg("<div class = 'errorHeaderMsg'>Access Denied</div>", "<div class = 'errorMsg'>You are not authorized</div>");
+                        myMask.hide();
+                    }
+                    });
+                }
+                if(!successFlag){
+                login.getForm().reset();
+                    Ext.DropDownAlert.msg("<div class = 'errorHeaderMsg'>Authentication failed</div>", 
+                    "<div class = 'errorMsg'>" + errMsg +"</div>");
+                                    myMask.hide();
+                }
+                 },
+                 failure : function() {
+                 login.getForm().reset();
+                        myMask.hide();
+                    Ext.MessageBox.hide();
+                    Ext.DropDownAlert.msg("<div class = 'errorHeaderMsg'>Access Denied</div>", "<div class = 'errorMsg'>You are not authorized</div>");
+                    return false;
+                 }
+              });
+             }
+                });
+          }
+    }
+
+    Ext.Ajax.on('requestexception', function(conn, response, options){
+        //Ext.MessageBox.hide();
+        //login.getForm().reset();
+        if(response.status === 503){
+                Ext.MessageBox.alert("Communication Error", "Service not avalable");
+           Ext.DropDownAlert.msg("<div class = 'errorHeaderMsg'>Communication Error</div>",
+        "<div class = 'errorMsg'>" + getCustomErrorInfo(response.responseText) + "</div>");
+        }
+        else if(response.status){
+           Ext.DropDownAlert.msg("<div class = 'errorHeaderMsg'>Authentication Failed</div>",
+        "<div class = 'errorMsg'>" + getCustomErrorInfo(response.responseText) + "</div>");
+        }
+    else{
+           Ext.DropDownAlert.msg("<div class = 'errorHeaderMsg'>Authentication Failed</div>",
+        "<div class = 'errorMsg'>Service not available</div>");
+        }
+    }, this);
+
+     
+
+});
+</script>
+</body>
+</html>

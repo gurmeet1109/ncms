@@ -1,0 +1,22 @@
+{
+    "Collections":{
+        "Count":5,
+        "Records":[{
+                "Name":"Fullstory"
+             },
+             {
+                "Name":"Topic"
+             },
+             {
+                "Name":"Aboutus"
+             },
+             {
+                "Name":"Contactus"
+             },
+             {
+                "Name":"Home"
+             }
+           
+        ]
+    }
+}

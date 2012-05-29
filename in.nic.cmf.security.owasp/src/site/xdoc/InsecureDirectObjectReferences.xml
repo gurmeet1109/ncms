@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+    <properties>
+        <author>Ulaganathan Ramesh</author>
+        <title>OWASP - Insecure Direct Object References</title>
+    </properties>
+    <meta name="keyword" content="monitoring, java"/>
+    <body>
+        <section name="Definition">
+       <p>A direct object reference occurs when a developer exposes a reference to an internal implementation object, such as a file, directory, or database key. Without an access control check or other protection, attackers can manipulate these references to access unauthorized data.</p>
+
+  </section>
+  <section name="Sample Attack">
+ <p>Insecure direct object reference is a very broad category of vulnerabilities. There are many examples of these types of vulnerabilities found in the wild by other names. Open Redirects and Directory Traversal are two classic examples of an insecure direct object reference vulnerability.</p>
+<p><strong>Open Redirect</strong></p>
+<p>This is where the web application has a parameter that allows the website to redirect the user somewhere else. If this parameter is not implemented properly using a white list, attackers can use this in a phishing attack to lure potential victims to a site of their choosing. More information about Open Redirects can be found&nbsp;<a href="http://cwe.mitre.org/data/definitions/601.html">here</a>.</p>
+<p><strong>Directory Traversal</strong></p>
+<p>Assume a web application allows for a file to be rendered to a user that is stored on the local machine. If the application isn’t verifying what files should be accessed, an attacker can request other files on the file system and those will also be displayed.</p>
+<p>For instance, if the attacker notices the URL:</p>
+
+<p><code>http://misc-security.com/file.jsp?file=report.txt</code></p>
+<p>The attacker could modify the file parameter using a directory traversal attack. He modifies the URL to:</p>
+<p><code>http://misc-security.com/file.jsp?file=<strong>../../../etc/shadow</strong></code></p>
+<p>Upon doing this the /etc/shadow file is returned and rendered by file.jsp demonstrating the page is susceptible to a directory traversal attack.</p>
+        </section>
+        <section name="How to prevent?">
+	<p>Preventing insecure direct object references requires selecting an approach for protecting each user accessible object (e.g., object number, filename):
+</p>
+<ol><li> Use per user or session indirect object references. This prevents attackers from directly targeting unauthorized resources. For example, instead of using the resource’s database key, a drop down list of six resources authorized for the current user could use the numbers 1 to 6 to indicate which value the user selected. The application has to map the per-user indirect reference back to the actual database key on the server. OWASP’s <a href="http://owasp-esapi-java.googlecode.com/svn/trunk_doc/latest/org/owasp/esapi/Authenticator.html" class="external text" rel="nofollow">ESAPI</a> includes both sequential and random access reference maps that developers can use to eliminate direct object references.
+</li><li> Check access. Each use of a direct object reference from an untrusted source must include an access control check to ensure the user is authorized for the requested object.
+</li></ol>
+
+        </section>
+        <section name="Available APIs">
+         <p>
+
+	 </p>
+        </section>
+    </body>
+</document>

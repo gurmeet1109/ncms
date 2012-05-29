@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>in.nic.cmf</groupId>
+	<artifactId>dynamicgenerator</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+
+	<name>dynamicgenerator</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>in.nic.cmf</groupId>
+			<artifactId>domain</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>in.nic.cmf</groupId>
+			<artifactId>convertors</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>in.nic.cmf</groupId>
+			<artifactId>util</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>0.9</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.ezmorph</groupId>
+			<artifactId>ezmorph</artifactId>
+			<version>1.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>in.nic.cmf</groupId>
+			<artifactId>serviceclient</artifactId>
+			<version>1.0.0</version>
+
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>in.nic.cmf</groupId>
+			<artifactId>uniqueid</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+	</dependencies>
+</project>
